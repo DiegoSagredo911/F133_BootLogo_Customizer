@@ -1,0 +1,27 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-001": {
+        "name": "btnBgd",
+        "pos": "0,0,1280,480",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_bgd",
+        "clickeffect": 1
+    },
+    "container-002": {
+        "name": "containerConsole",
+        "pos": "0,390,1280,90",
+        "bgalpha": 0,
+        "visible": 0,
+        "uilayout": "layout/photo/console.json"
+    },
+    "container-003": {
+        "name": "containerTitle",
+        "pos": "15,66,1280,50",
+        "bgalpha": 0,
+        "visible": 0,
+        "uilayout": "layout/photo/title.json"
+    }
+}

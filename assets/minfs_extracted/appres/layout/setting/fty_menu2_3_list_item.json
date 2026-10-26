@@ -1,0 +1,28 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,50",
+        "inffect": 0,
+        "outeffect": 0
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,830,50",
+        "bgalpha": 0,
+        "bgimage": "img/setting/item.png"
+    },
+    "label-002": {
+        "name": "lblName",
+        "pos": "16,8,480,40",
+        "bgalpha": 0,
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "switchbtn-001": {
+        "name": "switchbtnInter",
+        "pos": "720,8,88,37",
+        "bgalpha": 0,
+        "onimg": "img/setting/on.png",
+        "offimg": "img/setting/off.png"
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480",
+        "hastitle": 0,
+        "inffect": 0,
+        "outeffect": 0
+    },
+    "backgd-002": {
+        "name": "bgVideoin",
+        "pos": "0,80,180,40",
+        "bgimage": "img/videoin/tab_bg.png",
+        "osdalpha": 100
+    },
+    "label-002": {
+        "name": "lblVideoin",
+        "pos": "0,80,180,40",
+        "bgalpha": 0,
+        "animtime": 0,
+        "txtkey": "aux_in_video",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-001": {
+        "name": "lblNoSignal",
+        "pos": "450,215,380,50",
+        "bgalpha": 0,
+        "visible": 0,
+        "txtkey": "aux_in_no_signal",
+        "longmode": 1,
+        "textpad": "0,0,0,0"
+    }
+}

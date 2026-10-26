@@ -1,0 +1,232 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,448,623"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,448,623",
+        "bgalpha": 0,
+        "bgimage": "img/setting/tab_bg.png"
+    },
+    "check-002": {
+        "name": "check_2",
+        "pos": "83,65,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|general",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/general.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|general"
+    },
+    "label-003": {
+        "name": "lblGeneral",
+        "pos": "90,65,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_basic_config",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-004": {
+        "name": "check_4",
+        "pos": "83,120,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|factory",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/factory.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|factory"
+    },
+    "label-005": {
+        "name": "lblFactory",
+        "pos": "90,120,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_factory",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-006": {
+        "name": "check_6",
+        "pos": "83,237,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|display",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/display.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|display"
+    },
+    "label-007": {
+        "name": "lblDisplay",
+        "pos": "90,237,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_display",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-008": {
+        "name": "check_8",
+        "pos": "83,290,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|wallpaper",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/wallpaper1.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|wallpaper"
+    },
+    "label-009": {
+        "name": "lblWallpaper",
+        "pos": "90,290,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_wallpapers",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-010": {
+        "name": "check_10",
+        "pos": "83,344,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|standby",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/standby.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|standby"
+    },
+    "label-011": {
+        "name": "lblStandby",
+        "pos": "90,344,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_screensaver",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-012": {
+        "name": "check_12",
+        "pos": "83,462,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|language",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/language.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|language"
+    },
+    "label-013": {
+        "name": "lblLang",
+        "pos": "90,462,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_common_language_title",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-014": {
+        "name": "check_14",
+        "pos": "83,517,360,51",
+        "commfunc": "setting_tabhost_check_page_switch|time",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/time.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|time"
+    },
+    "label-015": {
+        "name": "lblTime",
+        "pos": "90,517,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_time_date",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "check-016": {
+        "name": "check_16",
+        "pos": "83,570,359,51",
+        "commfunc": "setting_tabhost_check_page_switch|info",
+        "bgalpha": 0,
+        "clickmode": 1,
+        "checkedimg": "img/setting/chk_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/setting/info.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|info"
+    },
+    "label-017": {
+        "name": "lblInfo",
+        "pos": "90,570,320,51",
+        "bgalpha": 0,
+        "txtkey": "setting_set_info",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "label-018": {
+        "name": "label_18",
+        "pos": "10,20,320,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_vehicle",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "label-019": {
+        "name": "label_19",
+        "pos": "10,190,320,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_equipment",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "label-020": {
+        "name": "label_20",
+        "pos": "10,416,320,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_system",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "check-017": {
+        "name": "check_17",
+        "pos": "0,580,0,0",
+        "commfunc": "setting_tabhost_check_page_switch|fty_menu1",
+        "bgalpha": 0,
+        "groupid": 1,
+        "actlayout": "layout/setting/fty_menu1.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|fty_menu1"
+    },
+    "check-001": {
+        "name": "check_1",
+        "pos": "0,580,0,0",
+        "commfunc": "setting_tabhost_check_page_switch|fty_menu2",
+        "bgalpha": 0,
+        "groupid": 1,
+        "actlayout": "layout/setting/fty_menu2.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|fty_menu2"
+    },
+    "check-003": {
+        "name": "check_3",
+        "pos": "0,580,0,0",
+        "commfunc": "setting_tabhost_check_page_switch|fty_menu2_1",
+        "bgalpha": 0,
+        "groupid": 1,
+        "actlayout": "layout/setting/fty_menu2_1.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|fty_menu2_1"
+    },
+    "check-005": {
+        "name": "check_5",
+        "pos": "0,580,0,0",
+        "commfunc": "setting_tabhost_check_page_switch|fty_menu2_2",
+        "bgalpha": 0,
+        "groupid": 1,
+        "actlayout": "layout/setting/fty_menu2_2.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|fty_menu2_2"
+    },
+    "check-007": {
+        "name": "check_7",
+        "pos": "0,580,0,0",
+        "commfunc": "setting_tabhost_check_page_switch|fty_menu2_3",
+        "groupid": 1,
+        "actlayout": "layout/setting/fty_menu2_3.json",
+        "shortpfunc": "setting_tabhost_check_page_switch|fty_menu2_3"
+    }
+}

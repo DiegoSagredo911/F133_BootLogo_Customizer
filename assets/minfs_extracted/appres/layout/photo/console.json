@@ -1,0 +1,75 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,90"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,1280,90",
+        "bgcolor": "#000000"
+    },
+    "button-007": {
+        "name": "btnPrev",
+        "pos": "20,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_prev",
+        "imgnor": "img/music/prev.png",
+        "imgpush": "img/music/prev_sel.png"
+    },
+    "button-008": {
+        "name": "btnZoomIn",
+        "pos": "560,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_zoom_in",
+        "imgnor": "img/photo/zoom_in.png",
+        "imgpush": "img/photo/zoom_in_sel.png"
+    },
+    "button-009": {
+        "name": "btnPlay",
+        "pos": "200,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_play",
+        "imgnor": "img/music/play.png",
+        "imgpush": "img/music/play_sel.png"
+    },
+    "button-010": {
+        "name": "btnNext",
+        "pos": "380,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_next",
+        "imgnor": "img/music/next.png",
+        "imgpush": "img/music/next_sel.png"
+    },
+    "button-011": {
+        "name": "btnZoomOut",
+        "pos": "740,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_zoom_out",
+        "imgnor": "img/photo/zoom_out.png",
+        "imgpush": "img/photo/zoom_out_sel.png"
+    },
+    "button-012": {
+        "name": "btnRotate",
+        "pos": "920,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_rotate",
+        "imgnor": "img/photo/rotate.png",
+        "imgpush": "img/photo/rotate_sel.png"
+    },
+    "button-013": {
+        "name": "btnList",
+        "pos": "1100,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_list",
+        "imgnor": "img/music/list.png",
+        "imgpush": "img/music/list_sel.png"
+    },
+    "button-001": {
+        "name": "btnPause",
+        "pos": "200,6,160,78",
+        "bgalpha": 0,
+        "shortpfunc": "photo_btn_pause",
+        "imgnor": "img/music/pause.png",
+        "imgpush": "img/music/pause_sel.png"
+    }
+}

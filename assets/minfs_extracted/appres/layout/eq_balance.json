@@ -1,0 +1,94 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-002": {
+        "name": "btnLeft",
+        "pos": "472,237,34,55",
+        "bgalpha": 0,
+        "shortpfunc": "eq_balance_btn_left",
+        "clickeffect": 1,
+        "imgnor": "img/eq/balance_left.png",
+        "imgpush": "img/eq/balance_left_sel.png"
+    },
+    "button-003": {
+        "name": "btnRight",
+        "pos": "785,237,34,55",
+        "bgalpha": 0,
+        "shortpfunc": "eq_balance_btn_right",
+        "clickeffect": 1,
+        "imgnor": "img/eq/balance_right.png",
+        "imgpush": "img/eq/balance_right_sel.png"
+    },
+    "button-004": {
+        "name": "btnUp",
+        "pos": "620,100,55,34",
+        "bgalpha": 0,
+        "shortpfunc": "eq_balance_btn_up",
+        "clickeffect": 1,
+        "imgnor": "img/eq/balance_up.png",
+        "imgpush": "img/eq/balance_up_sel.png"
+    },
+    "button-005": {
+        "name": "btnDown",
+        "pos": "620,396,55,34",
+        "shortpfunc": "eq_balance_btn_down",
+        "clickeffect": 1,
+        "imgnor": "img/eq/balance_down.png",
+        "imgpush": "img/eq/balance_down_sel.png"
+    },
+    "button-006": {
+        "name": "btnBalDefault",
+        "pos": "850,367,154,60",
+        "shortpfunc": "eq_balance_btn_default",
+        "imgnor": "img/eq/balance_btn.png",
+        "imgpush": "img/eq/balance_btn_sel.png"
+    },
+    "label-007": {
+        "name": "lblFad",
+        "pos": "850,100,80,30",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_fad",
+        "textalign": "right|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "label-008": {
+        "name": "lblBal",
+        "pos": "850,145,80,30",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_bal",
+        "textalign": "right|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "label-009": {
+        "name": "lblFadValue",
+        "pos": "940,100,60,30",
+        "bgalpha": 0,
+        "text": "0",
+        "textalign": "left|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "label-010": {
+        "name": "lblBalValue",
+        "pos": "940,145,60,30",
+        "bgalpha": 0,
+        "text": "0",
+        "textalign": "left|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "label-011": {
+        "name": "lblBalDefault",
+        "pos": "858,378,140,38",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_default",
+        "textpad": "0,3,0,0"
+    },
+    "soundpos-001": {
+        "name": "soundposBalance",
+        "pos": "535,152,225,225",
+        "bgalpha": 0,
+        "bgimage": "img/eq/balance_bg.png",
+        "imgnor": "img/eq/balance_point.png"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415",
+        "inffect": 0,
+        "outeffect": 0
+    },
+    "listview-001": {
+        "name": "listview_1",
+        "pos": "0,0,830,415",
+        "bgalpha": 0,
+        "layouts": "layout/setting/wallpaper.json"
+    }
+}

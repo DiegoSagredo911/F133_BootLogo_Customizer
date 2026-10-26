@@ -1,0 +1,41 @@
+{
+    "attribute": {
+        "pagename": "Aoa",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "lblAoaStep",
+        "pos": "50,170,1200,60",
+        "bgalpha": 0,
+        "txtkey": "link_aoa_step",
+        "textalign": "left|vcenter",
+        "textpad": "0,0,0,0"
+    },
+    "label-002": {
+        "name": "lblStep1",
+        "pos": "100,240,1140,100",
+        "bgalpha": 0,
+        "txtkey": "link_aoa_step1",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "label-004": {
+        "name": "lblStep2",
+        "pos": "100,350,1140,60",
+        "bgalpha": 0,
+        "txtkey": "link_aoa_step2",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "label-003": {
+        "name": "lblWired",
+        "pos": "50,80,1200,60",
+        "bgalpha": 0,
+        "txtkey": "link_wired_mode",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    }
+}

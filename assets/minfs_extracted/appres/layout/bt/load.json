@@ -1,0 +1,28 @@
+{
+    "attribute": {
+        "pagename": "ui_bt_load",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "lblDownload",
+        "pos": "440,130,400,50",
+        "bgalpha": 0,
+        "txtkey": "home_home_loading",
+        "textpad": "0,9,0,0"
+    },
+    "spinner-001": {
+        "name": "spinner_1",
+        "pos": "590,260,100,100",
+        "bgalpha": 0,
+        "arcolor": "#9ba4ab",
+        "aralpha": 60,
+        "indicolor": "#55d9f3",
+        "indialpha": 180
+    },
+    "label-003": {
+        "name": "lblLoadCnt",
+        "pos": "580,190,120,40",
+        "bgalpha": 0,
+        "textpad": "0,4,0,0"
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,90"
+    },
+    "check-002": {
+        "name": "checkDial",
+        "pos": "80,10,162,80",
+        "commfunc": "bt_tabhost_check_switch_page|dial",
+        "bgalpha": 0,
+        "bgimage": "img/bt/check_dial.png",
+        "checkedimg": "img/bt/check_dial_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/bt/dial.json",
+        "shortpfunc": "bt_tabhost_check_switch_page|dial"
+    },
+    "check-003": {
+        "name": "checkRecord",
+        "pos": "318,10,162,80",
+        "commfunc": "bt_tabhost_check_switch_page|record",
+        "bgimage": "img/bt/chk_record.png",
+        "checkedimg": "img/bt/chk_record_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/bt/record.json",
+        "shortpfunc": "bt_tabhost_check_switch_page|record"
+    },
+    "check-004": {
+        "name": "checkBook",
+        "pos": "560,10,162,80",
+        "commfunc": "bt_tabhost_check_switch_page|book",
+        "bgalpha": 0,
+        "bgimage": "img/bt/chk_book.png",
+        "checkedimg": "img/bt/chk_book_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/bt/book.json",
+        "shortpfunc": "bt_tabhost_check_switch_page|book"
+    },
+    "check-005": {
+        "name": "checkSetting",
+        "pos": "800,10,162,80",
+        "commfunc": "bt_tabhost_check_switch_page|setting",
+        "bgalpha": 0,
+        "bgimage": "img/bt/chk_con.png",
+        "checkedimg": "img/bt/chk_con_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/bt/setting.json",
+        "shortpfunc": "bt_tabhost_check_switch_page|setting"
+    },
+    "check-007": {
+        "name": "checkMusic",
+        "pos": "1040,10,162,80",
+        "commfunc": "bt_tabhost_check_switch_page|music",
+        "bgalpha": 0,
+        "bgimage": "img/bt/chk_music.png",
+        "checkedimg": "img/bt/chk_music_sel.png",
+        "groupid": 1,
+        "actlayout": "layout/bt/music.json",
+        "shortpfunc": "bt_tabhost_check_switch_page|music"
+    }
+}

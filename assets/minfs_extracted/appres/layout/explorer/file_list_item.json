@@ -1,0 +1,55 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,678,52"
+    },
+    "backgd-001": {
+        "name": "backgd",
+        "pos": "0,0,678,52",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/item_file.png",
+        "checkedimg": "img/explorer/item_file_sel.png"
+    },
+    "label-002": {
+        "name": "label_file_name",
+        "pos": "51,1,500,50",
+        "bgalpha": 0,
+        "text": "a song",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "imgview-003": {
+        "name": "imgview_photo",
+        "pos": "1,7,36,36",
+        "visible": 0,
+        "imgurl": "img/explorer/pic_s.png"
+    },
+    "imgview-004": {
+        "name": "imgview_movie",
+        "pos": "1,7,36,36",
+        "visible": 0,
+        "imgurl": "img/explorer/movie_s.png"
+    },
+    "imgview-005": {
+        "name": "imgview_music",
+        "pos": "1,7,36,36",
+        "imgurl": "img/explorer/music_s.png"
+    },
+    "button-006": {
+        "name": "btnPause",
+        "pos": "621,1,50,50",
+        "visible": 0,
+        "shortpfunc": "explorer_btn_pause",
+        "clickeffect": 1,
+        "imgnor": "img/explorer/play.png",
+        "imgpush": "img/explorer/pause_sel.png"
+    },
+    "button-007": {
+        "name": "btnPlay",
+        "pos": "621,1,50,50",
+        "shortpfunc": "explorer_btn_play",
+        "clickeffect": 1,
+        "imgnor": "img/explorer/pause.png",
+        "imgpush": "img/explorer/play_sel.png"
+    }
+}

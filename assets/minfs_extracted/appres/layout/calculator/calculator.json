@@ -1,0 +1,19 @@
+{
+    "attribute": {
+        "pagename": "appcalculator",
+        "titlename": "Calculator",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "label_1",
+        "pos": "0,0,1024,600",
+        "bgalpha": 0,
+        "textpad": "0,224,0,0"
+    },
+    "calculator-001": {
+        "name": "calculator_1",
+        "pos": "305,80,670,400",
+        "bgalpha": 0,
+        "uilayout": "layout/calculator/calculator_num.json"
+    }
+}

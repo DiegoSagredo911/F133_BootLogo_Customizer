@@ -1,0 +1,25 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-003": {
+        "name": "btnExit",
+        "pos": "0,0,1280,480",
+        "commfunc": "standby_btn_exit",
+        "bgalpha": 0,
+        "shortpfunc": "standby_btn_exit",
+        "clickeffect": 1
+    },
+    "wallclock-001": {
+        "name": "wallclockTime",
+        "pos": "522,121,236,236",
+        "bgimage": "img/standby/bg.png",
+        "hourimg": "img/standby/hour.png",
+        "hourpivot": "14,63",
+        "minimg": "img/standby/minute.png",
+        "minpivot": "11,68",
+        "secimg": "img/standby/second.png",
+        "secpivot": "9,90"
+    }
+}

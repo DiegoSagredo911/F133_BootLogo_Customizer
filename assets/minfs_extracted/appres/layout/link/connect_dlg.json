@@ -1,0 +1,27 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "backgd-002": {
+        "name": "backgd_2",
+        "pos": "1,-2,1280,480",
+        "bgcolor": "#000000",
+        "osdalpha": 220
+    },
+    "spinner-001": {
+        "name": "spinner_1",
+        "pos": "590,190,100,100",
+        "bgalpha": 0,
+        "arcolor": "#0000ff",
+        "aralpha": 0,
+        "indicolor": "#d6d6d6"
+    },
+    "label-003": {
+        "name": "lblConnecting",
+        "pos": "528,280,224,50",
+        "bgalpha": 0,
+        "txtkey": "link_connecting",
+        "textpad": "0,9,0,0"
+    }
+}

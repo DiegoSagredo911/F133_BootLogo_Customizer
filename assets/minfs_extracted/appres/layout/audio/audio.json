@@ -1,0 +1,18 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "backgd-002": {
+        "name": "audio_content",
+        "pos": "0,168,1280,310",
+        "bgalpha": 0
+    },
+    "tabhost-001": {
+        "name": "audio_bar",
+        "pos": "0,66,1280,100",
+        "bgalpha": 0,
+        "contentctrl": "audio_content",
+        "layout": "layout/audio/audio_bar.json"
+    }
+}

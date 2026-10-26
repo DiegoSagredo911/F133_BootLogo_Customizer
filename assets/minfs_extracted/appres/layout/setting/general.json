@@ -1,0 +1,126 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "button-001": {
+        "name": "btnInSpeaker",
+        "pos": "0,10,830,50",
+        "commfunc": "setting_general_btn_speaker_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_general_btn_speaker_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-002": {
+        "name": "lblInSpeaker",
+        "pos": "25,20,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_in_speaker",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "label-003": {
+        "name": "lblInSpeakerSta",
+        "pos": "540,20,110,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_on",
+        "textalign": "right|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "button-004": {
+        "name": "btnRevMute",
+        "pos": "0,60,830,50",
+        "commfunc": "setting_general_btn_mute_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_general_btn_mute_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-005": {
+        "name": "lblRevMute",
+        "pos": "25,70,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_rev_mute",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "label-006": {
+        "name": "lblRevMuteSta",
+        "pos": "540,70,110,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_on",
+        "textalign": "right|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "button-007": {
+        "name": "btnPark",
+        "pos": "0,110,830,50",
+        "commfunc": "setting_general_btn_park_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_general_btn_park_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-008": {
+        "name": "lblPark",
+        "pos": "25,120,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_driving_video",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "label-009": {
+        "name": "lblParkSta",
+        "pos": "540,120,110,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_on",
+        "textalign": "right|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "button-010": {
+        "name": "btnRestore",
+        "pos": "0,160,830,50",
+        "commfunc": "setting_general_btn_restore",
+        "bgalpha": 0,
+        "shortpfunc": "setting_general_btn_restore",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-011": {
+        "name": "lblRestore",
+        "pos": "25,170,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_restore",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "imgview-013": {
+        "name": "imgview_13",
+        "pos": "800,172,16,25",
+        "imgurl": "img/setting/r_btn.png"
+    },
+    "button-014": {
+        "name": "btnTouchCal",
+        "pos": "0,210,830,50",
+        "commfunc": "setting_general_btn_touch_cal",
+        "bgalpha": 0,
+        "shortpfunc": "setting_general_btn_touch_cal",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-015": {
+        "name": "lblTouchCal",
+        "pos": "25,220,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_touch_cal",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "imgview-016": {
+        "name": "imgview_16",
+        "pos": "800,224,16,25",
+        "bgalpha": 0,
+        "imgurl": "img/setting/r_btn.png"
+    }
+}

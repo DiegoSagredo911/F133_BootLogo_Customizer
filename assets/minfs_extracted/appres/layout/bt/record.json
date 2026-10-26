@@ -1,0 +1,45 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,325"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "149,2,859,313",
+        "bgalpha": 0,
+        "bgimage": "img/bt/record_bg.png"
+    },
+    "check-001": {
+        "name": "checkDialed",
+        "pos": "1020,2,110,90",
+        "bgalpha": 0,
+        "bgimage": "img/bt/dialed.png",
+        "checkedimg": "img/bt/dialed_sel.png",
+        "groupid": 1,
+        "shortpfunc": "bt_record_check_call_type|dialed"
+    },
+    "check-002": {
+        "name": "checkReceived",
+        "pos": "1020,113,110,90",
+        "bgalpha": 0,
+        "bgimage": "img/bt/recevied.png",
+        "checkedimg": "img/bt/recevied_sel.png",
+        "groupid": 1,
+        "shortpfunc": "bt_record_check_call_type|received"
+    },
+    "check-003": {
+        "name": "checkMissed",
+        "pos": "1020,224,110,90",
+        "bgalpha": 0,
+        "bgimage": "img/bt/missed.png",
+        "checkedimg": "img/bt/missed_sel.png",
+        "groupid": 1,
+        "shortpfunc": "bt_record_check_call_type|missed"
+    },
+    "listview-004": {
+        "name": "listviewBtRecord",
+        "pos": "149,2,859,313",
+        "bgalpha": 0,
+        "rowspace": 5
+    }
+}

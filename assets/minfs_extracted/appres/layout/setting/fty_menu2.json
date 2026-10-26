@@ -1,0 +1,74 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "button-010": {
+        "name": "btnMic",
+        "pos": "0,20,830,50",
+        "commfunc": "setting_fty_menu2_btn_mic",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu2_btn_mic",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-011": {
+        "name": "lblRestore",
+        "pos": "25,30,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_mic",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "imgview-013": {
+        "name": "imgview_13",
+        "pos": "782,32,16,25",
+        "imgurl": "img/setting/r_btn.png"
+    },
+    "button-014": {
+        "name": "btnTouchLearn",
+        "pos": "0,70,830,50",
+        "commfunc": "setting_fty_menu2_btn_touchLearn",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu2_btn_touchLearn",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-015": {
+        "name": "lblTouchCal",
+        "pos": "25,80,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_touch_learn",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "imgview-016": {
+        "name": "imgview_16",
+        "pos": "782,82,16,25",
+        "bgalpha": 0,
+        "imgurl": "img/setting/r_btn.png"
+    },
+    "button-001": {
+        "name": "btnInterface",
+        "pos": "0,120,830,50",
+        "commfunc": "setting_fty_menu2_btn_interface",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu2_btn_interface",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "25,130,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_interface",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "imgview-003": {
+        "name": "imgview_3",
+        "pos": "782,132,16,25",
+        "bgalpha": 0,
+        "imgurl": "img/setting/r_btn.png"
+    }
+}

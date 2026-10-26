@@ -1,0 +1,102 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,990,195"
+    },
+    "button-001": {
+        "name": "btnAudio",
+        "pos": "25,5,126,126",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Audio.png",
+        "imgpush": "img/desktop/desktop_Audio_sel.png",
+	"actlayout": "layout/audio/audio.json"
+    },
+    "button-002": {
+        "name": "btnUsb",
+        "pos": "189,5,126,126",
+        "shortpfunc": "home_btn_usb",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Usb.png",
+        "imgpush": "img/desktop/desktop_Usb_sel.png"
+    },
+    "button-003": {
+        "name": "btnSD",
+        "pos": "353,5,126,126",
+	"shortpfunc": "home_btn_sd",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_SD.png",
+        "imgpush": "img/desktop/desktop_SD_sel.png"
+    },
+    "button-004": {
+        "name": "btnBt",
+        "pos": "517,5,126,126",
+	"shortpfunc": "home_btn_bt",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Bt.png",
+        "imgpush": "img/desktop/desktop_Bt_sel.png"
+    },
+    "button-005": {
+        "name": "btnLink",
+        "pos": "681,5,126,126",
+        "shortpfunc": "home_btn_link",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_PhoneLink.png",
+        "imgpush": "img/desktop/desktop_PhoneLink_sel.png"
+    },
+    "button-006": {
+        "name": "btnCalculator",
+        "pos": "843,4,126,126",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Calculator.png",
+        "imgpush": "img/desktop/desktop_Calculator_sel.png",
+	"actlayout": "layout/calculator/calculator.json"
+    },
+    "label-007": {
+        "name": "labAudioTC",
+        "pos": "13,137,150,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_audio_output",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-001": {
+        "name": "labUSB",
+        "pos": "189,137,126,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_usb",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-002": {
+        "name": "labSD",
+        "pos": "353,137,126,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_sd",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-003": {
+        "name": "labBT",
+        "pos": "517,137,126,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_bluetooth",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-004": {
+        "name": "labPhoneLink",
+        "pos": "681,137,126,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_link",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-005": {
+        "name": "labCalculator",
+        "pos": "843,137,126,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_calculator",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    }
+}

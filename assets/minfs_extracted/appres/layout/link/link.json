@@ -1,0 +1,151 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-001": {
+        "name": "btnCpl",
+        "pos": "320,95,128,221",
+        "commfunc": "link2carplay",
+        "bgalpha": 0,
+        "shortpfunc": "link2carplay",
+        "clickeffect": 1,
+        "imgnor": "img/link/cpl.png"
+    },
+    "button-002": {
+        "name": "btnIos",
+        "pos": "460,95,128,221",
+        "commfunc": "link2ios_mir",
+        "shortpfunc": "link2ios_mir",
+        "clickeffect": 1,
+        "imgnor": "img/link/ios.png"
+    },
+    "button-003": {
+        "name": "btnAoa",
+        "pos": "700,95,128,221",
+        "commfunc": "link2aoa",
+        "shortpfunc": "link2aoa",
+        "clickeffect": 1,
+        "imgnor": "img/link/aoa.png"
+    },
+    "button-004": {
+        "name": "btnAdr",
+        "pos": "840,95,128,221",
+        "commfunc": "link2adr_mir",
+        "shortpfunc": "link2adr_mir",
+        "clickeffect": 1,
+        "imgnor": "img/link/adr.png"
+    },
+    "label-005": {
+        "name": "lblIphone",
+        "pos": "370,67,160,28",
+        "bgalpha": 0,
+        "txtkey": "link_iphone",
+        "textpad": "0,-1,0,0"
+    },
+    "label-006": {
+        "name": "lblAndroid",
+        "pos": "756,67,160,28",
+        "bgalpha": 0,
+        "txtkey": "link_android",
+        "textpad": "0,-1,0,0"
+    },
+    "label-007": {
+        "name": "lblCpl",
+        "pos": "334,316,100,40",
+        "bgalpha": 0,
+        "txtkey": "link_carplay",
+        "textpad": "0,4,0,0"
+    },
+    "label-008": {
+        "name": "lblIos",
+        "pos": "475,316,100,40",
+        "bgalpha": 0,
+        "txtkey": "link_mirror",
+        "textpad": "0,4,0,0"
+    },
+    "label-009": {
+        "name": "lblAoa",
+        "pos": "680,316,160,40",
+        "bgalpha": 0,
+        "txtkey": "link_auto",
+        "textpad": "0,4,0,0"
+    },
+    "label-010": {
+        "name": "lblAdr",
+        "pos": "859,316,100,40",
+        "bgalpha": 0,
+        "txtkey": "link_mirror",
+        "textpad": "0,4,0,0"
+    },
+    "label-011": {
+        "name": "lblIosLink",
+        "pos": "225,341,200,50",
+        "bgalpha": 0,
+        "txtkey": "link_auto_conn",
+        "textalign": "right|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "button-012": {
+        "name": "btnIosType",
+        "pos": "431,356,155,60",
+        "commfunc": "link_set_ios_conn_type",
+        "bgalpha": 0,
+        "shortpfunc": "link_set_ios_conn_type",
+        "clickeffect": 1,
+        "imgnor": "img/link/btn_switch.png"
+    },
+    "label-013": {
+        "name": "lblIosTypeSet",
+        "pos": "432,360,150,50",
+        "bgalpha": 0,
+        "txtkey": "link_carplay",
+        "textpad": "0,9,0,0"
+    },
+    "label-014": {
+        "name": "lblAdrLink",
+        "pos": "621,341,200,50",
+        "bgalpha": 0,
+        "txtkey": "link_auto_conn",
+        "textalign": "right|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "button-015": {
+        "name": "btnAdrType",
+        "pos": "825,356,155,60",
+        "commfunc": "link_set_adr_conn_type",
+        "shortpfunc": "link_set_adr_conn_type",
+        "clickeffect": 1,
+        "imgnor": "img/link/btn_switch.png"
+    },
+    "label-016": {
+        "name": "lblAdrTypeSet",
+        "pos": "827,360,150,50",
+        "bgalpha": 0,
+        "txtkey": "link_auto",
+        "textpad": "0,9,0,0"
+    },
+    "label-017": {
+        "name": "lblWifiChn",
+        "pos": "360,425,200,50",
+        "bgalpha": 0,
+        "txtkey": "link_wifi_chan",
+        "textalign": "right|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "button-018": {
+        "name": "btnWifiCh",
+        "pos": "566,420,155,60",
+        "commfunc": "link_set_wifi_channel",
+        "shortpfunc": "link_set_wifi_channel",
+        "clickeffect": 1,
+        "imgnor": "img/link/btn_switch.png"
+    },
+    "label-019": {
+        "name": "lblWifiChSet",
+        "pos": "567,425,150,50",
+        "bgalpha": 0,
+        "text": "chn2",
+        "textpad": "0,9,0,0"
+    }
+}

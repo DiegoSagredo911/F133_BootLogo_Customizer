@@ -1,0 +1,21 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "lblStatus",
+        "pos": "440,215,400,50",
+        "bgalpha": 0,
+        "txtkey": "init_fw_update",
+        "textpad": "0,9,0,0"
+    },
+    "slider-002": {
+        "name": "sldProgress",
+        "pos": "460,282,360,16",
+        "bgimage": "img/music/bar_body.png",
+        "value": 0,
+        "knobimg": "img/music/bar_flag.png",
+        "indicatorimg": "img/music/bar_point.png"
+    }
+}

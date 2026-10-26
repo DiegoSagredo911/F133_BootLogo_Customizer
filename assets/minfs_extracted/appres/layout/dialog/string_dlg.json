@@ -1,0 +1,21 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "419,204,441,71",
+        "bgcolor": "#000023",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/tips_bg.png",
+        "osdalpha": 192
+    },
+    "label-001": {
+        "name": "lblTips",
+        "pos": "449,219,380,40",
+        "bgalpha": 0,
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    }
+}

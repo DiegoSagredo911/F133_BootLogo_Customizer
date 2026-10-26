@@ -1,0 +1,89 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "label-001": {
+        "name": "label_1",
+        "pos": "30,10,600,50",
+        "bgalpha": 0,
+        "txtkey": "setting_set_set_screensaver",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "button-003": {
+        "name": "btnOnoff",
+        "pos": "0,60,830,50",
+        "commfunc": "setting_standby_btn_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_standby_btn_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-004": {
+        "name": "label_4",
+        "pos": "30,65,500,45",
+        "bgalpha": 0,
+        "txtkey": "setting_set_standby",
+        "textalign": "left|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "label-005": {
+        "name": "lblOnoff",
+        "pos": "700,65,100,45",
+        "bgalpha": 0,
+        "txtkey": "setting_set_off",
+        "textalign": "right|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "button-006": {
+        "name": "btnCount",
+        "pos": "0,110,830,50",
+        "commfunc": "setting_standby_btn_count",
+        "bgalpha": 0,
+        "shortpfunc": "setting_standby_btn_count",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-007": {
+        "name": "label_7",
+        "pos": "30,115,500,45",
+        "bgalpha": 0,
+        "txtkey": "setting_set_duration",
+        "textalign": "left|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "label-008": {
+        "name": "lblCount",
+        "pos": "700,115,100,45",
+        "bgalpha": 0,
+        "text": "10S",
+        "textalign": "right|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "label-009": {
+        "name": "label_9",
+        "pos": "30,239,600,50",
+        "bgalpha": 0,
+        "txtkey": "setting_set_standby_preview",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "button-010": {
+        "name": "btnView",
+        "pos": "0,290,830,50",
+        "commfunc": "setting_standby_btn_preview",
+        "bgalpha": 0,
+        "shortpfunc": "setting_standby_btn_preview",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-011": {
+        "name": "label_11",
+        "pos": "30,295,500,45",
+        "bgalpha": 0,
+        "txtkey": "setting_set_preview",
+        "textalign": "left|vcenter",
+        "textpad": "0,6,0,0"
+    }
+}

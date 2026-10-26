@@ -1,0 +1,22 @@
+{
+    "attribute": {
+        "pagename": "sysdialog",
+        "pos": "0,0,1280,480"
+    },
+    "button-001": {
+        "name": "btn_bg",
+        "pos": "0,0,1280,480",
+        "bgcolor": "#55aaff",
+        "bgalpha": 0,
+        "clickeffect": 1
+    },
+    "spinner-001": {
+        "name": "spinner_1",
+        "pos": "590,190,100,100",
+        "bgalpha": 0,
+        "arcolor": "#7a7d82",
+        "aralpha": 60,
+        "indicolor": "#e8e8e8",
+        "indialpha": 174
+    }
+}

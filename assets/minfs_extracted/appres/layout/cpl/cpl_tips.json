@@ -1,0 +1,41 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "lblWcpStep",
+        "pos": "50,170,1200,60",
+        "bgalpha": 0,
+        "txtkey": "link_cpl_step",
+        "textalign": "left|vcenter",
+        "textpad": "0,0,0,0"
+    },
+    "label-002": {
+        "name": "lblStep1",
+        "pos": "100,240,1100,100",
+        "bgalpha": 0,
+        "txtkey": "link_cpl_step1",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "label-004": {
+        "name": "lblStep2",
+        "pos": "100,350,1100,60",
+        "bgalpha": 0,
+        "txtkey": "link_cpl_step2",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "label-003": {
+        "name": "label_3",
+        "pos": "50,80,1200,60",
+        "bgalpha": 0,
+        "txtkey": "link_wired_mode",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    }
+}

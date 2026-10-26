@@ -1,0 +1,145 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,150"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,1280,150",
+        "bgalpha": 0,
+        "bgimage": "img/music/btn_bg.png"
+    },
+    "label-002": {
+        "name": "lblPlayTime",
+        "pos": "20,19,98,50",
+        "bgalpha": 0,
+        "text": "0:00:00",
+        "textpad": "0,9,0,0"
+    },
+    "label-003": {
+        "name": "lblTotalTime",
+        "pos": "1154,19,98,50",
+        "bgalpha": 0,
+        "text": "0:00:00",
+        "textpad": "0,9,0,0"
+    },
+    "label-004": {
+        "name": "lblZoom",
+        "pos": "10,8,200,30",
+        "bgalpha": 0,
+        "txtkey": "movie_movie_screen_ratio",
+        "textalign": "left|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "slider-005": {
+        "name": "sldProgress",
+        "pos": "135,28,1008,31",
+        "commfunc": "movie_slide_progress",
+        "bgalpha": 0,
+        "bgimage": "img/music/sl_bg.png",
+        "value": 0,
+        "knobimg": "img/music/sl_p.png",
+        "indicatorimg": "img/music/sl_sel.png"
+    },
+    "label-006": {
+        "name": "lblRepeat",
+        "pos": "1007,0,200,30",
+        "bgalpha": 0,
+        "txtkey": "movie_movie_sequence",
+        "textalign": "right|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "button-007": {
+        "name": "btnZoom",
+        "pos": "20,70,160,78",
+        "commfunc": "movie_btn_zoom",
+        "bgalpha": 0,
+        "shortpfunc": "movie_btn_zoom",
+        "imgnor": "img/movie/tv_out.png",
+        "imgpush": "img/movie/tv_out_sel.png"
+    },
+    "button-008": {
+        "name": "btnPrev",
+        "pos": "200,70,160,78",
+        "commfunc": "movie_btn_prev",
+        "bgalpha": 0,
+        "longpressed": 1,
+        "shortpfunc": "movie_btn_prev",
+        "longtpfunc": "movie_long_prev",
+        "imgnor": "img/music/prev.png",
+        "imgpush": "img/music/prev_sel.png"
+    },
+    "button-009": {
+        "name": "btnPlay",
+        "pos": "380,70,160,78",
+        "commfunc": "movie_btn_play",
+        "bgalpha": 0,
+        "visible": 0,
+        "shortpfunc": "movie_btn_play",
+        "imgnor": "img/music/play.png",
+        "imgpush": "img/music/play_sel.png"
+    },
+    "button-010": {
+        "name": "btnNext",
+        "pos": "560,70,160,78",
+        "commfunc": "movie_btn_next",
+        "bgalpha": 0,
+        "longpressed": 1,
+        "shortpfunc": "movie_btn_next",
+        "longtpfunc": "movie_long_next",
+        "imgnor": "img/music/next.png",
+        "imgpush": "img/music/next_sel.png"
+    },
+    "label-011": {
+        "name": "lblBtnRepeat",
+        "pos": "740,70,146,78",
+        "bgalpha": 0,
+        "textalign": "left|top"
+    },
+    "button-012": {
+        "name": "btnRandom",
+        "pos": "920,70,160,78",
+        "commfunc": "movie_btn_random_on",
+        "bgalpha": 0,
+        "shortpfunc": "movie_btn_random_on",
+        "imgnor": "img/music/random_off.png",
+        "imgpush": "img/music/random_off_sel.png"
+    },
+    "button-013": {
+        "name": "btnList",
+        "pos": "1100,70,160,78",
+        "commfunc": "movie_btn_list",
+        "bgalpha": 0,
+        "shortpfunc": "movie_btn_list",
+        "imgnor": "img/music/list.png",
+        "imgpush": "img/music/list_sel.png"
+    },
+    "button-014": {
+        "name": "btnPause",
+        "pos": "380,70,160,78",
+        "commfunc": "movie_btn_pause",
+        "bgalpha": 0,
+        "shortpfunc": "movie_btn_pause",
+        "imgnor": "img/music/pause.png",
+        "imgpush": "img/music/pause_sel.png"
+    },
+    "button-015": {
+        "name": "btnRepeat",
+        "pos": "740,70,146,78",
+        "commfunc": "movie_btn_repeat",
+        "bgalpha": 0,
+        "longpressed": 1,
+        "shortpfunc": "movie_btn_repeat",
+        "clickeffect": 1
+    },
+    "button-001": {
+        "name": "btnRandomOff",
+        "pos": "920,68,160,78",
+        "commfunc": "movie_btn_random_off",
+        "bgalpha": 0,
+        "visible": 0,
+        "shortpfunc": "movie_btn_random_off",
+        "imgnor": "img/music/random.png",
+        "imgpush": "img/music/random_sel.png"
+    }
+}

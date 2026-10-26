@@ -1,0 +1,145 @@
+{
+  "attribute": {
+    "pagename": "pagename",
+    "pos": "0,0,830,415"
+  },
+  "label-001": {
+    "name": "label_1",
+    "pos": "40,10,300,50",
+    "bgalpha": 0,
+    "txtkey": "setting_set_version",
+    "textalign": "left|vcenter",
+    "textpad": "0,9,0,0"
+  },
+  "backgd-002": {
+    "name": "backgd_2",
+    "pos": "0,60,830,50",
+    "bgalpha": 0,
+    "bgimage": "img/setting/item.png"
+  },
+  "label-003": {
+    "name": "lblTime",
+    "pos": "120,65,530,45",
+    "bgalpha": 0,
+    "text": "Nov 16 2024 09:33:58",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "backgd-004": {
+    "name": "backgd_4",
+    "pos": "0,110,830,50",
+    "bgalpha": 0,
+    "bgimage": "img/setting/item.png"
+  },
+  "label-005": {
+    "name": "lblApp",
+    "pos": "120,115,530,45",
+    "bgalpha": 0,
+    "text": "F133PND701 - DIEGO SAGREDO EDITION",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "backgd-006": {
+    "name": "backgd_6",
+    "pos": "0,160,830,50",
+    "bgalpha": 0,
+    "bgimage": "img/setting/item.png"
+  },
+  "label-007": {
+    "name": "lblMcu",
+    "pos": "120,165,530,45",
+    "bgalpha": 0,
+    "text": "XTD-D-WIFI-20241009-2038",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "backgd-008": {
+    "name": "backgd_8",
+    "pos": "0,210,830,50",
+    "bgalpha": 0,
+    "bgimage": "img/setting/item.png"
+  },
+  "label-009": {
+    "name": "lblWifi",
+    "pos": "120,215,530,45",
+    "bgalpha": 0,
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "backgd-010": {
+    "name": "backgd_10",
+    "pos": "0,260,830,50",
+    "bgalpha": 0,
+    "bgimage": "img/setting/item.png"
+  },
+  "label-011": {
+    "name": "lblBtMac",
+    "pos": "160,265,500,45",
+    "bgalpha": 0,
+    "text": "414200000BF2",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "label-002": {
+    "name": "label_2",
+    "pos": "40,65,70,45",
+    "bgalpha": 0,
+    "text": "OS :",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "label-004": {
+    "name": "label_4",
+    "pos": "40,115,70,45",
+    "bgalpha": 0,
+    "text": "APP :",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "label-006": {
+    "name": "label_6",
+    "pos": "40,165,70,45",
+    "bgalpha": 0,
+    "text": "MCU :",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "label-008": {
+    "name": "label_8",
+    "pos": "40,215,70,45",
+    "bgalpha": 0,
+    "text": "WIFI :",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "label-010": {
+    "name": "label_10",
+    "pos": "40,265,110,45",
+    "bgalpha": 0,
+    "text": "BT MAC :",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "backgd-012": {
+    "name": "backgd_12",
+    "pos": "0,310,830,50",
+    "bgalpha": 0,
+    "bgimage": "img/setting/item.png"
+  },
+  "label-012": {
+    "name": "label_12",
+    "pos": "40,315,110,45",
+    "bgalpha": 0,
+    "text": "MOD :",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  },
+  "label-013": {
+    "name": "lblAuthor",
+    "pos": "160,315,550,45",
+    "bgalpha": 0,
+    "text": "Diego Sagredo Ailef (@diegosagredo911)",
+    "textalign": "left|vcenter",
+    "textpad": "0,6,0,0"
+  }
+}

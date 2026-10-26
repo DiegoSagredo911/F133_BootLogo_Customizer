@@ -1,0 +1,33 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,90"
+    },
+    "check-001": {
+        "name": "chkMusic",
+        "pos": "160,10,278,78",
+        "commfunc": "explorer_check_media_type|Music",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/music.png",
+        "checkedimg": "img/explorer/music_sel.png",
+        "shortpfunc": "explorer_check_media_type|Music"
+    },
+    "check-002": {
+        "name": "chkMovie",
+        "pos": "500,10,278,78",
+        "commfunc": "explorer_check_media_type|Movie",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/movie.png",
+        "checkedimg": "img/explorer/movie_sel.png",
+        "shortpfunc": "explorer_check_media_type|Movie"
+    },
+    "check-003": {
+        "name": "chkPhoto",
+        "pos": "840,10,278,78",
+        "commfunc": "explorer_check_media_type|Photo",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/pic.png",
+        "checkedimg": "img/explorer/pic_sel.png",
+        "shortpfunc": "explorer_check_media_type|Photo"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,466,51"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,466,51",
+        "bgalpha": 0,
+        "bgimage": "img/bt/book_list_item.png",
+        "checkedimg": "img/bt/book_list_item_sel.png"
+    },
+    "label-002": {
+        "name": "lblName",
+        "pos": "57,6,340,40",
+        "bgalpha": 0,
+        "text": "名字",
+        "textalign": "left|vcenter",
+        "longmode": 3,
+        "textpad": "0,4,0,0"
+    },
+    "button-001": {
+        "name": "btnCall",
+        "pos": "429,10,27,32",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_call",
+        "clickeffect": 1,
+        "imgnor": "img/bt/btn_call.png",
+        "imgpush": "img/bt/btn_call_sel.png"
+    },
+    "imgview-001": {
+        "name": "imgview_1",
+        "pos": "10,5,40,40",
+        "bgimage": "img/bt/book_list_icon.png"
+    }
+}

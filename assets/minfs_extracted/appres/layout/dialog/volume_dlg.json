@@ -1,0 +1,52 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-001": {
+        "name": "btnBg",
+        "pos": "0,0,1280,480",
+        "commfunc": "dialog_btn_exit",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_exit",
+        "clickeffect": 1
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "210,176,860,128",
+        "bgcolor": "#000023",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/vol_bg.png",
+        "osdalpha": 192
+    },
+    "backgd-002": {
+        "name": "bgdVolume",
+        "pos": "236,207,65,65",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/btn_volume_no.png",
+        "checkedimg": "img/dialog/btn_volume.png"
+    },
+    "slider-003": {
+        "name": "sldVolume",
+        "pos": "330,223,618,32",
+        "commfunc": "dialog_slide_type|Volume",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/sl_bg.png",
+        "knobimg": "img/dialog/sl_p.png",
+        "indicatorimg": "img/dialog/sl_sel.png"
+    },
+    "label-004": {
+        "name": "lblVolume",
+        "pos": "963,223,80,30",
+        "bgalpha": 0,
+        "text": "20",
+        "textpad": "0,-1,0,0"
+    },
+    "button-002": {
+        "name": "btnVolume",
+        "pos": "217,189,95,98",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_volume",
+        "clickeffect": 1
+    }
+}

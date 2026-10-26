@@ -1,0 +1,91 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,325"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "112,1,576,321",
+        "bgalpha": 0,
+        "bgimage": "img/bt/book_bg2.png"
+    },
+    "backgd-002": {
+        "name": "backgd_2",
+        "pos": "695,1,471,321",
+        "bgalpha": 0,
+        "bgimage": "img/bt/bt_setting_bg.png"
+    },
+    "label-003": {
+        "name": "label_3",
+        "pos": "720,8,420,37",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_device_name",
+        "textalign": "left|vcenter",
+        "textpad": "0,2,0,0"
+    },
+    "label-005": {
+        "name": "lblDeviceName",
+        "pos": "724,50,247,30",
+        "bgalpha": 0,
+        "textpad": "0,-1,0,0"
+    },
+    "label-006": {
+        "name": "label_6",
+        "pos": "720,93,420,37",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_password",
+        "textalign": "left|vcenter",
+        "textpad": "0,2,0,0"
+    },
+    "label-008": {
+        "name": "lblPinCode",
+        "pos": "722,128,247,30",
+        "bgalpha": 0,
+        "textpad": "0,-1,0,0"
+    },
+    "label-009": {
+        "name": "label_9",
+        "pos": "720,167,420,40",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_auto_answer",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "button-010": {
+        "name": "btnAutoAnswer",
+        "pos": "720,213,95,41",
+        "commfunc": "bt_setting_btn_auto_answer",
+        "bgalpha": 0,
+        "shortpfunc": "bt_setting_btn_auto_answer",
+        "clickeffect": 1
+    },
+    "button-011": {
+        "name": "btnDisCon",
+        "pos": "876,253,100,50",
+        "commfunc": "bt_setting_btn_discon",
+        "bgalpha": 0,
+        "shortpfunc": "bt_setting_btn_discon",
+        "clickeffect": 1,
+        "imgnor": "img/bt/discon.png",
+        "imgpush": "img/bt/discon_sel.png"
+    },
+    "backgd-003": {
+        "name": "backgd_3",
+        "pos": "112,2,577,55",
+        "bgalpha": 0,
+        "bgimage": "img/bt/bt_name.png"
+    },
+    "label-004": {
+        "name": "lblPhoneName",
+        "pos": "148,11,448,37",
+        "bgalpha": 0,
+        "textalign": "left|vcenter",
+        "textpad": "0,2,0,0"
+    },
+    "label-001": {
+        "name": "lblOnOff",
+        "pos": "721,214,95,41",
+        "bgalpha": 0,
+        "textpad": "0,4,0,0"
+    }
+}

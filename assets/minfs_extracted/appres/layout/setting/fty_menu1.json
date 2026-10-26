@@ -1,0 +1,211 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "button-001": {
+        "name": "btnMemeory",
+        "pos": "0,10,830,50",
+        "commfunc": "setting_fty_menu1_btn_memeory_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_memeory_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-002": {
+        "name": "lblMemeory",
+        "pos": "35,20,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_dispay_mem",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-003": {
+        "name": "lblMemeorySta",
+        "pos": "700,20,110,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_off",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "button-004": {
+        "name": "btnScnShot",
+        "pos": "0,60,830,50",
+        "commfunc": "setting_fty_menu1_btn_scnshot_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_scnshot_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-005": {
+        "name": "lblScnShot",
+        "pos": "35,70,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_screen_shot",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-006": {
+        "name": "lblScnShotSta",
+        "pos": "700,70,110,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_off",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "button-007": {
+        "name": "btnTpPrint",
+        "pos": "0,160,830,50",
+        "commfunc": "setting_fty_menu1_btn_tpprint_onoff",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_tpprint_onoff",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-008": {
+        "name": "lblTpPrint",
+        "pos": "35,170,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_touch_print",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-009": {
+        "name": "lblTpPrintSta",
+        "pos": "700,170,110,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_off",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "button-002": {
+        "name": "btnUsbMode",
+        "pos": "0,110,830,50",
+        "commfunc": "setting_fty_menu1_btn_usb_mode",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_usb_mode",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-004": {
+        "name": "lblUsbMode",
+        "pos": "35,120,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_usb_mode",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-007": {
+        "name": "lblUsbModeSta",
+        "pos": "590,120,220,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_main_eq",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "button-008": {
+        "name": "btnTestNet",
+        "pos": "0,210,830,50",
+        "commfunc": "setting_fty_menu1_btn_test_network_bandwidth",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_test_network_bandwidth",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-010": {
+        "name": "lblTestNet",
+        "pos": "35,220,500,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_test_net",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-012": {
+        "name": "label_12",
+        "pos": "25,336,160,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_panel_volt",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "button-013": {
+        "name": "btnStart",
+        "pos": "190,330,120,52",
+        "commfunc": "setting_fty_menu1_btn_key_start",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_key_start",
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-014": {
+        "name": "label_14",
+        "pos": "345,313,40,40",
+        "bgalpha": 0,
+        "text": "K1:",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-015": {
+        "name": "label_15",
+        "pos": "345,365,40,40",
+        "bgalpha": 0,
+        "text": "K2:",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-016": {
+        "name": "lblKey1Data",
+        "pos": "390,313,100,40",
+        "bgalpha": 0,
+        "text": "0",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-017": {
+        "name": "lblKey2Data",
+        "pos": "390,365,100,40",
+        "bgalpha": 0,
+        "text": "0",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "button-018": {
+        "name": "button_18",
+        "pos": "520,330,120,52",
+        "commfunc": "setting_fty_menu1_btn_key_end",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu1_btn_key_end",
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-019": {
+        "name": "label_19",
+        "pos": "192,335,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_start",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    },
+    "label-020": {
+        "name": "label_20",
+        "pos": "522,335,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_end",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    }
+}

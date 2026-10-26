@@ -1,0 +1,149 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,65",
+        "osdalpha": 255
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,1280,64",
+        "bgalpha": 0,
+        "bgimage": "img/headbar/bg.png"
+    },
+    "button-002": {
+        "name": "btn_return",
+        "pos": "1168,0,110,64",
+        "commfunc": "headbar_btn_return",
+        "bgalpha": 0,
+        "shortpfunc": "headbar_btn_return",
+        "imgnor": "img/headbar/back.png",
+        "imgpush": "img/headbar/back_sel.png"
+    },
+    "button-003": {
+        "name": "btn_home",
+        "pos": "0,0,110,64",
+        "commfunc": "headbar_btn_home",
+        "bgalpha": 0,
+        "shortpfunc": "headbar_btn_home",
+        "imgnor": "img/headbar/home.png",
+        "imgpush": "img/headbar/home_sel.png"
+    },
+    "imgview-002": {
+        "name": "imgview_audio",
+        "pos": "1014,22,27,27",
+        "bgalpha": 0,
+        "imgurl": "img/headbar/audio.png"
+    },
+    "label-010": {
+        "name": "label_date",
+        "pos": "500,14,150,40",
+        "bgalpha": 0,
+        "text": "01/01/2025",
+        "textalign": "right|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "backgd-002": {
+        "name": "backgd_vol",
+        "pos": "167,16,40,32",
+        "bgalpha": 0,
+        "bgimage": "img/headbar/vol_no.png",
+        "checkedimg": "img/headbar/vol.png"
+    },
+    "button-005": {
+        "name": "btn_vol",
+        "pos": "150,2,70,60",
+        "commfunc": "headbar_btn_dialog|volume",
+        "bgalpha": 0,
+        "shortpfunc": "headbar_btn_dialog|volume",
+        "clickeffect": 1
+    },
+    "backgd-006": {
+        "name": "backgd_usb",
+        "pos": "340,20,19,24",
+        "bgimage": "img/headbar/usb_no.png",
+        "checkedimg": "img/headbar/usb.png"
+    },
+    "backgd-007": {
+        "name": "backgd_sd",
+        "pos": "380,20,19,24",
+        "bgimage": "img/headbar/sd_no.png",
+        "checkedimg": "img/headbar/sd.png"
+    },
+    "backgd-003": {
+        "name": "backgd_wifi",
+        "pos": "250,21,33,21",
+        "bgimage": "img/headbar/wifi_no.png",
+        "checkedimg": "img/headbar/wifi.png"
+    },
+    "backgd-004": {
+        "name": "backgd_bt",
+        "pos": "295,19,24,26",
+        "bgimage": "img/headbar/bt_no.png",
+        "checkedimg": "img/headbar/bt.png"
+    },
+    "backgd-005": {
+        "name": "backgd_cpl",
+        "pos": "420,20,23,24",
+        "bgimage": "img/headbar/cpl_no.png",
+        "checkedimg": "img/headbar/cpl.png"
+    },
+    "backgd-008": {
+        "name": "backgd_aoa",
+        "pos": "460,19,27,25",
+        "bgimage": "img/headbar/aoa_no.png",
+        "checkedimg": "img/headbar/aoa.png"
+    },
+    "label-009": {
+        "name": "label_week_day",
+        "pos": "800,12,100,40",
+        "bgalpha": 0,
+        "txtkey": "calendar_cld_sunday",
+        "textpad": "0,4,0,0"
+    },
+    "imgview-001": {
+        "name": "imgview_phone",
+        "pos": "1014,22,26,27",
+        "bgalpha": 0,
+        "visible": 0,
+        "imgurl": "img/headbar/phone.png"
+    },
+    "imgview-003": {
+        "name": "imgview_fmtx",
+        "pos": "1014,22,27,27",
+        "bgalpha": 0,
+        "visible": 0,
+        "imgurl": "img/headbar/fm.png"
+    },
+    "imgview-004": {
+        "name": "imgview_aux",
+        "pos": "1014,22,27,27",
+        "bgalpha": 0,
+        "visible": 0,
+        "imgurl": "img/headbar/auxin.png"
+    },
+    "backgd-009": {
+        "name": "backgd_bright",
+        "pos": "1100,0,50,64",
+        "bgalpha": 0,
+        "bgimage": "img/headbar/bright.png",
+        "checkedimg": "img/headbar/night.png"
+    },
+    "button-010": {
+        "name": "btn_bright",
+        "pos": "1100,0,50,64",
+        "commfunc": "headbar_btn_bright",
+        "bgalpha": 0,
+        "shortpfunc": "headbar_btn_bright",
+        "clickeffect": 1,
+        "imgnor": "img/headbar/btn.png",
+        "imgpush": "img/headbar/btn_sel.png"
+    },
+    "label-001": {
+        "name": "label_time",
+        "pos": "655,14,125,40",
+        "bgalpha": 0,
+        "text": "00:00",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    }
+}

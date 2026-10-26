@@ -1,0 +1,28 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "button-003": {
+        "name": "btnSave",
+        "pos": "355,450,120,52",
+        "commfunc": "setting_fty_menu2_btn_save",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu2_btn_save",
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-004": {
+        "name": "label_4",
+        "pos": "357,455,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_save",
+        "textpad": "0,4,0,0"
+    },
+    "listview-005": {
+        "name": "listviewMic",
+        "pos": "0,10,830,415",
+        "bgalpha": 0,
+        "rowspace": 2
+    }
+}

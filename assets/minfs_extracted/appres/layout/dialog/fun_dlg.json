@@ -1,0 +1,85 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-002": {
+        "name": "btnBg",
+        "pos": "0,0,1280,480",
+        "commfunc": "dialog_btn_exit",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_exit",
+        "clickeffect": 1
+    },
+    "backgd-003": {
+        "name": "bgdBg",
+        "pos": "382,105,508,299",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/fun_dlg_bg.png",
+        "osdalpha": 192
+    },
+    "label-004": {
+        "name": "lblTitle",
+        "pos": "486,110,300,50",
+        "bgalpha": 0,
+        "txtkey": "dialog_dialog_tips",
+        "textpad": "0,9,0,0"
+    },
+    "button-005": {
+        "name": "btnOk",
+        "pos": "571,320,130,63",
+        "commfunc": "dialog_btn_ok",
+        "bgalpha": 0,
+        "visible": 0,
+        "shortpfunc": "dialog_btn_ok",
+        "clickeffect": 1,
+        "imgnor": "img/dialog/fun_btn.png"
+    },
+    "label-006": {
+        "name": "lblOk",
+        "pos": "575,331,120,50",
+        "bgalpha": 0,
+        "visible": 0,
+        "txtkey": "dialog_dialog_ok",
+        "textpad": "0,9,0,0"
+    },
+    "button-007": {
+        "name": "btnYes",
+        "pos": "456,320,130,63",
+        "commfunc": "dialog_btn_yes",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_yes",
+        "clickeffect": 1,
+        "imgnor": "img/dialog/fun_btn.png"
+    },
+    "label-008": {
+        "name": "lblYes",
+        "pos": "461,331,120,50",
+        "bgalpha": 0,
+        "txtkey": "dialog_dialog_yes",
+        "textpad": "0,9,0,0"
+    },
+    "button-009": {
+        "name": "btnNo",
+        "pos": "686,320,130,63",
+        "commfunc": "dialog_btn_no",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_no",
+        "clickeffect": 1,
+        "imgnor": "img/dialog/fun_btn.png"
+    },
+    "label-010": {
+        "name": "lblNo",
+        "pos": "691,331,120,50",
+        "bgalpha": 0,
+        "txtkey": "dialog_dialog_no",
+        "textpad": "0,9,0,0"
+    },
+    "label-011": {
+        "name": "lblTips",
+        "pos": "402,180,470,120",
+        "bgalpha": 0,
+        "longmode": 0,
+        "textpad": "0,44,0,0"
+    }
+}

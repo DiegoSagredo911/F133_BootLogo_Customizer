@@ -1,0 +1,185 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480",
+        "osdalpha": 255,
+        "inffect": 0,
+        "outeffect": 0
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,64,1280,415",
+        "bgimage": "img/pullmenu/bgd.png",
+        "osdalpha": 255
+    },
+    "button-002": {
+        "name": "btnBt",
+        "pos": "335,95,114,101",
+        "commfunc": "pullmenu_btn_bt",
+        "shortpfunc": "pullmenu_btn_bt",
+        "clickeffect": 1,
+        "imgnor": "img/pullmenu/bt.png",
+        "imgpush": "img/pullmenu/bt_sel.png"
+    },
+    "button-003": {
+        "name": "btnTft",
+        "pos": "105,95,114,101",
+        "commfunc": "pullmenu_btn_close_screen",
+        "shortpfunc": "pullmenu_btn_close_screen",
+        "imgnor": "img/pullmenu/tft.png",
+        "imgpush": "img/pullmenu/tft_sel.png"
+    },
+    "button-004": {
+        "name": "btnWallpaper",
+        "pos": "580,95,114,101",
+        "commfunc": "pullmenu_btn_wallpaper",
+        "shortpfunc": "pullmenu_btn_wallpaper",
+        "imgnor": "img/pullmenu/wallpaper.png",
+        "imgpush": "img/pullmenu/wallpaper_sel.png"
+    },
+    "button-005": {
+        "name": "btnMute",
+        "pos": "825,95,114,101",
+        "commfunc": "pullmenu_btn_mute",
+        "bgalpha": 0,
+        "shortpfunc": "pullmenu_btn_mute",
+        "imgnor": "img/pullmenu/mute.png",
+        "imgpush": "img/pullmenu/mute_sel.png"
+    },
+    "backgd-012": {
+        "name": "bgdBright",
+        "pos": "20,202,1239,76",
+        "bgimage": "img/pullmenu/bright_bg.png"
+    },
+    "slider-013": {
+        "name": "sldBright",
+        "pos": "134,223,1024,31",
+        "commfunc": "pullmenu_slide_bright",
+        "bgimage": "img/pullmenu/sld_bg.png",
+        "value": 100,
+        "knobimg": "img/pullmenu/sl_p.png",
+        "indicatorimg": "img/pullmenu/sl_sel.png"
+    },
+    "label-014": {
+        "name": "lblBright",
+        "pos": "1169,222,83,32",
+        "bgalpha": 0,
+        "text": "100"
+    },
+    "button-016": {
+        "name": "btnNext",
+        "pos": "1153,300,52,37",
+        "commfunc": "pullmenu_btn_next",
+        "shortpfunc": "pullmenu_btn_next",
+        "imgnor": "img/pullmenu/next.png",
+        "imgpush": "img/pullmenu/next_sel.png"
+    },
+    "button-017": {
+        "name": "btnPlay",
+        "pos": "1048,300,35,37",
+        "commfunc": "pullmenu_btn_play",
+        "shortpfunc": "pullmenu_btn_play",
+        "clickeffect": 1,
+        "imgnor": "img/pullmenu/play.png"
+    },
+    "button-018": {
+        "name": "btnPrev",
+        "pos": "935,300,52,37",
+        "commfunc": "pullmenu_btn_prev",
+        "shortpfunc": "pullmenu_btn_prev",
+        "imgnor": "img/pullmenu/prev.png",
+        "imgpush": "img/pullmenu/prev_sel.png"
+    },
+    "label-019": {
+        "name": "lblFilename",
+        "pos": "350,305,427,32",
+        "bgalpha": 0,
+        "textalign": "left|vcenter",
+        "longmode": 3
+    },
+    "button-007": {
+        "name": "btnPause",
+        "pos": "1048,302,35,37",
+        "commfunc": "pullmenu_btn_pause",
+        "visible": 0,
+        "shortpfunc": "pullmenu_btn_pause",
+        "clickeffect": 1,
+        "imgnor": "img/pullmenu/pause.png"
+    },
+    "button-001": {
+        "name": "btnFmtx",
+        "pos": "1070,90,114,101",
+        "commfunc": "pullmenu_btn_audio",
+        "visible": 0,
+        "shortpfunc": "pullmenu_btn_audio",
+        "imgnor": "img/pullmenu/fm.png",
+        "imgpush": "img/pullmenu/fm_sel.png"
+    },
+    "button-006": {
+        "name": "btnAudio",
+        "pos": "1070,90,114,101",
+        "commfunc": "pullmenu_btn_audio",
+        "shortpfunc": "pullmenu_btn_audio",
+        "imgnor": "img/pullmenu/audio.png",
+        "imgpush": "img/pullmenu/audio_sel.png"
+    },
+    "button-008": {
+        "name": "btnPhone",
+        "pos": "1070,90,114,101",
+        "commfunc": "pullmenu_btn_audio",
+        "visible": 0,
+        "shortpfunc": "pullmenu_btn_audio",
+        "imgnor": "img/pullmenu/phone.png",
+        "imgpush": "img/pullmenu/phone_sel.png"
+    },
+    "button-009": {
+        "name": "btnAux",
+        "pos": "1070,90,114,101",
+        "commfunc": "pullmenu_btn_audio",
+        "visible": 0,
+        "shortpfunc": "pullmenu_btn_audio",
+        "imgnor": "img/pullmenu/aout.png",
+        "imgpush": "img/pullmenu/aout_sel.png"
+    },
+    "label-007": {
+        "name": "lblTft",
+        "pos": "115,160,114,32",
+        "bgalpha": 0,
+        "txtkey": "dialog_tft",
+        "longmode": 1
+    },
+    "label-008": {
+        "name": "lblBt",
+        "pos": "340,160,114,32",
+        "bgalpha": 0,
+        "txtkey": "dialog_bt",
+        "longmode": 1
+    },
+    "label-009": {
+        "name": "lblWallpaper",
+        "pos": "550,160,180,32",
+        "bgalpha": 0,
+        "txtkey": "dialog_wallpaper",
+	"longmode": 1
+    },
+    "label-010": {
+        "name": "lblMUte",
+        "pos": "830,160,114,32",
+        "bgalpha": 0,
+        "txtkey": "setting_set_mute",
+        "longmode": 1
+    },
+    "label-011": {
+        "name": "lblAudio",
+        "pos": "1075,160,114,32",
+        "bgalpha": 0,
+        "txtkey": "dialog_audio",
+        "longmode": 1
+    },
+    "label-015": {
+        "name": "lblDevice",
+        "pos": "109,305,200,32",
+        "bgalpha": 0,
+        "longmode": 1
+    }
+}

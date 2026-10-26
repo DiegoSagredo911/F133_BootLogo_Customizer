@@ -1,0 +1,58 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-001": {
+        "name": "btnBg",
+        "pos": "0,0,1280,480",
+        "bgalpha": 0,
+        "shortpfunc": "setting_dialog_btn_no",
+        "clickeffect": 1
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "560,150,405,237",
+        "bgcolor": "#000023",
+        "bgalpha": 220
+    },
+    "label-002": {
+        "name": "lblTip",
+        "pos": "593,194,340,80",
+        "bgalpha": 0,
+        "txtkey": "setting_set_factory_restore",
+        "textpad": "0,24,0,0"
+    },
+    "button-003": {
+        "name": "btnYes",
+        "pos": "593,302,154,60",
+        "bgalpha": 0,
+        "shortpfunc": "setting_dialog_btn_yes",
+        "clickeffect": 1,
+        "imgnor": "img/setting/f_btn.png",
+        "imgpush": "img/setting/f_btn_sel.png"
+    },
+    "label-004": {
+        "name": "lblYes",
+        "pos": "615,313,110,40",
+        "bgalpha": 0,
+        "txtkey": "dialog_dialog_yes",
+        "textpad": "0,4,0,0"
+    },
+    "button-005": {
+        "name": "btnNo",
+        "pos": "780,305,154,60",
+        "bgalpha": 0,
+        "shortpfunc": "setting_dialog_btn_no",
+        "clickeffect": 1,
+        "imgnor": "img/setting/f_btn.png",
+        "imgpush": "img/setting/f_btn_sel.png"
+    },
+    "label-006": {
+        "name": "lblNo",
+        "pos": "802,313,110,40",
+        "bgalpha": 0,
+        "txtkey": "dialog_dialog_no",
+        "textpad": "0,4,0,0"
+    }
+}

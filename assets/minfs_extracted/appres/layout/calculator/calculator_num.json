@@ -1,0 +1,204 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,678,400"
+    },
+    "button-001": {
+        "name": "btnNum1",
+        "pos": "0,81,126,66",
+        "bgalpha": 0,
+        "text": "1",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num1.png",
+        "imgpush": "img/calculator/num1_sel.png"
+    },
+    "label-002": {
+        "name": "lblInput",
+        "pos": "0,5,532,65",
+        "bgalpha": 0,
+        "bgimage": "img/calculator/input_bg.png",
+        "text": "A",
+        "textalign": "right|vcenter",
+        "textpad": "5,16,5,0"
+    },
+    "button-003": {
+        "name": "btnNum2",
+        "pos": "135,81,126,66",
+        "bgalpha": 0,
+        "text": "2",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num2.png",
+        "imgpush": "img/calculator/num2_sel.png"
+    },
+    "button-004": {
+        "name": "btnCancel",
+        "pos": "540,5,126,66",
+        "bgalpha": 0,
+        "text": "D",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/cancel.png",
+        "imgpush": "img/calculator/cancel_sel.png"
+    },
+    "button-005": {
+        "name": "btnNum3",
+        "pos": "270,81,126,66",
+        "bgalpha": 0,
+        "text": "3",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num3.png",
+        "imgpush": "img/calculator/num3_sel.png"
+    },
+    "button-006": {
+        "name": "btnAdd",
+        "pos": "405,81,126,66",
+        "bgalpha": 0,
+        "text": "+",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/add.png",
+        "imgpush": "img/calculator/add_sel.png"
+    },
+    "button-007": {
+        "name": "btnNum4",
+        "pos": "0,157,126,66",
+        "bgalpha": 0,
+        "text": "4",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num4.png",
+        "imgpush": "img/calculator/num4_sel.png"
+    },
+    "button-008": {
+        "name": "btnNum5",
+        "pos": "135,157,126,66",
+        "bgalpha": 0,
+        "text": "5",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num5.png",
+        "imgpush": "img/calculator/num5_sel.png"
+    },
+    "button-010": {
+        "name": "btnSubtract",
+        "pos": "405,157,126,66",
+        "bgalpha": 0,
+        "text": "-",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/subtract.png",
+        "imgpush": "img/calculator/subtract_sel.png"
+    },
+    "button-011": {
+        "name": "btnNum7",
+        "pos": "0,233,126,66",
+        "bgalpha": 0,
+        "text": "7",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num7.png",
+        "imgpush": "img/calculator/num7_sel.png"
+    },
+    "button-012": {
+        "name": "btnNum8",
+        "pos": "135,233,126,66",
+        "bgalpha": 0,
+        "text": "8",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num8.png",
+        "imgpush": "img/calculator/num8_sel.png"
+    },
+    "button-013": {
+        "name": "btnNum9",
+        "pos": "270,233,126,66",
+        "bgalpha": 0,
+        "text": "9",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num9.png",
+        "imgpush": "img/calculator/num9_sel.png"
+    },
+    "button-014": {
+        "name": "btnMultiply",
+        "pos": "405,233,126,66",
+        "bgalpha": 0,
+        "text": "*",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/multiply.png",
+        "imgpush": "img/calculator/multiply_sel.png"
+    },
+    "button-015": {
+        "name": "btnSquare",
+        "pos": "540,157,126,66",
+        "bgalpha": 0,
+        "text": "F",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/square.png",
+        "imgpush": "img/calculator/square_sel.png"
+    },
+    "button-016": {
+        "name": "btnReciprocal",
+        "pos": "540,233,126,66",
+        "bgalpha": 0,
+        "text": "E",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/reciprocal.png",
+        "imgpush": "img/calculator/reciprocal_sel.png"
+    },
+    "button-017": {
+        "name": "btnNum0",
+        "pos": "0,309,126,66",
+        "bgalpha": 0,
+        "text": "0",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num0.png",
+        "imgpush": "img/calculator/num0_sel.png"
+    },
+    "button-018": {
+        "name": "btnPlusMinus",
+        "pos": "135,309,126,66",
+        "bgalpha": 0,
+        "text": "B",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/plus_minus.png",
+        "imgpush": "img/calculator/plus_minus_sel.png"
+    },
+    "button-019": {
+        "name": "btnPoint",
+        "pos": "270,309,126,66",
+        "bgalpha": 0,
+        "text": ".",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/decimal_point.png",
+        "imgpush": "img/calculator/decimal_point_sel.png"
+    },
+    "button-020": {
+        "name": "btnDivide",
+        "pos": "405,309,126,66",
+        "bgalpha": 0,
+        "text": "/",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/divide.png",
+        "imgpush": "img/calculator/divide_sel.png"
+    },
+    "button-021": {
+        "name": "btnEqual",
+        "pos": "539,309,126,66",
+        "bgalpha": 0,
+        "text": "=",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/equal.png",
+        "imgpush": "img/calculator/equal_sel.png"
+    },
+    "button-022": {
+        "name": "btnClean",
+        "pos": "540,81,126,66",
+        "bgalpha": 0,
+        "text": "C",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/clean.png",
+        "imgpush": "img/calculator/clean_sel.png"
+    },
+    "button-002": {
+        "name": "btNum6",
+        "pos": "270,156,126,66",
+        "bgalpha": 0,
+        "text": "6",
+        "clickeffect": 1,
+        "imgnor": "img/calculator/num6.png",
+        "imgpush": "img/calculator/num6_sel.png"
+    }
+}

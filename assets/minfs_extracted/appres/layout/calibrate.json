@@ -1,0 +1,33 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "imgview-002": {
+        "name": "imgviewCali0",
+        "pos": "20,20,60,60",
+        "bgalpha": 0,
+        "imgurl": "img/calibrate/cali.png"
+    },
+    "imgview-001": {
+        "name": "imgviewCali1",
+        "pos": "1200,20,60,60",
+        "bgalpha": 0,
+        "visible": 0,
+        "imgurl": "img/calibrate/cali.png"
+    },
+    "imgview-003": {
+        "name": "imgviewCali2",
+        "pos": "20,400,60,60",
+        "bgalpha": 0,
+        "visible": 0,
+        "imgurl": "img/calibrate/cali.png"
+    },
+    "imgview-004": {
+        "name": "imgviewCali3",
+        "pos": "1200,400,60,60",
+        "bgalpha": 0,
+        "visible": 0,
+        "imgurl": "img/calibrate/cali.png"
+    }
+}

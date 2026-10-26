@@ -1,0 +1,153 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,325"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "298,20,500,58",
+        "bgalpha": 0,
+        "bgimage": "img/bt/input.png"
+    },
+    "button-002": {
+        "name": "btnDel",
+        "pos": "798,20,188,66",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_del",
+        "clickeffect": 1,
+        "imgnor": "img/bt/del.png",
+        "imgpush": "img/bt/del_sel.png"
+    },
+    "button-003": {
+        "name": "btn1",
+        "pos": "298,86,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|1",
+        "clickeffect": 1,
+        "imgnor": "img/bt/1.png",
+        "imgpush": "img/bt/1_sel.png"
+    },
+    "button-004": {
+        "name": "btn2",
+        "pos": "423,86,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|2",
+        "clickeffect": 1,
+        "imgnor": "img/bt/2.png",
+        "imgpush": "img/bt/2_sel.png"
+    },
+    "button-005": {
+        "name": "btn3",
+        "pos": "548,86,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|3",
+        "clickeffect": 1,
+        "imgnor": "img/bt/3.png",
+        "imgpush": "img/bt/3_sel.png"
+    },
+    "button-006": {
+        "name": "btn4",
+        "pos": "673,86,125,68",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|4",
+        "clickeffect": 1,
+        "imgnor": "img/bt/4.png",
+        "imgpush": "img/bt/4_sel.png"
+    },
+    "button-007": {
+        "name": "btn5",
+        "pos": "298,152,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|5",
+        "clickeffect": 1,
+        "imgnor": "img/bt/5.png",
+        "imgpush": "img/bt/5_sel.png"
+    },
+    "button-008": {
+        "name": "btn6",
+        "pos": "423,152,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|6",
+        "clickeffect": 1,
+        "imgnor": "img/bt/6.png",
+        "imgpush": "img/bt/6_sel.png"
+    },
+    "button-009": {
+        "name": "btn7",
+        "pos": "548,152,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|7",
+        "clickeffect": 1,
+        "imgnor": "img/bt/7.png",
+        "imgpush": "img/bt/7_sel.png"
+    },
+    "button-010": {
+        "name": "btn8",
+        "pos": "673,152,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|8",
+        "clickeffect": 1,
+        "imgnor": "img/bt/8.png",
+        "imgpush": "img/bt/8_sel.png"
+    },
+    "button-011": {
+        "name": "btnAsterisk",
+        "pos": "298,218,125,67",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|*",
+        "clickeffect": 1,
+        "imgnor": "img/bt/ar.png",
+        "imgpush": "img/bt/ar_sel.png"
+    },
+    "button-012": {
+        "name": "btn9",
+        "pos": "423,218,125,66",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|9",
+        "clickeffect": 1,
+        "imgnor": "img/bt/9.png",
+        "imgpush": "img/bt/9_sel.png"
+    },
+    "button-013": {
+        "name": "btn0",
+        "pos": "548,218,125,66",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|0",
+        "clickeffect": 1,
+        "imgnor": "img/bt/0.png",
+        "imgpush": "img/bt/0_sel.png"
+    },
+    "button-014": {
+        "name": "btnWell",
+        "pos": "673,218,125,66",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|#",
+        "clickeffect": 1,
+        "imgnor": "img/bt/well.png",
+        "imgpush": "img/bt/well_sel.png"
+    },
+    "button-015": {
+        "name": "btnPlus",
+        "pos": "798,86,188,99",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_char|+",
+        "clickeffect": 1,
+        "imgnor": "img/bt/plus.png",
+        "imgpush": "img/bt/plus_sel.png"
+    },
+    "button-016": {
+        "name": "btnAnswer",
+        "pos": "798,185,188,99",
+        "bgalpha": 0,
+        "shortpfunc": "bt_dial_call",
+        "clickeffect": 1,
+        "imgnor": "img/bt/call.png",
+        "imgpush": "img/bt/call_sel.png"
+    },
+    "label-001": {
+        "name": "lblNumber",
+        "pos": "323,28,450,40",
+        "bgalpha": 0,
+        "textpad": "0,4,0,0"
+    }
+}

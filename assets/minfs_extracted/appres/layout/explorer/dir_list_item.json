@@ -1,0 +1,26 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,512,52"
+    },
+    "backgd-001": {
+        "name": "backgd",
+        "pos": "0,0,512,52",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/item_dir.png",
+        "checkedimg": "img/explorer/item_dir_sel.png"
+    },
+    "label-002": {
+        "name": "label_dir_name",
+        "pos": "62,4,350,45",
+        "bgalpha": 0,
+        "text": "song set",
+        "textalign": "left|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "imgview-001": {
+        "name": "imgview_icon",
+        "pos": "9,7,36,36",
+        "bgimage": "img/explorer/dir.png"
+    }
+}

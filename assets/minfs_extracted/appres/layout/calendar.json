@@ -1,0 +1,113 @@
+{
+    "attribute": {
+        "pagename": "calendar",
+        "titlename": "Calendar",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "label_1",
+        "pos": "0,0,1280,480",
+        "bgalpha": 0,
+        "textpad": "0,224,0,0"
+    },
+    "calendar-001": {
+        "name": "calendar_1",
+        "pos": "175,135,606,350",
+        "bgalpha": 0,
+        "daynames": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+        "textcolor": "#ffffff",
+        "focuscolor": "#ff0000",
+        "todaycolor": "#ff0000"
+    },
+    "label-002": {
+        "name": "lblYear",
+        "pos": "245,66,158,51",
+        "bgimage": "img/calendar/btn.png",
+        "textpad": "0,9,0,0"
+    },
+    "label-003": {
+        "name": "lblMonth",
+        "pos": "528,66,158,51",
+        "bgimage": "img/calendar/btn.png",
+        "txtkey": "calendar_calendar_jan",
+        "textpad": "0,9,0,0"
+    },
+    "button-004": {
+        "name": "btnYearLeft",
+        "pos": "207,75,27,35",
+        "commfunc": "calendar_btn_year_adjust|left",
+        "shortpfunc": "calendar_btn_year_adjust|left",
+        "imgnor": "img/calendar/prev.png",
+        "imgpush": "img/calendar/prev_sel.png"
+    },
+    "button-005": {
+        "name": "btnYearRight",
+        "pos": "415,75,27,34",
+        "commfunc": "calendar_btn_year_adjust|right",
+        "shortpfunc": "calendar_btn_year_adjust|right",
+        "imgnor": "img/calendar/next.png",
+        "imgpush": "img/calendar/next_sel.png"
+    },
+    "button-006": {
+        "name": "btnMonthLeft",
+        "pos": "490,75,27,35",
+        "commfunc": "calendar_btn_month_adjust|left",
+        "shortpfunc": "calendar_btn_month_adjust|left",
+        "imgnor": "img/calendar/prev.png",
+        "imgpush": "img/calendar/prev_sel.png"
+    },
+    "button-007": {
+        "name": "btnMonthRight",
+        "pos": "695,75,27,34",
+        "commfunc": "calendar_btn_month_adjust|right",
+        "shortpfunc": "calendar_btn_month_adjust|right",
+        "imgnor": "img/calendar/next.png",
+        "imgpush": "img/calendar/next_sel.png"
+    },
+    "backgd-002": {
+        "name": "bgdDate",
+        "pos": "935,66,169,172",
+        "bgalpha": 0,
+        "bgimage": "img/calendar/bg2.png"
+    },
+    "label-004": {
+        "name": "lblCurMonth",
+        "pos": "970,135,100,30",
+        "bgalpha": 0,
+        "txtkey": "calendar_calendar_jan",
+        "textpad": "0,-1,0,0",
+        "textcolor": "#ff000000"
+    },
+    "label-005": {
+        "name": "lblCurDay",
+        "pos": "970,185,100,30",
+        "bgalpha": 0,
+        "text": "1",
+        "textpad": "0,-1,0,0",
+        "textcolor": "#ff000000"
+    },
+    "label-006": {
+        "name": "lblWeek",
+        "pos": "935,305,169,50",
+        "bgalpha": 0,
+        "txtkey": "calendar_calendar_sunday",
+        "textpad": "0,9,0,0"
+    },
+    "button-008": {
+        "name": "btnToday",
+        "pos": "960,375,125,66",
+        "commfunc": "calendar_btn_today",
+        "bgalpha": 0,
+        "shortpfunc": "calendar_btn_today",
+        "clickeffect": 1,
+        "imgnor": "img/calendar/day.png",
+        "imgpush": "img/calendar/day_sel.png"
+    },
+    "label-009": {
+        "name": "lblToday",
+        "pos": "973,391,100,34",
+        "bgalpha": 0,
+        "txtkey": "calendar_calendar_today",
+        "textpad": "0,1,0,0"
+    }
+}

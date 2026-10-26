@@ -1,0 +1,63 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "lblWireless",
+        "pos": "280,210,960,30",
+        "bgalpha": 0,
+        "txtkey": "link_wireless",
+        "textalign": "left|vcenter",
+        "textpad": "0,0,0,0"
+    },
+    "label-002": {
+        "name": "lblStep",
+        "pos": "40,80,1200,60",
+        "bgalpha": 0,
+        "txtkey": "link_adr_qrcode",
+        "textalign": "left|vcenter",
+        "textpad": "0,0,0,0"
+    },
+    "label-003": {
+        "name": "lblStep1",
+        "pos": "280,240,960,70",
+        "bgalpha": 0,
+        "txtkey": "link_adr_step1",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "label-004": {
+        "name": "lblStep2",
+        "pos": "280,320,960,60",
+        "bgalpha": 0,
+        "txtkey": "link_adr_step2",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "label-005": {
+        "name": "lblStep3",
+        "pos": "280,390,960,60",
+        "bgalpha": 0,
+        "txtkey": "link_adr_step3",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "40,150,220,220",
+        "bgimage": "img/link/apk.png"
+    },
+    "label-006": {
+        "name": "label_6",
+        "pos": "280,150,960,30",
+        "bgalpha": 0,
+        "txtkey": "link_wired_mode",
+        "textalign": "left|vcenter",
+        "longmode": 0,
+        "textpad": "0,0,0,0"
+    }
+}

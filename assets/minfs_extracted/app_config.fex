@@ -1,0 +1,213 @@
+[logo_para]
+;开机LOGO选择： 0  开机动画,  1  普通LOGO
+logo_type=1
+;开机logo默认
+logo_style=0
+;logo总数
+logo_total =22
+
+[key_para]
+;编码器旋钮速度  默认：3 
+knob_speed = 1
+
+[ir_para] 
+;区分0x00ff遥控              
+ir_type=1            
+
+[ver_para]
+;version=系统版本号
+version =string:DIEGO SAGREDO EDITION 2026
+;info=版本编号			
+info =string:F133B-MP5
+;time_en=1设置版本时间，time_en=0默认编译时间
+time_en =0
+time =string:2022.10.20 10:33:29
+
+[fw_para]
+;usb_fw_name=U盘升级文件路径, sd_fw_name=TF卡升级文件路径
+usb_fw_name =string:f:\\F133_IMG\\melis_f133-b-pnd-16M-board_uart0_16Mnor.img
+sd_fw_name =string:g:\\F133_IMG\\melis_f133-b-pnd-16M-board_uart0_16Mnor.img
+
+[setting_para]
+;设置电话本自动获取选项 0:关闭    1:打开
+book_option = 1
+;设置通话记录自动获取选项 0:关闭    1:打开
+record_option = 1
+;设置车标选项 0:关闭    1:打开
+logo_option = 1
+;设置刹车选项 0:关闭    1:打开
+parking_option = 1
+
+[system_para]
+;语言选择：0 中文简体, 1 中文繁体, 2 英语, 3 西班牙语, 4 葡萄牙语, 5 俄语, 6 意大利语, 7 德语, 8 法语, 9 日语, 10 波兰语, 11 土耳其语, 12 捷克语, 13 乌克兰语, 14 泰语, 15 希伯来语, 16 阿拉伯语, 17 匈牙利语, 18 希腊语, 19 荷兰语, 20 韩语
+language=3
+;语言配置：0-19,根据上面语言输入,需要显示几种语言,显示在第几项 例: 英语显示在第一项，法语显示在第二项，按照顺序配置即可
+;language_config =string:2,8,7,6,4,3,10,19
+language_config =string:0,2,8,7,6,4,3,5,0,12,10,11,18,19,20
+
+;背景图选择： 0 - 4范围内		
+bg_style=2
+
+;按键灯颜色：0 自动, 1 红, 2 绿, 3 蓝, 4 黄, 5 紫, 6 青, 7 白		
+led_style=0
+
+;输出制式：0 NTSC, 1 PAL		
+output_format=1
+
+;系统音量	
+volume=25
+
+;蓝牙应用音量	
+bt_volume=25
+
+;对比度	
+contrast=50
+
+;亮度		
+bright=50
+
+;色饱和度	
+saturation=50
+
+;色度		
+hue=50
+
+;背光亮度		
+backlight = 100
+
+;VCOM
+vcom=33
+
+;刹车开关： 0: 刹车关， 1: 刹车开 		
+parking=0
+
+;收音频率区域：0: 中国， 1: 欧洲, 2: 美国, 3: 南美 4: 日本
+fm_area=0
+
+;后台播放
+bgmusic = 1
+
+;待机显示时间：0: 关， 1: 开		`
+show_time = 0
+
+;自动待机开关 0：关， 1：开
+auto_standby_onoff = 0
+
+;自动待机倒计时 0：10s，1：30s，2：1min，3：5min，4:10min，5:30min
+auto_standby_count = 0
+
+;断B+是否记忆：0: 记忆， 1: 不记忆		`
+power_off_save_memory = 0
+
+;SEL键短按功能切换还是静音：0: 功能键， 1: 静音		`
+sel_key_function = 1
+
+;时间制式：0: 24小时制， 1: 12小时制		
+time_format=0
+;默认时间	
+year=2025
+month=2
+day=1
+
+
+;上电背光打开时间，单位是10ms
+backlight_open_time = 35
+
+[bt_para]
+;蓝牙名称
+bt_name =string:L200
+
+[cpl_para]
+cpl_twi = 2
+cpl_width=1600
+cpl_height=600
+;carplay 通话音量0-175
+cpl_speaking_volume=160
+;无线cpl连接失败后重连次数
+try_count = 1
+
+[auto_para]
+auto_width=1280
+auto_height=480
+
+[touchpanel_para]
+;触摸屏类型： 0 电阻屏，1 电容屏
+touchpanel_type=1
+;电容屏x触摸原点： 0 左，   1 右	
+revert_x = 0
+;电容屏y触摸原点： 0 上，   1 下 								
+revert_y = 0
+;电容屏分辨率		
+tp_max_x = 1600
+tp_max_y = 600
+;X和Y交换 触摸屏分辨率为竖屏的时候用到
+exchange_x_y = 0
+;屏幕分辨率 一般不用修改
+ctp_screen_max_x=1280
+ctp_screen_max_y=480
+
+[touch_key_para]
+;电容屏触摸按键 0-电源键；1-短按mute键 长按电源键  2-短按模式键  长按电源键
+mute_power_en=1
+;触摸按键设置y轴的值，如果有触摸键设置值，没有触摸键设置为0
+power_min = 60
+power_max = 100
+
+mode_min =0
+mode_max =0
+
+next_min =0
+next_max =0
+
+prev_min =0
+prev_max =0
+
+home_min =0 
+home_max =0
+
+vadd_min = 100
+vadd_max = 140
+
+vdec_min = 140
+vdec_max = 180
+
+menu_min =0
+menu_max =0
+
+mute_min =0
+mute_max =0
+
+play_min =0
+play_max =0
+
+gps_min =0
+gps_max =0
+
+bt_min =0
+bt_max =0
+
+sel_min =0
+sel_max =0
+
+phone_min =0
+phone_max =0
+
+siri_min =0
+siri_max =0
+
+fm_min =0
+fm_max =0
+
+media_min =0
+media_max =0
+
+[ui_para]
+;触发下拉菜单X坐标范围，不响应X范围以外的下拉动作
+pull_range_x0 = 160
+pull_range_x1 = 1000
+;页面入场出场效果全局开关
+page_anim = 0
+;控件入场出场效果全局开关
+widget_anim = 0
+;触摸偏移范围，默认9
+touch_diff = 100

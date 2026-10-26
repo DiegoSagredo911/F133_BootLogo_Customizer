@@ -1,0 +1,19 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "backgd-002": {
+        "name": "setting_content",
+        "pos": "449,65,831,415",
+        "bgalpha": 0,
+        "bgimage": "img/setting/content_bg.png"
+    },
+    "tabhost-001": {
+        "name": "setting_bar",
+        "pos": "0,65,448,415",
+        "bgalpha": 0,
+        "contentctrl": "setting_content",
+        "layout": "layout/setting/setting_bar.json"
+    }
+}

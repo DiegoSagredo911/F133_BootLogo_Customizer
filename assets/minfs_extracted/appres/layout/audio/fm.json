@@ -1,0 +1,173 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,310"
+    },
+    "button-001": {
+        "name": "btnLeft",
+        "pos": "120,93,85,83",
+        "commfunc": "audio_fmtx_btn_left",
+        "shortpfunc": "audio_fmtx_btn_left",
+        "clickeffect": 1,
+        "imgnor": "img/audio/prev.png",
+	"imgpush": "img/audio/prev_sel.png"
+    },
+    "backgd-002": {
+        "name": "bgdFreqBg",
+        "pos": "242,60,795,145",
+        "bgalpha": 0,
+        "bgimage": "img/audio/freq_bg.png"
+    },
+    "button-003": {
+        "name": "btnRight",
+        "pos": "1072,93,85,83",
+        "commfunc": "audio_fmtx_btn_right",
+        "shortpfunc": "audio_fmtx_btn_right",
+        "clickeffect": 1,
+        "imgnor": "img/audio/next.png",
+	"imgpush": "img/audio/next_sel.png"
+    },
+    "imgview-005": {
+        "name": "imgviewBand",
+        "pos": "264,155,85,40",
+        "imgurl": "img/audio/fm1.png"
+    },
+    "imgview-011": {
+        "name": "imgviewMhz",
+        "pos": "928,155,85,40",
+        "imgurl": "img/audio/mhz.png"
+    },
+    "check-013": {
+        "name": "checkFreq1",
+        "pos": "110,210,93,90",
+        "commfunc": "audio_fmtx_btn_freq|1",
+        "bgimage": "img/audio/p1.png",
+        "longpressed": 1,
+        "clickmode": 1,
+        "checkedimg": "img/audio/p1_sel.png",
+        "groupid": 1,
+        "shortpfunc": "audio_fmtx_btn_freq|1"
+    },
+    "check-015": {
+        "name": "checkFreq2",
+        "pos": "313,210,93,90",
+        "commfunc": "audio_fmtx_btn_freq|2",
+        "bgimage": "img/audio/p2.png",
+        "longpressed": 1,
+        "clickmode": 1,
+        "checkedimg": "img/audio/p2_sel.png",
+        "groupid": 1,
+        "shortpfunc": "audio_fmtx_btn_freq|2"
+    },
+    "check-016": {
+        "name": "checkFreq3",
+        "pos": "516,210,93,90",
+        "commfunc": "audio_fmtx_btn_freq|3",
+        "bgimage": "img/audio/p3.png",
+        "longpressed": 1,
+        "clickmode": 1,
+        "checkedimg": "img/audio/p3_sel.png",
+        "groupid": 1,
+        "shortpfunc": "audio_fmtx_btn_freq|3"
+    },
+    "check-017": {
+        "name": "checkFreq4",
+        "pos": "719,210,93,90",
+        "commfunc": "audio_fmtx_btn_freq|4",
+        "bgimage": "img/audio/p4.png",
+        "longpressed": 1,
+        "clickmode": 1,
+        "checkedimg": "img/audio/p4_sel.png",
+        "groupid": 1,
+        "shortpfunc": "audio_fmtx_btn_freq|4"
+    },
+    "check-018": {
+        "name": "checkFreq5",
+        "pos": "933,210,93,90",
+        "commfunc": "audio_fmtx_btn_freq|5",
+        "bgimage": "img/audio/p5.png",
+        "longpressed": 1,
+        "clickmode": 1,
+        "checkedimg": "img/audio/p5_sel.png",
+        "groupid": 1,
+        "shortpfunc": "audio_fmtx_btn_freq|5"
+    },
+    "check-019": {
+        "name": "checkFreq6",
+        "pos": "1125,210,93,90",
+        "commfunc": "audio_fmtx_btn_freq|6",
+        "bgimage": "img/audio/p6.png",
+        "longpressed": 1,
+        "clickmode": 1,
+        "checkedimg": "img/audio/p6_sel.png",
+        "groupid": 1,
+        "shortpfunc": "audio_fmtx_btn_freq|6"
+    },
+    "label-020": {
+        "name": "lblFreq1",
+        "pos": "110,256,90,40",
+        "bgalpha": 0,
+        "text": "93.00",
+        "textpad": "0,4,0,0"
+    },
+    "label-021": {
+        "name": "lblFreq2",
+        "pos": "313,256,90,40",
+        "bgalpha": 0,
+        "text": "95.00",
+        "textpad": "0,4,0,0"
+    },
+    "label-022": {
+        "name": "lblFreq3",
+        "pos": "516,256,90,40",
+        "bgalpha": 0,
+        "text": "98.00",
+        "textpad": "0,4,0,0"
+    },
+    "label-023": {
+        "name": "lblFreq4",
+        "pos": "722,256,90,40",
+        "bgalpha": 0,
+        "text": "102.00",
+        "textpad": "0,4,0,0"
+    },
+    "label-024": {
+        "name": "lblFreq5",
+        "pos": "935,256,90,40",
+        "bgalpha": 0,
+        "text": "104.00",
+        "textpad": "0,4,0,0"
+    },
+    "label-025": {
+        "name": "lblFreq6",
+        "pos": "1127,256,90,40",
+        "bgalpha": 0,
+        "text": "106.00",
+        "textpad": "0,4,0,0"
+    },
+    "check-001": {
+        "name": "checkOnoff",
+        "pos": "1160,16,93,45",
+        "commfunc": "audio_fmtx_btn_onoff",
+        "bgalpha": 0,
+        "bgimage": "img/audio/off.png",
+        "clickmode": 1,
+        "checkedimg": "img/audio/on.png",
+        "groupid": 2,
+        "shortpfunc": "audio_fmtx_btn_onoff"
+    },
+    "slider-001": {
+        "name": "sldScale",
+        "pos": "137,0,1005,50",
+        "commfunc": "audio_fmtx_slide_scale",
+        "bgimage": "img/audio/curs.png",
+        "knobimg": "img/audio/point.png"
+    },
+    "label-005": {
+        "name": "lblFmtxFreq",
+        "pos": "520,102,240,55",
+        "bgalpha": 0,
+        "text": "104.30",
+        "textpad": "0,11,0,0"
+    }
+}

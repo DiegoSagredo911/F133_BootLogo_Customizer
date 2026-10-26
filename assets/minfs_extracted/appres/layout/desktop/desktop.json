@@ -1,0 +1,146 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "slidepage-006": {
+        "name": "slidepageDesktop",
+        "pos": "147,306,990,195",
+        "bgalpha": 0,
+        "layouts": "layout/desktop/desktop_page1.json|layout/desktop/desktop_page2.json"
+    },
+    "button-001": {
+        "name": "btnCarplay",
+        "pos": "0,338,140,98",
+        "commfunc": "home_btn_cpl",
+        "shortpfunc": "home_btn_cpl",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Carplay.png",
+        "imgpush": "img/desktop/desktop_Carplay_sel.png"
+    },
+    "button-002": {
+        "name": "btnAuto",
+        "pos": "1153,338,140,98",
+        "commfunc": "home_btn_aoa",
+        "shortpfunc": "home_btn_aoa",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Aoa.png",
+        "imgpush": "img/desktop/desktop_Aoa_sel.png"
+    },
+    "backgd-001": {
+        "name": "bgdBg",
+        "pos": "778,70,394,222",
+        "bgimage": "img/desktop/desktop_bg.png"
+    },
+    "button-006": {
+        "name": "btnPre",
+        "pos": "825,234,40,26",
+        "commfunc": "home_btn_music_prev",
+        "shortpfunc": "home_btn_music_prev",
+        "imgnor": "img/desktop/pre.png",
+        "imgpush": "img/desktop/pre_sel.png"
+    },
+    "button-008": {
+        "name": "btnNext",
+        "pos": "1091,234,40,26",
+	"commfunc": "home_btn_music_next",
+        "shortpfunc": "home_btn_music_next",
+        "imgnor": "img/desktop/next.png",
+        "imgpush": "img/desktop/next_sel.png"
+    },
+    "button-010": {
+        "name": "btnPlay",
+        "pos": "945,220,62,62",
+        "commfunc": "home_btn_music_play",
+        "bgalpha": 0,
+        "visible": 0,
+        "shortpfunc": "home_btn_music_play",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/play.png"
+    },
+    "label-002": {
+        "name": "lblMusic",
+        "pos": "920,123,235,45",
+        "bgalpha": 0,
+        "textpad": "0,6,0,0"
+    },
+    "backgd-002": {
+        "name": "backUsb",
+        "pos": "812,92,98,98",
+        "bgimage": "img/desktop/usb_music.png"
+    },
+    "backgd-003": {
+        "name": "backSd",
+        "pos": "812,92,98,98",
+        "bgimage": "img/desktop/sd_music.png"
+    },
+    "backgd-004": {
+        "name": "backBt",
+        "pos": "812,92,98,98",
+        "bgimage": "img/desktop/bt_music.png"
+    },
+    "backgd-007": {
+        "name": "backCarplay",
+        "pos": "812,92,98,98",
+        "bgimage": "img/desktop/carplay.png"
+    },
+    "backgd-008": {
+        "name": "backAuto",
+        "pos": "812,92,98,98",
+        "bgimage": "img/desktop/auto.png"
+    },
+    "backgd-009": {
+        "name": "backMir",
+        "pos": "812,92,98,98",
+        "bgimage": "img/desktop/mir.png"
+    },
+    "label-001": {
+        "name": "lblTime",
+        "pos": "270,70,200,80",
+        "bgalpha": 0,
+        "text": "12:00",
+        "textpad": "0,24,0,0"
+    },
+    "label-003": {
+        "name": "lblDate",
+        "pos": "276,180,200,44",
+        "bgalpha": 0,
+        "text": "2025-05-28",
+        "textpad": "0,6,0,0"
+    },
+    "label-004": {
+        "name": "lblWeek",
+        "pos": "298,225,150,40",
+        "bgalpha": 0,
+        "txtkey": "home_home_sunday",
+        "textpad": "0,4,0,0"
+    },
+    "button-003": {
+        "name": "btnPause",
+        "pos": "945,220,62,62",
+        "commfunc": "home_btn_music_pause",
+        "shortpfunc": "home_btn_music_pause",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/pause.png"
+    },
+    "backgd-006": {
+        "name": "bgdAM",
+        "pos": "470,112,65,39",
+        "bgimage": "img/desktop/am.png",
+        "visible": 0
+    },
+    "backgd-005": {
+        "name": "bgdPM",
+        "pos": "470,112,65,39",
+        "bgimage": "img/desktop/pm.png",
+        "visible": 0
+    },
+    "button-004": {
+        "name": "btnBack",
+        "pos": "812,92,98,98",
+	"commfunc": "home_btn_back",
+        "shortpfunc": "home_btn_back",
+        "clickeffect": 1,
+        "bgalpha": 0
+    }
+}

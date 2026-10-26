@@ -1,0 +1,140 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "99,48,636,51",
+        "bgalpha": 0,
+        "bgimage": "img/setting/input.png"
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "36,10,500,37",
+        "bgalpha": 0,
+        "txtkey": "setting_set_input_password",
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,2,0,0"
+    },
+    "button-003": {
+        "name": "btn1",
+        "pos": "99,112,166,62",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_char|1",
+        "clickeffect": 1,
+        "imgnor": "img/setting/1.png",
+        "imgpush": "img/setting/1_sel.png"
+    },
+    "button-004": {
+        "name": "btn4",
+        "pos": "99,186,166,62",
+        "shortpfunc": "setting_factory_btn_char|4",
+        "clickeffect": 1,
+        "imgnor": "img/setting/4.png",
+        "imgpush": "img/setting/4_sel.png"
+    },
+    "button-005": {
+        "name": "btn7",
+        "pos": "99,260,166,62",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_char|7",
+        "clickeffect": 1,
+        "imgnor": "img/setting/7.png",
+        "imgpush": "img/setting/7_sel.png"
+    },
+    "button-006": {
+        "name": "btnClear",
+        "pos": "99,334,166,62",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_clear",
+        "clickeffect": 1,
+        "imgnor": "img/setting/x.png",
+        "imgpush": "img/setting/x_sel.png"
+    },
+    "button-007": {
+        "name": "btn2",
+        "pos": "334,112,166,62",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_char|2",
+        "clickeffect": 1,
+        "imgnor": "img/setting/2.png",
+        "imgpush": "img/setting/2_sel.png"
+    },
+    "button-008": {
+        "name": "btn3",
+        "pos": "569,112,166,62",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_char|3",
+        "clickeffect": 1,
+        "imgnor": "img/setting/3.png",
+        "imgpush": "img/setting/3_sel.png"
+    },
+    "button-009": {
+        "name": "btn5",
+        "pos": "334,186,166,62",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_char|5",
+        "clickeffect": 1,
+        "imgnor": "img/setting/5.png",
+        "imgpush": "img/setting/5_sel.png"
+    },
+    "button-010": {
+        "name": "btn6",
+        "pos": "569,186,166,62",
+        "shortpfunc": "setting_factory_btn_char|6",
+        "clickeffect": 1,
+        "imgnor": "img/setting/6.png",
+        "imgpush": "img/setting/6_sel.png"
+    },
+    "button-011": {
+        "name": "btn8",
+        "pos": "334,260,166,62",
+        "shortpfunc": "setting_factory_btn_char|8",
+        "clickeffect": 1,
+        "imgnor": "img/setting/8.png",
+        "imgpush": "img/setting/8_sel.png"
+    },
+    "button-012": {
+        "name": "btn9",
+        "pos": "569,260,166,62",
+        "shortpfunc": "setting_factory_btn_char|9",
+        "clickeffect": 1,
+        "imgnor": "img/setting/9.png",
+        "imgpush": "img/setting/9_sel.png"
+    },
+    "button-013": {
+        "name": "btn0",
+        "pos": "334,334,166,62",
+        "shortpfunc": "setting_factory_btn_char|0",
+        "clickeffect": 1,
+        "imgnor": "img/setting/0.png",
+        "imgpush": "img/setting/0_sel.png"
+    },
+    "button-014": {
+        "name": "btnOk",
+        "pos": "569,334,166,62",
+        "shortpfunc": "setting_factory_btn_ok",
+        "clickeffect": 1,
+        "imgnor": "img/setting/ok.png",
+        "imgpush": "img/setting/ok_sel.png"
+    },
+    "label-001": {
+        "name": "lblInput",
+        "pos": "267,50,300,45",
+        "bgalpha": 0,
+        "txtkey": "setting_set_enter_password",
+        "longmode": 1,
+        "textpad": "0,6,0,0"
+    },
+    "button-002": {
+        "name": "btnDel",
+        "pos": "657,60,39,22",
+        "bgalpha": 0,
+        "shortpfunc": "setting_factory_btn_del",
+        "clickeffect": 1,
+        "imgnor": "img/setting/del.png",
+        "imgpush": "img/setting/del_sel.png"
+    }
+}

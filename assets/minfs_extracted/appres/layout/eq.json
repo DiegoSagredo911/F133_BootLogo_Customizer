@@ -1,0 +1,345 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "label-001": {
+        "name": "lblLoud",
+        "pos": "600,79,118,34",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_loudness",
+        "textalign": "right|vcenter",
+        "textpad": "0,1,0,0"
+    },
+    "check-002": {
+        "name": "checkLoudonoff",
+        "pos": "723,79,88,37",
+        "commfunc": "eq_btn_loud_onoff",
+        "bgalpha": 0,
+        "bgimage": "img/eq/loud_off.png",
+        "checkedimg": "img/eq/loud_on.png",
+        "shortpfunc": "eq_btn_loud_onoff"
+    },
+    "button-004": {
+        "name": "btnDefault",
+        "pos": "1018,65,155,60",
+        "commfunc": "eq_btn_default",
+        "bgalpha": 0,
+        "shortpfunc": "eq_btn_default",
+        "imgnor": "img/eq/btn.png",
+        "imgpush": "img/eq/btn_sel.png"
+    },
+    "check-018": {
+        "name": "checkJazz",
+        "pos": "100,405,127,65",
+        "commfunc": "eq_btn_mode|jazz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/eq_btn.png",
+        "checkedimg": "img/eq/eq_btn_sel.png",
+        "groupid": 1,
+        "shortpfunc": "eq_btn_mode|jazz"
+    },
+    "label-019": {
+        "name": "lblJazz",
+        "pos": "100,415,127,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_jazz",
+        "textpad": "0,4,0,0"
+    },
+    "check-020": {
+        "name": "checkClassic",
+        "pos": "290,405,127,65",
+        "commfunc": "eq_btn_mode|classic",
+        "bgalpha": 0,
+        "bgimage": "img/eq/eq_btn.png",
+        "checkedimg": "img/eq/eq_btn_sel.png",
+        "groupid": 1,
+        "shortpfunc": "eq_btn_mode|classic"
+    },
+    "label-021": {
+        "name": "lblClassic",
+        "pos": "290,415,127,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_classic",
+        "textpad": "0,4,0,0"
+    },
+    "check-022": {
+        "name": "checkRock",
+        "pos": "480,405,127,65",
+        "commfunc": "eq_btn_mode|rock",
+        "bgalpha": 0,
+        "bgimage": "img/eq/eq_btn.png",
+        "checkedimg": "img/eq/eq_btn_sel.png",
+        "groupid": 1,
+        "shortpfunc": "eq_btn_mode|rock"
+    },
+    "label-023": {
+        "name": "lblRock",
+        "pos": "480,415,127,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_rock",
+        "textpad": "0,4,0,0"
+    },
+    "check-024": {
+        "name": "checkPop",
+        "pos": "670,405,127,65",
+        "commfunc": "eq_btn_mode|pop",
+        "bgalpha": 0,
+        "bgimage": "img/eq/eq_btn.png",
+        "checkedimg": "img/eq/eq_btn_sel.png",
+        "groupid": 1,
+        "shortpfunc": "eq_btn_mode|pop"
+    },
+    "label-025": {
+        "name": "lblPop",
+        "pos": "670,415,127,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_pop",
+        "textpad": "0,4,0,0"
+    },
+    "check-026": {
+        "name": "checkSoft",
+        "pos": "860,405,127,65",
+        "commfunc": "eq_btn_mode|soft",
+        "bgalpha": 0,
+        "bgimage": "img/eq/eq_btn.png",
+        "checkedimg": "img/eq/eq_btn_sel.png",
+        "groupid": 1,
+        "shortpfunc": "eq_btn_mode|soft"
+    },
+    "label-027": {
+        "name": "lblSoft",
+        "pos": "860,415,127,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_Soft",
+        "textpad": "0,4,0,0"
+    },
+    "check-028": {
+        "name": "checkUser",
+        "pos": "1050,405,127,65",
+        "commfunc": "eq_btn_mode|user",
+        "bgalpha": 0,
+        "bgimage": "img/eq/eq_btn.png",
+        "checkedimg": "img/eq/eq_btn_sel.png",
+        "groupid": 1,
+        "shortpfunc": "eq_btn_mode|user"
+    },
+    "label-029": {
+        "name": "lblUser",
+        "pos": "1050,415,127,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_user",
+        "textpad": "0,4,0,0"
+    },
+    "label-030": {
+        "name": "lbl30Hz",
+        "pos": "213,128,80,30",
+        "bgalpha": 0,
+        "text": "30Hz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-031": {
+        "name": "lbl60Hz",
+        "pos": "312,128,80,30",
+        "bgalpha": 0,
+        "text": "60Hz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-032": {
+        "name": "lbl125Hz",
+        "pos": "411,128,80,30",
+        "bgalpha": 0,
+        "text": "125Hz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-033": {
+        "name": "lbl250Hz",
+        "pos": "512,128,80,30",
+        "bgalpha": 0,
+        "text": "250Hz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-034": {
+        "name": "lbl500Hz",
+        "pos": "612,128,80,30",
+        "bgalpha": 0,
+        "text": "500Hz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-035": {
+        "name": "lbl1KHz",
+        "pos": "710,128,80,30",
+        "bgalpha": 0,
+        "text": "1KHz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-036": {
+        "name": "lbl2KHz",
+        "pos": "810,128,80,30",
+        "bgalpha": 0,
+        "text": "2KHz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-037": {
+        "name": "lbl4KHz",
+        "pos": "911,128,80,30",
+        "bgalpha": 0,
+        "text": "4KHz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-038": {
+        "name": "lblP10dB",
+        "pos": "100,168,75,30",
+        "bgalpha": 0,
+        "text": "+10dB",
+        "textalign": "right|vcenter",
+        "textpad": "0,-1,0,0"
+    },
+    "label-039": {
+        "name": "lblValue",
+        "pos": "100,270,75,20",
+        "bgalpha": 0,
+        "text": "0",
+        "textalign": "right|vcenter",
+        "textpad": "0,-6,0,0"
+    },
+    "label-040": {
+        "name": "lblM10dB",
+        "pos": "100,359,75,27",
+        "bgalpha": 0,
+        "text": "-10dB",
+        "textalign": "right|vcenter",
+        "textpad": "0,-2,0,0"
+    },
+    "label-041": {
+        "name": "lbl8KHz",
+        "pos": "1009,128,80,30",
+        "bgalpha": 0,
+        "text": "8KHz",
+        "textpad": "0,-1,0,0"
+    },
+    "label-042": {
+        "name": "lbl16KHz",
+        "pos": "1106,128,80,30",
+        "bgalpha": 0,
+        "text": "16KHz",
+        "textpad": "0,-1,0,0"
+    },
+    "slider-043": {
+        "name": "sld30Hz",
+        "pos": "235,160,28,238",
+        "commfunc": "eq_slide_gain|30Hz",
+        "bgimage": "img/eq/bg.png",
+        "animon": 1,
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-044": {
+        "name": "sld60Hz",
+        "pos": "335,160,28,238",
+        "commfunc": "eq_slide_gain|60Hz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "animon": 1,
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-045": {
+        "name": "sld125Hz",
+        "pos": "435,160,28,238",
+        "commfunc": "eq_slide_gain|125Hz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "animon": 1,
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-046": {
+        "name": "sld250Hz",
+        "pos": "535,160,28,238",
+        "commfunc": "eq_slide_gain|250Hz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "animon": 1,
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-047": {
+        "name": "sld500Hz",
+        "pos": "635,160,28,238",
+        "commfunc": "eq_slide_gain|500Hz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "animon": 1,
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-048": {
+        "name": "sld1KHz",
+        "pos": "735,160,28,238",
+        "commfunc": "eq_slide_gain|1KHz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-049": {
+        "name": "sld2KHz",
+        "pos": "835,160,28,238",
+        "commfunc": "eq_slide_gain|2KHz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-050": {
+        "name": "sld4KHz",
+        "pos": "935,160,28,238",
+        "commfunc": "eq_slide_gain|4KHz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-051": {
+        "name": "sld8KHz",
+        "pos": "1035,160,28,238",
+        "commfunc": "eq_slide_gain|8KHz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "slider-052": {
+        "name": "sld16KHz",
+        "pos": "1135,160,28,238",
+        "commfunc": "eq_slide_gain|16KHz",
+        "bgalpha": 0,
+        "bgimage": "img/eq/bg.png",
+        "knobimg": "img/eq/flag.png",
+        "indicatorimg": "img/eq/point.png"
+    },
+    "button-001": {
+        "name": "btnBalance",
+        "pos": "848,65,155,60",
+	"commfunc": "eq_btn_balance",
+        "bgalpha": 0,        
+	"shortpfunc": "eq_btn_balance",
+        "imgnor": "img/eq/btn.png",
+        "imgpush": "img/eq/btn_sel.png"
+    },
+    "label-006": {
+        "name": "lblDefault",
+        "pos": "1031,75,130,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_default",
+        "textpad": "0,4,0,0"
+    },
+    "label-002": {
+        "name": "lblBalance",
+        "pos": "862,75,130,40",
+        "bgalpha": 0,
+        "txtkey": "eq_eq_balance",
+        "textpad": "0,4,0,0"
+    }
+}

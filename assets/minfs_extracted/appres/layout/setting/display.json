@@ -1,0 +1,130 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "30,10,600,50",
+        "bgalpha": 0,
+        "txtkey": "setting_set_set_display",
+        "textalign": "left|vcenter",
+        "textpad": "0,9,0,0"
+    },
+    "label-003": {
+        "name": "label_3",
+        "pos": "5,58,145,42",
+        "bgalpha": 0,
+        "txtkey": "setting_set_bright",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,5,0,0"
+    },
+    "label-004": {
+        "name": "label_4",
+        "pos": "5,108,145,42",
+        "bgalpha": 0,
+        "txtkey": "setting_set_contrast",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,5,0,0"
+    },
+    "label-005": {
+        "name": "label_5",
+        "pos": "5,157,145,42",
+        "bgalpha": 0,
+        "txtkey": "setting_set_hue",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,5,0,0"
+    },
+    "label-006": {
+        "name": "label_6",
+        "pos": "5,207,145,42",
+        "bgalpha": 0,
+        "txtkey": "setting_set_saturation",
+        "textalign": "right|vcenter",
+        "longmode": 1,
+        "textpad": "0,5,0,0"
+    },
+    "slider-008": {
+        "name": "sldBright",
+        "pos": "162,62,572,30",
+        "commfunc": "setting_display_slide_type|bright",
+        "bgalpha": 0,
+        "bgimage": "img/setting/sl_bg.png",
+        "knobimg": "img/setting/sl_p.png",
+        "indicatorimg": "img/setting/sl_sel.png"
+    },
+    "slider-009": {
+        "name": "sldContrast",
+        "pos": "162,112,572,30",
+        "commfunc": "setting_display_slide_type|contrast",
+        "bgalpha": 0,
+        "bgimage": "img/setting/sl_bg.png",
+        "knobimg": "img/setting/sl_p.png",
+        "indicatorimg": "img/setting/sl_sel.png"
+    },
+    "slider-010": {
+        "name": "sldHue",
+        "pos": "162,162,572,30",
+        "commfunc": "setting_display_slide_type|hue",
+        "bgalpha": 0,
+        "bgimage": "img/setting/sl_bg.png",
+        "knobimg": "img/setting/sl_p.png",
+        "indicatorimg": "img/setting/sl_sel.png"
+    },
+    "slider-011": {
+        "name": "sldSaturation",
+        "pos": "162,212,572,30",
+        "commfunc": "setting_display_slide_type|saturation",
+        "bgalpha": 0,
+        "bgimage": "img/setting/sl_bg.png",
+        "knobimg": "img/setting/sl_p.png",
+        "indicatorimg": "img/setting/sl_sel.png"
+    },
+    "button-001": {
+        "name": "btnDefault",
+        "pos": "369,300,155,60",
+        "commfunc": "setting_display_btn_default",
+        "bgalpha": 0,
+        "shortpfunc": "setting_display_btn_default",
+        "clickeffect": 1,
+        "imgnor": "img/setting/default_btn.png"
+    },
+    "label-007": {
+        "name": "label_7",
+        "pos": "369,300,150,60",
+        "bgalpha": 0,
+        "txtkey": "setting_set_default",
+        "textpad": "0,14,0,0"
+    },
+    "label-008": {
+        "name": "lblBright",
+        "pos": "757,56,70,42",
+        "bgalpha": 0,
+        "text": "50",
+        "textpad": "0,5,0,0"
+    },
+    "label-009": {
+        "name": "lblContrast",
+        "pos": "757,106,70,42",
+        "bgalpha": 0,
+        "text": "50",
+        "textpad": "0,5,0,0"
+    },
+    "label-010": {
+        "name": "lblHue",
+        "pos": "757,158,70,42",
+        "bgalpha": 0,
+        "text": "50",
+        "textpad": "0,5,0,0"
+    },
+    "label-011": {
+        "name": "lblSaturation",
+        "pos": "757,207,70,42",
+        "bgalpha": 0,
+        "text": "50",
+        "textpad": "0,5,0,0"
+    }
+}

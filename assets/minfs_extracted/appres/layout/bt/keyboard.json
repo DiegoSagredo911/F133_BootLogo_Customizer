@@ -1,0 +1,179 @@
+{
+    "attribute": {
+        "pagename": "ui_speak_keyboard",
+        "pos": "0,0,800,315",
+        "osdalpha": 195,
+        "inffect": 1,
+        "outeffect": 1
+    },
+    "backgd-002": {
+        "name": "backgd_2",
+        "pos": "0,0,800,315",
+        "bgcolor": "#000000",
+        "bgalpha": 220,
+        "radius": 10
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "58,35,500,58",
+        "bgalpha": 0,
+        "bgimage": "img/bt/input.png"
+    },
+    "button-002": {
+        "name": "btnDel",
+        "pos": "558,35,188,66",
+        "commfunc": "bt_speak_btn_del",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_btn_del",
+        "clickeffect": 1,
+        "imgnor": "img/bt/del.png",
+        "imgpush": "img/bt/del_sel.png"
+    },
+    "button-003": {
+        "name": "btn1",
+        "pos": "58,100,125,67",
+        "commfunc": "bt_speak_char|1",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|1",
+        "clickeffect": 1,
+        "imgnor": "img/bt/1.png",
+        "imgpush": "img/bt/1_sel.png"
+    },
+    "button-004": {
+        "name": "btn2",
+        "pos": "183,100,125,67",
+        "commfunc": "bt_speak_char|2",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|2",
+        "clickeffect": 1,
+        "imgnor": "img/bt/2.png",
+        "imgpush": "img/bt/2_sel.png"
+    },
+    "button-005": {
+        "name": "btn3",
+        "pos": "308,100,125,67",
+        "commfunc": "bt_speak_char|3",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|3",
+        "clickeffect": 1,
+        "imgnor": "img/bt/3.png",
+        "imgpush": "img/bt/3_sel.png"
+    },
+    "button-006": {
+        "name": "btn4",
+        "pos": "433,100,125,68",
+        "commfunc": "bt_speak_char|4",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|4",
+        "clickeffect": 1,
+        "imgnor": "img/bt/4.png",
+        "imgpush": "img/bt/4_sel.png"
+    },
+    "button-007": {
+        "name": "btn5",
+        "pos": "58,166,125,67",
+        "commfunc": "bt_speak_char|5",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|5",
+        "clickeffect": 1,
+        "imgnor": "img/bt/5.png",
+        "imgpush": "img/bt/5_sel.png"
+    },
+    "button-008": {
+        "name": "btn6",
+        "pos": "183,166,125,67",
+        "commfunc": "bt_speak_char|6",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|6",
+        "clickeffect": 1,
+        "imgnor": "img/bt/6.png",
+        "imgpush": "img/bt/6_sel.png"
+    },
+    "button-009": {
+        "name": "btn7",
+        "pos": "308,166,125,67",
+        "commfunc": "bt_speak_char|7",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|7",
+        "clickeffect": 1,
+        "imgnor": "img/bt/7.png",
+        "imgpush": "img/bt/7_sel.png"
+    },
+    "button-010": {
+        "name": "btn8",
+        "pos": "433,166,125,67",
+        "commfunc": "bt_speak_char|8",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|8",
+        "clickeffect": 1,
+        "imgnor": "img/bt/8.png",
+        "imgpush": "img/bt/8_sel.png"
+    },
+    "button-011": {
+        "name": "btnAsterisk",
+        "pos": "58,232,125,67",
+        "commfunc": "bt_speak_char|*",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|*",
+        "clickeffect": 1,
+        "imgnor": "img/bt/ar.png",
+        "imgpush": "img/bt/ar_sel.png"
+    },
+    "button-012": {
+        "name": "btn9",
+        "pos": "183,232,125,66",
+        "commfunc": "bt_speak_char|9",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|9",
+        "clickeffect": 1,
+        "imgnor": "img/bt/9.png",
+        "imgpush": "img/bt/9_sel.png"
+    },
+    "button-013": {
+        "name": "btn0",
+        "pos": "308,232,125,66",
+        "commfunc": "bt_speak_char|0",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|0",
+        "clickeffect": 1,
+        "imgnor": "img/bt/0.png",
+        "imgpush": "img/bt/0_sel.png"
+    },
+    "button-014": {
+        "name": "btnWell",
+        "pos": "433,232,125,66",
+        "commfunc": "bt_speak_char|#",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|#",
+        "clickeffect": 1,
+        "imgnor": "img/bt/well.png",
+        "imgpush": "img/bt/well_sel.png"
+    },
+    "button-015": {
+        "name": "btnPlus",
+        "pos": "558,100,188,99",
+        "commfunc": "bt_speak_char|+",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_char|+",
+        "clickeffect": 1,
+        "imgnor": "img/bt/plus.png",
+        "imgpush": "img/bt/plus_sel.png"
+    },
+    "button-016": {
+        "name": "btnAnswer",
+        "pos": "558,199,188,99",
+        "commfunc": "bt_speak_btn_answer",
+        "bgalpha": 0,
+        "shortpfunc": "bt_speak_btn_answer",
+        "clickeffect": 1,
+        "imgnor": "img/bt/call.png",
+        "imgpush": "img/bt/call_sel.png"
+    },
+    "label-001": {
+        "name": "lblInputData",
+        "pos": "83,45,450,40",
+        "bgcolor": "#e6e6e6",
+        "bgalpha": 0,
+        "textpad": "0,4,0,0"
+    }
+}

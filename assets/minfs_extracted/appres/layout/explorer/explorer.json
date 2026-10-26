@@ -1,0 +1,35 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "backgd-005": {
+        "name": "bgdContent",
+        "pos": "29,66,1222,313",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/list_bg.png"
+    },
+    "listview-001": {
+        "name": "listview_file",
+        "pos": "573,66,678,313",
+        "bgcolor": "#000000",
+        "bgalpha": 0,
+        "rowspace": 4,
+        "layouts": "layout/explorer/file_list_item.json|layout/explorer/file_list_item.json|layout/explorer/file_list_item.json"
+    },
+    "listview-002": {
+        "name": "listview_dir",
+        "pos": "29,66,513,313",
+        "bgcolor": "#000000",
+        "bgalpha": 0,
+        "rowspace": 4,
+        "layouts": "layout/explorer/dir_list_item.json|layout/explorer/dir_list_item.json|layout/explorer/dir_list_item.json"
+    },
+    "container-001": {
+        "name": "containerBar",
+        "pos": "0,390,1280,90",
+        "bgalpha": 0,
+        "bgimage": "img/explorer/check_bg.png",
+        "uilayout": "layout/explorer/explorer_bar.json"
+    }
+}

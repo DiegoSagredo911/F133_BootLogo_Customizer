@@ -1,0 +1,76 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,100"
+    },
+    "check-001": {
+        "name": "check_1",
+        "pos": "0,0,320,100",
+        "commfunc": "audio_check_channel_type|speaker",
+        "bgalpha": 0,
+        "bgimage": "img/audio/tab_speak.png",
+        "checkedimg": "img/audio/tab_speak.png",
+        "groupid": 1,
+        "actlayout": "layout/audio/speak.json",
+        "shortpfunc": "audio_check_channel_type|speaker"
+    },
+    "check-002": {
+        "name": "check_2",
+        "pos": "321,0,320,100",
+        "commfunc": "audio_check_channel_type|phone",
+        "bgalpha": 0,
+        "bgimage": "img/audio/tab_phone.png",
+        "checkedimg": "img/audio/tab_phone.png",
+        "groupid": 1,
+        "actlayout": "layout/audio/phone.json",
+        "shortpfunc": "audio_check_channel_type|phone"
+    },
+    "check-003": {
+        "name": "check_3",
+        "pos": "641,0,320,100",
+        "commfunc": "audio_check_channel_type|fmtx",
+        "bgimage": "img/audio/tab_fm.png",
+        "checkedimg": "img/audio/tab_fm.png",
+        "groupid": 1,
+        "actlayout": "layout/audio/fm.json",
+        "shortpfunc": "audio_check_channel_type|fmtx"
+    },
+    "check-004": {
+        "name": "check_4",
+        "pos": "960,0,320,100",
+        "commfunc": "audio_check_channel_type|aux",
+        "bgimage": "img/audio/tab_aux.png",
+        "checkedimg": "img/audio/tab_aux.png",
+        "groupid": 1,
+        "actlayout": "layout/audio/auxin.json",
+        "shortpfunc": "audio_check_channel_type|aux"
+    },
+    "label-001": {
+        "name": "label_1",
+        "pos": "60,60,200,30",
+        "bgalpha": 0,
+        "text": "Speaker",
+        "textpad": "0,-1,0,0"
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "384,60,200,30",
+        "bgalpha": 0,
+        "text": "CarPlay/Auto",
+        "textpad": "0,-1,0,0"
+    },
+    "label-003": {
+        "name": "label_3",
+        "pos": "705,60,200,30",
+        "bgalpha": 0,
+        "text": "FM",
+        "textpad": "0,-1,0,0"
+    },
+    "label-004": {
+        "name": "label_4",
+        "pos": "1026,60,200,30",
+        "bgalpha": 0,
+        "text": "AUX",
+        "textpad": "0,-1,0,0"
+    }
+}

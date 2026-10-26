@@ -1,0 +1,268 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "label-001": {
+        "name": "label_1",
+        "pos": "10,0,650,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_touch_learn_tip",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "button-002": {
+        "name": "btnPrev",
+        "pos": "100,50,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-003": {
+        "name": "label_3",
+        "pos": "102,55,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_prev",
+        "textpad": "0,4,0,0"
+    },
+    "button-004": {
+        "name": "btnPlay",
+        "pos": "270,50,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-005": {
+        "name": "label_5",
+        "pos": "272,55,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_play",
+        "textpad": "0,4,0,0"
+    },
+    "button-006": {
+        "name": "btnNext",
+        "pos": "440,50,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-007": {
+        "name": "label_7",
+        "pos": "442,55,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_next",
+        "textpad": "0,4,0,0"
+    },
+    "button-008": {
+        "name": "btnBand",
+        "pos": "610,50,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-009": {
+        "name": "label_9",
+        "pos": "612,55,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_band",
+        "textpad": "0,4,0,0"
+    },
+    "button-010": {
+        "name": "btnVolUp",
+        "pos": "100,120,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-011": {
+        "name": "label_11",
+        "pos": "102,125,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_volup",
+        "textpad": "0,4,0,0"
+    },
+    "button-001": {
+        "name": "btnMute",
+        "pos": "270,120,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "272,125,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_mute",
+        "textpad": "0,4,0,0"
+    },
+    "button-003": {
+        "name": "btnVolDown",
+        "pos": "440,120,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-004": {
+        "name": "label_4",
+        "pos": "442,125,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_voldown",
+        "textpad": "0,4,0,0"
+    },
+    "button-005": {
+        "name": "btnReturn",
+        "pos": "610,120,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-006": {
+        "name": "label_6",
+        "pos": "612,125,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_return",
+        "textpad": "0,4,0,0"
+    },
+    "button-007": {
+        "name": "btnMode",
+        "pos": "100,190,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-008": {
+        "name": "label_8",
+        "pos": "102,195,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_mode",
+        "textpad": "0,4,0,0"
+    },
+    "button-009": {
+        "name": "btnDial",
+        "pos": "270,190,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-010": {
+        "name": "label_10",
+        "pos": "272,195,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_dial",
+        "textpad": "0,4,0,0"
+    },
+    "button-011": {
+        "name": "btnReject",
+        "pos": "440,190,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-012": {
+        "name": "label_12",
+        "pos": "442,195,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_reject",
+        "textpad": "0,4,0,0"
+    },
+    "button-013": {
+        "name": "btnTftOff",
+        "pos": "610,190,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-014": {
+        "name": "label_14",
+        "pos": "612,195,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_tft_off",
+        "textpad": "0,4,0,0"
+    },
+    "button-015": {
+        "name": "btnPower",
+        "pos": "100,260,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-016": {
+        "name": "label_16",
+        "pos": "102,265,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_power",
+        "textpad": "0,4,0,0"
+    },
+    "button-017": {
+        "name": "btnDisc",
+        "pos": "270,260,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-018": {
+        "name": "label_18",
+        "pos": "272,265,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_disc",
+        "textpad": "0,4,0,0"
+    },
+    "button-019": {
+        "name": "btnMenu",
+        "pos": "440,260,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-020": {
+        "name": "label_20",
+        "pos": "442,265,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_menu",
+        "textpad": "0,4,0,0"
+    },
+    "button-021": {
+        "name": "btnGps",
+        "pos": "610,260,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-022": {
+        "name": "label_22",
+        "pos": "612,265,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_gps",
+        "textpad": "0,4,0,0"
+    },
+    "button-025": {
+        "name": "btnOk",
+        "pos": "230,350,120,52",
+        "commfunc": "setting_fty_menu2_btn_save",
+        "bgalpha": 0,
+        "shortpfunc": "setting_fty_menu2_btn_save",
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-026": {
+        "name": "label_26",
+        "pos": "232,355,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_enter",
+        "textpad": "0,4,0,0"
+    },
+    "button-027": {
+        "name": "btnDefault",
+        "pos": "490,350,120,52",
+        "bgalpha": 0,
+        "clickeffect": 1,
+        "imgnor": "img/setting/dlg_btn.png"
+    },
+    "label-028": {
+        "name": "label_28",
+        "pos": "492,355,116,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_default",
+        "textpad": "0,4,0,0"
+    }
+}

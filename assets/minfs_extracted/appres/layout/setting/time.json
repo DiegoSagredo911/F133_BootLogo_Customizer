@@ -1,0 +1,134 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "128,80,573,187",
+        "bgalpha": 0,
+        "bgimage": "img/setting/time_bg.png"
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "200,35,110,60",
+        "bgalpha": 0,
+        "txtkey": "setting_set_year",
+        "longmode": 1,
+        "textpad": "0,14,0,0"
+    },
+    "label-003": {
+        "name": "label_3",
+        "pos": "311,35,72,60",
+        "bgalpha": 0,
+        "txtkey": "setting_set_month",
+        "textpad": "0,14,0,0"
+    },
+    "label-004": {
+        "name": "label_4",
+        "pos": "382,35,60,60",
+        "bgalpha": 0,
+        "txtkey": "setting_set_day",
+        "textpad": "0,14,0,0"
+    },
+    "label-005": {
+        "name": "label_5",
+        "pos": "505,35,60,60",
+        "bgalpha": 0,
+        "txtkey": "setting_set_hour",
+        "textpad": "0,14,0,0"
+    },
+    "label-006": {
+        "name": "label_6",
+        "pos": "565,37,76,60",
+        "bgalpha": 0,
+        "txtkey": "setting_set_minute",
+        "textpad": "0,14,0,0"
+    },
+    "roller-007": {
+        "name": "rollerYear",
+        "pos": "200,120,100,147",
+        "commfunc": "setting_time_roller_date|year",
+        "bgalpha": 0,
+        "rollmode": 1,
+        "visiblecnt": 3,
+        "text": "2024;2025;2026;2027;2028;2029;2030;2031;2032;2033;2034;2035;2036;2037;2038;2039;2040;2041;2042;2043;2044;2045;2046;2047;2048;2049;2050",
+        "linespace": 16,
+        "textpad": "10,0,0,0"
+    },
+    "roller-008": {
+        "name": "rollerMonth",
+        "pos": "310,120,60,147",
+        "commfunc": "setting_time_roller_date|month",
+        "bgalpha": 0,
+        "rollmode": 1,
+        "visiblecnt": 3,
+        "text": "01;02;03;04;05;06;07;08;09;10;11;12",
+        "linespace": 16,
+        "textpad": "10,0,0,0"
+    },
+    "roller-009": {
+        "name": "rollerDay",
+        "pos": "379,120,60,147",
+        "commfunc": "setting_time_roller_date|day",
+        "bgalpha": 0,
+        "rollmode": 1,
+        "visiblecnt": 3,
+        "text": "01;02;03;04;05;06;07;08;09;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31",
+        "linespace": 16,
+        "textpad": "10,0,0,0"
+    },
+    "roller-010": {
+        "name": "rollerHour",
+        "pos": "499,120,60,147",
+        "commfunc": "setting_time_roller_date|hour",
+        "bgalpha": 0,
+        "rollmode": 1,
+        "visiblecnt": 3,
+        "text": "00;01;02;03;04;05;06;07;08;09;10;11;12;13;14;15;16;17;18;19;20;21;22;23",
+        "linespace": 16,
+        "textpad": "10,0,0,0"
+    },
+    "button-012": {
+        "name": "btnFormat",
+        "pos": "0,300,830,50",
+        "commfunc": "setting_time_btn_format",
+        "bgalpha": 0,
+        "shortpfunc": "setting_time_btn_format",
+        "imgnor": "img/setting/item.png",
+        "imgpush": "img/setting/item_sel.png"
+    },
+    "label-013": {
+        "name": "label_13",
+        "pos": "30,310,415,45",
+        "bgalpha": 0,
+        "txtkey": "setting_set_time_format",
+        "textalign": "left|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "label-014": {
+        "name": "lblBtnFormat",
+        "pos": "706,310,100,45",
+        "bgalpha": 0,
+        "text": "24H",
+        "textalign": "right|vcenter",
+        "textpad": "0,6,0,0"
+    },
+    "roller-011": {
+        "name": "rollerMinute",
+        "pos": "567,120,60,147",
+        "commfunc": "setting_time_roller_date|minute",
+        "bgalpha": 0,
+        "rollmode": 1,
+        "visiblecnt": 3,
+        "text": "00;01;02;03;04;05;06;07;08;09;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38;39;40;41;42;43;44;45;46;47;48;49;50;51;52;53;54;55;56;57;58;59",
+        "linespace": 16,
+        "textpad": "10,0,0,0"
+    },
+    "backgd-002": {
+        "name": "bgdCover",
+        "pos": "128,80,573,187",
+        "bgalpha": 0,
+        "bgimage": "img/setting/time_bg1.png"
+    }
+}

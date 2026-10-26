@@ -1,0 +1,70 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,990,195"
+    },
+    "button-001": {
+        "name": "btnSetup",
+        "pos": "25,5,126,126",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_Setup.png",
+        "imgpush": "img/desktop/desktop_Setup_sel.png",
+        "actlayout": "layout/setting/setting.json"
+    },
+    "button-002": {
+        "name": "btnIpMir",
+        "pos": "189,5,126,126",
+        "shortpfunc": "home_btn_ios",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_IpMir.png",
+        "imgpush": "img/desktop/desktop_IpMir_sel.png"
+    },
+    "button-004": {
+        "name": "btnClock",
+        "pos": "353,5,126,126",
+        "shortpfunc": "home_btn_time",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_clock.png",
+        "imgpush": "img/desktop/desktop_clock_sel.png"
+    },
+    "button-005": {
+        "name": "btnARMir",
+        "pos": "517,5,126,126",
+        "shortpfunc": "home_btn_adr",
+        "clickeffect": 1,
+        "imgnor": "img/desktop/desktop_ArMir.png",
+        "imgpush": "img/desktop/desktop_ArMir_sel.png"
+    },
+    "label-007": {
+        "name": "labSetup",
+        "pos": "25,137,126,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_set_common",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-001": {
+        "name": "labIpMir",
+        "pos": "176,137,153,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_airplay",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-003": {
+        "name": "labClock",
+        "pos": "341,137,150,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_time_date",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    },
+    "label-004": {
+        "name": "labPhoneLink",
+        "pos": "504,137,155,30",
+        "bgalpha": 0,
+        "txtkey": "home_home_wireless_link",
+        "longmode": 1,
+        "textpad": "0,-1,0,0"
+    }
+}

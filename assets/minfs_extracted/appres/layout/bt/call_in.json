@@ -1,0 +1,78 @@
+{
+    "attribute": {
+        "pagename": "ui_call_in",
+        "pos": "0,0,1280,480"
+    },
+    "backgd-005": {
+        "name": "backgd_5",
+        "pos": "0,380,1280,100",
+        "bgcolor": "#000000"
+    },
+    "label-001": {
+        "name": "lblCallin",
+        "pos": "60,102,147,50",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_call_in",
+        "textpad": "0,9,0,0"
+    },
+    "button-002": {
+        "name": "btnHangup",
+        "pos": "998,390,162,80",
+        "commfunc": "bt_callin_btn_hangup",
+        "bgcolor": "#00001b",
+        "bgalpha": 0,
+        "shortpfunc": "bt_callin_btn_hangup",
+        "clickeffect": 1,
+        "imgnor": "img/bt/hangup.png"
+    },
+    "label-003": {
+        "name": "lblNumber",
+        "pos": "490,220,300,50",
+        "bgalpha": 0,
+        "textpad": "0,9,0,0"
+    },
+    "label-004": {
+        "name": "lblName",
+        "pos": "490,165,300,50",
+        "bgalpha": 0,
+        "textpad": "0,9,0,0"
+    },
+    "button-001": {
+        "name": "btnAnswer",
+        "pos": "710,390,162,80",
+        "commfunc": "bt_callin_btn_answer",
+        "bgalpha": 0,
+        "shortpfunc": "bt_callin_btn_answer",
+        "clickeffect": 1,
+        "imgnor": "img/bt/answer.png"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,93,230,59",
+        "bgalpha": 0,
+        "bgimage": "img/bt/call_type.png"
+    },
+    "button-003": {
+        "name": "btnVolSw",
+        "pos": "410,390,162,80",
+        "clickeffect": 1,
+        "imgnor": "img/bt/vol_switch.png"
+    },
+    "button-004": {
+        "name": "btnKeyboard",
+        "pos": "120,390,160,78",
+        "commfunc": "bt_callin_btn_keyboard",
+        "shortpfunc": "bt_callin_btn_keyboard",
+        "imgnor": "img/bt/check_dial.png",
+        "imgpush": "img/bt/check_dial_sel.png"
+    },
+    "container-006": {
+        "name": "containerKeyboard",
+        "pos": "240,65,800,315",
+        "bgcolor": "#000000",
+        "bgalpha": 0,
+        "radius": 40,
+        "visible": 0,
+        "uilayout": "layout/bt/keyboard.json"
+    }
+}

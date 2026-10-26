@@ -1,0 +1,93 @@
+{
+    "attribute": {
+        "pagename": "ui_speak",
+        "pos": "0,0,1280,480"
+    },
+    "label-004": {
+        "name": "lblSpeak",
+        "pos": "60,102,147,50",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_speaking",
+        "textpad": "0,9,0,0"
+    },
+    "label-005": {
+        "name": "lblTime",
+        "pos": "490,300,300,50",
+        "bgalpha": 0,
+        "text": "00:00",
+        "textpad": "0,9,0,0"
+    },
+    "label-006": {
+        "name": "lblNumber",
+        "pos": "490,220,300,50",
+        "bgalpha": 0,
+        "longmode": 3,
+        "textpad": "0,9,0,0"
+    },
+    "label-007": {
+        "name": "lblName",
+        "pos": "490,165,300,50",
+        "bgalpha": 0,
+        "longmode": 3,
+        "textpad": "0,9,0,0"
+    },
+    "label-001": {
+        "name": "lblInputData",
+        "pos": "440,250,400,50",
+        "bgalpha": 0,
+        "visible": 0,
+        "textpad": "0,9,0,0"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,93,230,59",
+        "bgalpha": 0,
+        "bgimage": "img/bt/call_type.png"
+    },
+    "backgd-002": {
+        "name": "backgd_2",
+        "pos": "0,380,1280,100",
+        "bgcolor": "#000000"
+    },
+    "button-003": {
+        "name": "btnKeyboard",
+        "pos": "120,390,160,78",
+        "commfunc": "bt_speak_btn_keyboard",
+        "shortpfunc": "bt_speak_btn_keyboard",
+        "imgnor": "img/bt/check_dial.png",
+        "imgpush": "img/bt/check_dial_sel.png"
+    },
+    "button-004": {
+        "name": "btnVolSw",
+        "pos": "410,390,162,80",
+        "commfunc": "bt_speak_btn_switch",
+        "shortpfunc": "bt_speak_btn_switch",
+        "clickeffect": 1,
+        "imgnor": "img/bt/vol_switch.png"
+    },
+    "button-005": {
+        "name": "btnAnswer",
+        "pos": "710,390,162,80",
+        "commfunc": "bt_speak_btn_answer",
+        "shortpfunc": "bt_speak_btn_answer",
+        "clickeffect": 1,
+        "imgnor": "img/bt/answer.png"
+    },
+    "button-006": {
+        "name": "btnHangup",
+        "pos": "998,390,162,80",
+        "commfunc": "bt_speak_btn_hangup",
+        "shortpfunc": "bt_speak_btn_hangup",
+        "clickeffect": 1,
+        "imgnor": "img/bt/hangup.png"
+    },
+    "container-001": {
+        "name": "containerKeyboard",
+        "pos": "240,65,800,315",
+        "bgcolor": "#000000",
+        "bgalpha": 0,
+        "radius": 40,
+        "visible": 0,
+        "uilayout": "layout/bt/keyboard.json"
+    }
+}

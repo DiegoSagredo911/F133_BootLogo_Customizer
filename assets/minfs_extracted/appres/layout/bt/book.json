@@ -1,0 +1,290 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,325"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "110,1,477,321",
+        "bgalpha": 0,
+        "bgimage": "img/bt/book_bg1.png"
+    },
+    "backgd-002": {
+        "name": "backgd_2",
+        "pos": "591,1,576,321",
+        "bgalpha": 0,
+        "bgimage": "img/bt/book_bg2.png"
+    },
+    "backgd-003": {
+        "name": "backgd_3",
+        "pos": "605,6,387,55",
+        "bgalpha": 0,
+        "bgimage": "img/bt/book_input_bg.png"
+    },
+    "button-004": {
+        "name": "btnSerDel",
+        "pos": "998,7,151,49",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_del",
+        "clickeffect": 1,
+        "imgnor": "img/bt/book_del.png",
+        "imgpush": "img/bt/book_del_sel.png"
+    },
+    "button-005": {
+        "name": "btnSerA",
+        "pos": "605,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|A",
+        "clickeffect": 1,
+        "imgnor": "img/bt/a.png",
+        "imgpush": "img/bt/a_sel.png"
+    },
+    "button-006": {
+        "name": "btnSerB",
+        "pos": "683,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|B",
+        "clickeffect": 1,
+        "imgnor": "img/bt/b.png",
+        "imgpush": "img/bt/b_sel.png"
+    },
+    "button-007": {
+        "name": "btnSerC",
+        "pos": "761,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|C",
+        "clickeffect": 1,
+        "imgnor": "img/bt/c.png",
+        "imgpush": "img/bt/c_sel.png"
+    },
+    "button-008": {
+        "name": "btnSerD",
+        "pos": "839,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|D",
+        "clickeffect": 1,
+        "imgnor": "img/bt/d.png",
+        "imgpush": "img/bt/d_sel.png"
+    },
+    "button-009": {
+        "name": "btnSerE",
+        "pos": "917,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|E",
+        "clickeffect": 1,
+        "imgnor": "img/bt/e.png",
+        "imgpush": "img/bt/e_sel.png"
+    },
+    "button-010": {
+        "name": "btnSerF",
+        "pos": "995,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|F",
+        "clickeffect": 1,
+        "imgnor": "img/bt/f.png",
+        "imgpush": "img/bt/f_sel.png"
+    },
+    "button-011": {
+        "name": "btnSerG",
+        "pos": "1073,74,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|G",
+        "clickeffect": 1,
+        "imgnor": "img/bt/g.png",
+        "imgpush": "img/bt/g_sel.png"
+    },
+    "button-012": {
+        "name": "btnSerH",
+        "pos": "605,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|H",
+        "clickeffect": 1,
+        "imgnor": "img/bt/h.png",
+        "imgpush": "img/bt/h_sel.png"
+    },
+    "button-013": {
+        "name": "btnSerO",
+        "pos": "604,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|O",
+        "clickeffect": 1,
+        "imgnor": "img/bt/o.png",
+        "imgpush": "img/bt/o_sel.png"
+    },
+    "button-014": {
+        "name": "btnSerV",
+        "pos": "605,266,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|V",
+        "clickeffect": 1,
+        "imgnor": "img/bt/v.png",
+        "imgpush": "img/bt/v_sel.png"
+    },
+    "button-015": {
+        "name": "btnSerI",
+        "pos": "683,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|I",
+        "clickeffect": 1,
+        "imgnor": "img/bt/i.png",
+        "imgpush": "img/bt/i_sel.png"
+    },
+    "button-016": {
+        "name": "btnSerJ",
+        "pos": "761,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|J",
+        "clickeffect": 1,
+        "imgnor": "img/bt/j.png",
+        "imgpush": "img/bt/j_sel.png"
+    },
+    "button-018": {
+        "name": "btnSerL",
+        "pos": "917,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|L",
+        "clickeffect": 1,
+        "imgnor": "img/bt/l.png",
+        "imgpush": "img/bt/l_sel.png"
+    },
+    "button-019": {
+        "name": "btnSerM",
+        "pos": "995,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|M",
+        "clickeffect": 1,
+        "imgnor": "img/bt/m.png",
+        "imgpush": "img/bt/m_sel.png"
+    },
+    "button-020": {
+        "name": "btnSerN",
+        "pos": "1073,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|N",
+        "clickeffect": 1,
+        "imgnor": "img/bt/n.png",
+        "imgpush": "img/bt/n_sel.png"
+    },
+    "button-021": {
+        "name": "btnSerK",
+        "pos": "839,138,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|K",
+        "clickeffect": 1,
+        "imgnor": "img/bt/k.png",
+        "imgpush": "img/bt/k_sel.png"
+    },
+    "button-022": {
+        "name": "btnSerP",
+        "pos": "683,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|P",
+        "clickeffect": 1,
+        "imgnor": "img/bt/p.png",
+        "imgpush": "img/bt/p_sel.png"
+    },
+    "button-023": {
+        "name": "btnSerQ",
+        "pos": "761,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|Q",
+        "clickeffect": 1,
+        "imgnor": "img/bt/q.png",
+        "imgpush": "img/bt/q_sel.png"
+    },
+    "button-024": {
+        "name": "btnSerR",
+        "pos": "839,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|R",
+        "clickeffect": 1,
+        "imgnor": "img/bt/r.png",
+        "imgpush": "img/bt/r_sel.png"
+    },
+    "button-025": {
+        "name": "btnSerS",
+        "pos": "917,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|S",
+        "clickeffect": 1,
+        "imgnor": "img/bt/s.png",
+        "imgpush": "img/bt/s_sel.png"
+    },
+    "button-026": {
+        "name": "btnSerT",
+        "pos": "995,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|T",
+        "clickeffect": 1,
+        "imgnor": "img/bt/t.png",
+        "imgpush": "img/bt/t_sel.png"
+    },
+    "button-027": {
+        "name": "btnSerU",
+        "pos": "1073,202,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|U",
+        "clickeffect": 1,
+        "imgnor": "img/bt/u.png",
+        "imgpush": "img/bt/u_sel.png"
+    },
+    "button-028": {
+        "name": "btnSerW",
+        "pos": "683,266,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|W",
+        "clickeffect": 1,
+        "imgnor": "img/bt/w.png",
+        "imgpush": "img/bt/w_sel.png"
+    },
+    "button-029": {
+        "name": "btnSerX",
+        "pos": "761,266,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|X",
+        "clickeffect": 1,
+        "imgnor": "img/bt/x.png",
+        "imgpush": "img/bt/x_sel.png"
+    },
+    "button-030": {
+        "name": "btnSerY",
+        "pos": "839,266,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|Y",
+        "clickeffect": 1,
+        "imgnor": "img/bt/y.png",
+        "imgpush": "img/bt/y_sel.png"
+    },
+    "button-031": {
+        "name": "btnSerZ",
+        "pos": "917,266,76,47",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_letter|Z",
+        "clickeffect": 1,
+        "imgnor": "img/bt/z.png",
+        "imgpush": "img/bt/z_sel.png"
+    },
+    "button-032": {
+        "name": "btnImport",
+        "pos": "996,266,153,49",
+        "bgalpha": 0,
+        "shortpfunc": "bt_book_import",
+        "clickeffect": 1,
+        "imgnor": "img/bt/book_request.png",
+        "imgpush": "img/bt/book_request_sel.png"
+    },
+    "listview-033": {
+        "name": "listviewBtBook",
+        "pos": "110,1,471,321",
+        "bgalpha": 0,
+        "rowspace": 5
+    },
+    "label-001": {
+        "name": "lblSerInput",
+        "pos": "623,16,350,35",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_search_for_contact",
+        "longmode": 4,
+        "textpad": "0,1,0,0"
+    }
+}

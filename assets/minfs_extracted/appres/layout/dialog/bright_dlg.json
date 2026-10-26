@@ -1,0 +1,54 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,480"
+    },
+    "button-001": {
+        "name": "btnBg",
+        "pos": "0,0,1280,480",
+        "commfunc": "dialog_btn_exit",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_exit",
+        "clickeffect": 1
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "210,176,860,128",
+        "bgcolor": "#000023",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/vol_bg.png",
+        "osdalpha": 192
+    },
+    "slider-003": {
+        "name": "sldBright",
+        "pos": "330,223,618,32",
+        "commfunc": "dialog_slide_type|Bright",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/sl_bg.png",
+        "value": 100,
+        "knobimg": "img/dialog/sl_p.png",
+        "indicatorimg": "img/dialog/sl_sel.png"
+    },
+    "label-004": {
+        "name": "lblBright",
+        "pos": "963,223,80,30",
+        "bgalpha": 0,
+        "text": "100",
+        "textpad": "0,-1,0,0"
+    },
+    "backgd-003": {
+        "name": "bgdBright",
+        "pos": "237,207,65,65",
+        "bgalpha": 0,
+        "bgimage": "img/dialog/btn_bright.png",
+        "checkedimg": "img/dialog/btn_night.png"
+    },
+    "button-002": {
+        "name": "btnBright",
+        "pos": "224,187,100,100",
+        "commfunc": "dialog_btn_bright",
+        "bgalpha": 0,
+        "shortpfunc": "dialog_btn_bright",
+        "clickeffect": 1
+    }
+}

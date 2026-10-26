@@ -1,0 +1,74 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,415"
+    },
+    "container-001": {
+        "name": "ctnWallpaper",
+        "pos": "58,40,700,365",
+        "bgalpha": 0
+    },
+    "label-002": {
+        "name": "label_2",
+        "pos": "30,0,400,40",
+        "bgalpha": 0,
+        "txtkey": "setting_set_choose_wallpaper",
+        "textalign": "left|vcenter",
+        "textpad": "0,4,0,0"
+    },
+    "button-003": {
+        "name": "btnBgd0",
+        "pos": "80,47,326,110",
+        "commfunc": "setting_wallpaper_btn_bg|0",
+        "bgalpha": 0,
+        "shortpfunc": "setting_wallpaper_btn_bg|0",
+        "callfunc": "SetWallpaper",
+        "clickeffect": 1,
+        "imgnor": "img/setting/small_bg0.png",
+        "imgpush": "img/setting/small_bg0_sel.png"
+    },
+    "button-004": {
+        "name": "btnBgd1",
+        "pos": "410,47,326,110",
+        "commfunc": "setting_wallpaper_btn_bg|1",
+        "bgalpha": 0,
+        "shortpfunc": "setting_wallpaper_btn_bg|1",
+        "callfunc": "SetWallpaper",
+        "clickeffect": 1,
+        "imgnor": "img/setting/small_bg1.png",
+        "imgpush": "img/setting/small_bg1_sel.png"
+    },
+    "button-005": {
+        "name": "btnBgd2",
+        "pos": "80,168,326,110",
+        "commfunc": "setting_wallpaper_btn_bg|2",
+        "bgalpha": 0,
+        "shortpfunc": "setting_wallpaper_btn_bg|2",
+        "callfunc": "SetWallpaper",
+        "clickeffect": 1,
+        "imgnor": "img/setting/small_bg2.png",
+        "imgpush": "img/setting/small_bg2_sel.png"
+    },
+    "button-006": {
+        "name": "btnBgd3",
+        "pos": "410,168,326,110",
+        "commfunc": "setting_wallpaper_btn_bg|3",
+        "bgalpha": 0,
+        "shortpfunc": "setting_wallpaper_btn_bg|3",
+        "callfunc": "SetWallpaper",
+        "clickeffect": 1,
+        "imgnor": "img/setting/small_bg3.png",
+        "imgpush": "img/setting/small_bg3_sel.png"
+    },
+    "button-001": {
+        "name": "btnBgd4",
+        "pos": "80,290,326,110",
+        "commfunc": "setting_wallpaper_btn_bg|4",
+        "bgalpha": 0,
+        "shortpfunc": "setting_wallpaper_btn_bg|4",
+        "callfunc": "SetWallpaper",
+        "clickeffect": 1,
+        "imgnor": "img/setting/small_bg4.png",
+        "imgpush": "img/setting/small_bg4_sel.png"
+    }
+}

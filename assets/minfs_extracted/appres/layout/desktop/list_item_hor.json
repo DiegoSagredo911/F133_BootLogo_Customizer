@@ -1,0 +1,13 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,58,8"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,58,8",
+        "bgalpha": 0,
+        "bgimage": "img/desktop/dot_unfocus.png",
+        "checkedimg": "img/desktop/dot_focus.png"
+    }
+}

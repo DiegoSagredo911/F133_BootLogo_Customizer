@@ -1,0 +1,105 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1280,325"
+    },
+    "imgview-002": {
+        "name": "imgview_2",
+        "pos": "480,82,40,40",
+        "bgalpha": 0,
+        "imgurl": "img/bt/title.png"
+    },
+    "imgview-003": {
+        "name": "imgview_3",
+        "pos": "480,148,40,40",
+        "bgalpha": 0,
+        "imgurl": "img/bt/artist.png"
+    },
+    "label-004": {
+        "name": "lblTitle",
+        "pos": "535,85,600,38",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_no_support_song",
+        "textalign": "left|vcenter",
+        "textpad": "0,3,0,0"
+    },
+    "label-005": {
+        "name": "lblArtist",
+        "pos": "533,152,600,38",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_no_support_artist",
+        "textalign": "left|vcenter",
+        "textpad": "0,3,0,0"
+    },
+    "imgview-006": {
+        "name": "imgview_6",
+        "pos": "480,215,40,40",
+        "bgalpha": 0,
+        "imgurl": "img/bt/album.png"
+    },
+    "label-007": {
+        "name": "lblAlbum",
+        "pos": "534,217,600,38",
+        "bgalpha": 0,
+        "txtkey": "bt_bt_no_support_album",
+        "textalign": "left|vcenter",
+        "textpad": "0,3,0,0"
+    },
+    "button-008": {
+        "name": "btnPrev",
+        "pos": "730,11,60,60",
+        "commfunc": "bt_music_btn_prev",
+        "bgalpha": 0,
+        "shortpfunc": "bt_music_btn_prev",
+        "clickeffect": 1,
+        "imgnor": "img/bt/prev.png",
+        "imgpush": "img/bt/prev_sel.png"
+    },
+    "button-009": {
+        "name": "btnPlay",
+        "pos": "830,11,60,60",
+        "commfunc": "bt_music_btn_play",
+        "bgalpha": 0,
+        "visible": 0,
+        "shortpfunc": "bt_music_btn_play",
+        "clickeffect": 1,
+        "imgnor": "img/bt/play.png",
+        "imgpush": "img/bt/play_sel.png"
+    },
+    "button-010": {
+        "name": "btnNext",
+        "pos": "930,11,60,60",
+        "commfunc": "bt_music_btn_next",
+        "bgalpha": 0,
+        "shortpfunc": "bt_music_btn_next",
+        "clickeffect": 1,
+        "imgnor": "img/bt/next.png",
+        "imgpush": "img/bt/next_sel.png"
+    },
+    "button-011": {
+        "name": "btnEq",
+        "pos": "1030,11,60,60",
+        "commfunc": "bt_music_btn_eq",
+        "bgalpha": 0,
+        "shortpfunc": "bt_music_btn_eq",
+        "clickeffect": 1,
+        "imgnor": "img/bt/eq.png",
+        "imgpush": "img/bt/eq_sel.png"
+    },
+    "imgview-001": {
+        "name": "imgviewIcon",
+        "pos": "188,75,164,164",
+        "bgalpha": 0,
+        "imgurl": "img/bt/icon.png"
+    },
+    "button-012": {
+        "name": "btnPause",
+        "pos": "830,11,60,60",
+        "commfunc": "bt_music_btn_pause",
+        "bgalpha": 0,
+        "shortpfunc": "bt_music_btn_pause",
+        "clickeffect": 1,
+        "imgnor": "img/bt/pause.png",
+        "imgpush": "img/bt/pause_sel.png"
+    }
+}

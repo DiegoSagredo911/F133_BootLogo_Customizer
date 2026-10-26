@@ -1,0 +1,39 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,50",
+        "inffect": 0,
+        "outeffect": 0
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,830,50",
+        "bgalpha": 0,
+        "bgimage": "img/setting/item.png"
+    },
+    "label-001": {
+        "name": "lblValue",
+        "pos": "720,6,60,40",
+        "bgalpha": 0,
+        "text": "100",
+        "textpad": "0,4,0,0"
+    },
+    "slider-002": {
+        "name": "sldList",
+        "pos": "280,10,390,32",
+        "commfunc": "setting_fty_menu2_1_slide_list",
+        "bgalpha": 0,
+        "bgimage": "img/setting/sl_bg.png",
+        "value": 100,
+        "knobimg": "img/setting/sl_p.png",
+        "indicatorimg": "img/setting/sl_sel.png"
+    },
+    "label-002": {
+        "name": "lblName",
+        "pos": "16,8,240,40",
+        "bgalpha": 0,
+        "textalign": "left|vcenter",
+        "longmode": 1,
+        "textpad": "0,4,0,0"
+    }
+}

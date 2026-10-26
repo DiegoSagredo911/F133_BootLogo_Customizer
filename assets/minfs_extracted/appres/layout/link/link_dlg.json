@@ -1,0 +1,73 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,1024,600"
+    },
+    "backgd-002": {
+        "name": "backgd_2",
+        "pos": "0,0,1024,600",
+	"osdalpha":220,
+        "bgimage": "img/link/bg.png"
+    },
+    "button-001": {
+        "name": "btnBgd",
+        "pos": "0,0,1024,600",
+        "bgalpha": 0
+    },
+    "label-003": {
+        "name": "lblTime",
+        "pos": "400,47,200,30",
+        "bgimage": "img/link/time_str.png",
+        "textpad": "0,-1,0,0"
+    },
+    "button-004": {
+        "name": "btnReturn",
+        "pos": "120,120,169,169",
+        "imgnor": "img/link/return.png",
+        "imgpush": "img/link/return_sel.png"
+    },
+    "button-005": {
+        "name": "btnClose",
+        "pos": "420,120,169,169",
+        "imgnor": "img/link/close_screen.png",
+        "imgpush": "img/link/close_screen_sel.png"
+    },
+    "backgd-008": {
+        "name": "bgdVolume",
+        "pos": "100,380,818,108",
+        "bgimage": "img/link/vol_bg.png"
+    },
+    "backgd-007": {
+        "name": "bgdSpk",
+        "pos": "100,380,110,108",
+        "bgimage": "img/link/left_speak.png",
+        "checkedimg": "img/link/left_mute.png"
+    },
+    "slider-009": {
+        "name": "sldVolume",
+        "pos": "220,419,619,26",
+        "bgimage": "img/link/slid_bg.png",
+        "max": 100,
+        "value": 30,
+        "knobimg": "img/link/slid_flag.png",
+        "indicatorimg": "img/link/slid_point.png"
+    },
+    "label-010": {
+        "name": "lblVolume",
+        "pos": "848,412,63,40",
+        "bgalpha": 0,
+        "text": "30",
+        "textpad": "0,4,0,0"
+    },
+    "backgd-011": {
+        "name": "bgdMute",
+        "pos": "720,120,169,169",
+        "bgimage": "img/link/speak.png",
+        "checkedimg": "img/link/mute.png"
+    },
+    "button-006": {
+        "name": "btnMute",
+        "pos": "720,120,169,169",
+        "bgalpha": 0
+    }
+}

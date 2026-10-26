@@ -1,0 +1,19 @@
+{
+    "attribute": {
+        "pagename": "pagename",
+        "pos": "0,0,830,50"
+    },
+    "backgd-001": {
+        "name": "backgd_1",
+        "pos": "0,0,830,50",
+        "bgalpha": 0,
+        "bgimage": "img/setting/item.png",
+        "checkedimg": "img/setting/item_sel.png"
+    },
+    "label-001": {
+        "name": "lblLang",
+        "pos": "265,5,300,45",
+        "bgalpha": 0,
+        "textpad": "0,6,0,0"
+    }
+}
