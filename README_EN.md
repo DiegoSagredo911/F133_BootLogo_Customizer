@@ -41,6 +41,9 @@ This tool is designed for the widely popular 10.26-inch dashboard / rearview mir
 | Feature | Description | How to Configure |
 | :--- | :--- | :--- |
 | **🖼️ Fullscreen Boot Logo** | Native edge-to-edge 1600×600 boot splash image without black borders. | Place `custom_logo.png` or `custom_logo.jpg` |
+| **🎨 UI Theme Style** | Select between `stealth` (Titanium Luxe), `tactical` (Off-Road 4x4) or `cyber` (Dynamic Neon). | In `config.ini` or `--theme stealth` |
+| **🚗 Vehicle Brand & Model** | Customize the central dashboard badge with your car brand, model and edition. | In `config.ini` (`[vehiculo]`) |
+| **✨ Smart Logo (Auto-BG Removal)** | Put any brand PNG/JPG; Python automatically removes black/white backgrounds. | `logos/` folder or `--brand-logo` |
 | **📶 Bluetooth Device Name** | Custom name displayed when pairing with phones (e.g. `L200`, `Hilux`, `MyCar`). | In `config.ini` or `--bt "Name"` |
 | **🌐 Default Language** | Startup default language (English, Spanish, French, German, etc.). | In `config.ini` or `--lang 2` |
 | **🔊 Startup Audio** | Digital 0dB pure silence (no annoying startup beep) or your own custom audio chime. | In `config.ini` or place `custom_sound.wav` |

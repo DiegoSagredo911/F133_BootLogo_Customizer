@@ -40,6 +40,9 @@ Esta herramienta está diseñada específicamente para las populares pantallas m
 | Parámetro | Descripción | Cómo se configura |
 | :--- | :--- | :--- |
 | **🖼️ Logo de Arranque** | Imagen a pantalla completa (1600×600) de inicio. | Coloca tu archivo como `custom_logo.png` o `.jpg` |
+| **🎨 Estilo de Interfaz** | Elige entre `stealth` (Luxe Titanio), `tactical` (Off-Road 4x4) o `cyber` (Neón Dinámico). | En `config.ini` o con `--theme stealth` |
+| **🚗 Marca y Modelo** | Personaliza la insignia central con tu marca, modelo y edición (ej. `MITSUBISHI L200 KATANA`). | En `config.ini` (`[vehiculo]`) |
+| **✨ Logo del Auto (Auto-BG)** | Coloca cualquier PNG/JPG de tu marca; Python remueve fondos negros/blancos automáticamente. | Carpeta `logos/` o con `--brand-logo` |
 | **📶 Nombre Bluetooth** | Nombre que verás al vincular tu celular (ej. `L200`, `Hilux`, `MiAuto`, etc.). | En `config.ini` o con `--bt "Nombre"` |
 | **🌐 Idioma por Defecto** | Idioma predeterminado al encender (Español, English, Francés, etc.). | En `config.ini` o con `--lang 3` |
 | **🔊 Sonido de Encendido** | Silencio total (0dB) o tu propio sonido de campana/bienvenida. | En `config.ini` o colocando `custom_sound.wav` |

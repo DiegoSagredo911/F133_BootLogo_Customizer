@@ -11,7 +11,7 @@
     },
     "button-001": {
         "name": "btnCarplay",
-        "pos": "0,338,140,98",
+        "pos": "16,320,130,116",
         "commfunc": "home_btn_cpl",
         "shortpfunc": "home_btn_cpl",
         "clickeffect": 1,
@@ -20,7 +20,7 @@
     },
     "button-002": {
         "name": "btnAuto",
-        "pos": "1153,338,140,98",
+        "pos": "1134,320,130,116",
         "commfunc": "home_btn_aoa",
         "shortpfunc": "home_btn_aoa",
         "clickeffect": 1,
@@ -43,7 +43,7 @@
     "button-008": {
         "name": "btnNext",
         "pos": "1091,234,40,26",
-	"commfunc": "home_btn_music_next",
+        "commfunc": "home_btn_music_next",
         "shortpfunc": "home_btn_music_next",
         "imgnor": "img/desktop/next.png",
         "imgpush": "img/desktop/next_sel.png"
@@ -105,7 +105,7 @@
         "name": "lblDate",
         "pos": "276,180,200,44",
         "bgalpha": 0,
-        "text": "2025-05-28",
+        "text": "2026-10-27",
         "textpad": "0,6,0,0"
     },
     "label-004": {
@@ -138,7 +138,7 @@
     "button-004": {
         "name": "btnBack",
         "pos": "812,92,98,98",
-	"commfunc": "home_btn_back",
+        "commfunc": "home_btn_back",
         "shortpfunc": "home_btn_back",
         "clickeffect": 1,
         "bgalpha": 0

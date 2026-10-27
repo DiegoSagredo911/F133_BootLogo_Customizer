@@ -11,3 +11,6 @@ __pycache__/
 
 # Output temporales si se desea ignorar (opcional)
 # output/*.img
+
+# Scratchpad / pruebas temporales
+scratch/

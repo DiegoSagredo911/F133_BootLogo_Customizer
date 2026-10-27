@@ -11,6 +11,8 @@
    3. Idioma por Defecto (Language)
    4. Sonido de Encendido (Silencio a 0dB o archivo de audio personalizado)
    5. Información de Versión del Sistema
+   6. Estilo de Interfaz Visual (Stealth Luxe, Tactical Off-Road, Cyber Sport)
+   7. Insignia Vehicular (Marca, Modelo, Subtítulo y Logo con remoción de fondo)
 ================================================================================
 """
 
@@ -21,9 +23,12 @@ import io
 import wave
 import configparser
 import argparse
+import math
+import json
+import datetime
 
 try:
-    from PIL import Image
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
 except ImportError:
     print("\n[ERROR] Se requiere la librería Pillow (PIL).")
     print("Por favor instálala ejecutando: pip install Pillow\n")
@@ -38,10 +43,13 @@ ORIG_FEX_DIR = os.path.join(ASSETS_DIR, "extracted_fex")
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 USB_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "F133_IMG")
 CONFIG_FILE = os.path.join(BASE_DIR, "config.ini")
+LOGOS_DIR = os.path.join(BASE_DIR, "logos")
 
 # Constantes de Hardware de la pantalla 10.26"
 SCREEN_WIDTH = 1600
 SCREEN_HEIGHT = 600
+UI_WIDTH = 1280
+UI_HEIGHT = 480
 MIPI_ROTATION = 270  # Rotación física del bus MIPI DSI (600x1600 vertical)
 PARTITION_SIZE = 13303808  # 13 MB exactos de la partición data_udisk
 
@@ -61,6 +69,12 @@ IDIOMAS_MAP = {
     18: "Japonés"
 }
 
+THEMES_MAP = {
+    "stealth": "Stealth Luxe / Monocromo Titanio",
+    "tactical": "Tactical Off-Road / 4x4 Aventura",
+    "cyber": "Cyber Sport / Neón Dinámico"
+}
+
 def print_banner():
     print("=" * 75)
     print("   🚗 F133 BOOT LOGO & FIRMWARE CUSTOMIZER (10.26\" 1600x600)")
@@ -68,10 +82,31 @@ def print_banner():
     print("   GitHub: https://github.com/diegosagredo911")
     print("=" * 75)
 
+def get_font(size, bold=False):
+    font_paths = [
+        "/System/Library/Fonts/SFProDisplay-Bold.otf" if bold else "/System/Library/Fonts/SFProDisplay-Regular.otf",
+        "/System/Library/Fonts/SFProText-Bold.otf" if bold else "/System/Library/Fonts/SFProText-Regular.otf",
+        "/System/Library/Fonts/SFPro-Bold.ttf" if bold else "/System/Library/Fonts/SFPro-Regular.ttf",
+        "/System/Library/Fonts/HelveticaNeue.ttc",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf"
+    ]
+    for p in font_paths:
+        if os.path.exists(p):
+            try:
+                return ImageFont.truetype(p, size)
+            except Exception:
+                pass
+    return ImageFont.load_default()
+
 def load_configuration():
     config = configparser.ConfigParser()
-    # Valores por defecto
     settings = {
+        "theme_style": "stealth",
+        "brand": "MITSUBISHI",
+        "model": "L200 KATANA",
+        "subtitle": "4X4 TURBO DIESEL",
+        "logo_file": "logos/mitsubishi.png",
+        "tint_logo": True,
         "bt_name": "L200",
         "language": 3,
         "version_str": "DIEGO SAGREDO EDITION 2026",
@@ -81,6 +116,17 @@ def load_configuration():
 
     if os.path.exists(CONFIG_FILE):
         config.read(CONFIG_FILE, encoding="utf-8")
+        if config.has_section("interfaz"):
+            st = config.get("interfaz", "estilo", fallback=settings["theme_style"]).strip().lower()
+            if st in THEMES_MAP:
+                settings["theme_style"] = st
+        if config.has_section("vehiculo"):
+            settings["brand"] = config.get("vehiculo", "marca", fallback=settings["brand"]).strip()
+            settings["model"] = config.get("vehiculo", "modelo", fallback=settings["model"]).strip()
+            settings["subtitle"] = config.get("vehiculo", "subtitulo", fallback=settings["subtitle"]).strip()
+            settings["logo_file"] = config.get("vehiculo", "archivo_logo", fallback=settings["logo_file"]).strip()
+            arm = config.get("vehiculo", "armonizar_color_logo", fallback="si").strip().lower()
+            settings["tint_logo"] = (arm in ["si", "yes", "true", "1"])
         if config.has_section("bluetooth"):
             settings["bt_name"] = config.get("bluetooth", "nombre", fallback=settings["bt_name"]).strip()
         if config.has_section("sistema"):
@@ -102,14 +148,14 @@ def find_input_image(cli_image=None):
         if os.path.exists(full_path):
             return full_path
 
-    print("\n[!] No se encontró ninguna imagen para procesar.")
+    print("\n[!] No se encontró ninguna imagen de arranque para procesar.")
     print("    Por favor coloca tu imagen en esta carpeta como:")
     print("    -> custom_logo.png  (o custom_logo.jpg)")
     print("    o pásala como argumento: python3 cambiar_logo.py --image mi_foto.jpg\n")
     sys.exit(1)
 
 def process_logo(input_image_path):
-    print(f"\n[1/5] Procesando imagen de arranque: {os.path.basename(input_image_path)}")
+    print(f"\n[1/6] Procesando imagen de arranque: {os.path.basename(input_image_path)}")
     with Image.open(input_image_path) as im:
         im = im.convert("RGBA")
         src_w, src_h = im.size
@@ -129,7 +175,7 @@ def process_logo(input_image_path):
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         preview_path = os.path.join(OUTPUT_DIR, "vista_previa_pantalla.jpg")
         landscape_full.save(preview_path, format="JPEG", quality=95)
-        print(f"      • Vista previa generada: {os.path.relpath(preview_path, BASE_DIR)}")
+        print(f"      • Vista previa de arranque: {os.path.relpath(preview_path, BASE_DIR)}")
 
         vertical_mipi = landscape_full.rotate(MIPI_ROTATION, expand=True)
         print(f"      • Rotación nativa MIPI DSI aplicada: {vertical_mipi.size} px")
@@ -140,7 +186,7 @@ def process_logo(input_image_path):
         print(f"      • stalogo0.bin actualizado ({file_size / 1024:.1f} KB)")
 
 def process_sound(sound_mode, sound_file):
-    print(f"\n[2/5] Configurando sonido de encendido...")
+    print(f"\n[2/6] Configurando sonido de encendido...")
     target_wav = os.path.join(MINFS_DIR, "res", "sounds", "chord.wav")
     os.makedirs(os.path.dirname(target_wav), exist_ok=True)
 
@@ -199,7 +245,7 @@ def process_sound(sound_mode, sound_file):
                     new_right.append(right[i0] * (1.0 - frac) + right[i1] * frac)
                 left, right = new_left, new_right
 
-            max_frames = int(out_rate * 6.0) # máx 6 segundos
+            max_frames = int(out_rate * 6.0)
             left = left[:max_frames]
             right = right[:max_frames]
 
@@ -221,7 +267,6 @@ def process_sound(sound_mode, sound_file):
             print(f"      [!] Error al convertir {sound_file}: {e}")
             print("      • Aplicando modo silencio por seguridad.")
 
-    # Modo silencio predeterminado (0dB)
     with wave.open(target_wav, 'wb') as dst:
         dst.setnchannels(2)
         dst.setsampwidth(2)
@@ -231,12 +276,18 @@ def process_sound(sound_mode, sound_file):
 
 def process_system_configs(bt_name, lang_id, version_str):
     lang_name = IDIOMAS_MAP.get(lang_id, f"ID {lang_id}")
-    print(f"\n[3/5] Aplicando configuraciones de sistema:")
+    now = datetime.datetime.now()
+    cur_year = now.year
+    cur_month = now.month
+    cur_day = now.day
+    date_display = now.strftime("%d/%m/%Y")
+
+    print(f"\n[3/6] Aplicando configuraciones de sistema:")
     print(f"      • Nombre de Bluetooth: '{bt_name}'")
     print(f"      • Idioma por defecto: {lang_name} ({lang_id})")
     print(f"      • Versión de sistema:  '{version_str}'")
+    print(f"      • Fecha inicial del sistema (RTC): {date_display} (Sincronizada a la compilación)")
 
-    # 1. Modificar app_config.fex (Texto)
     fex_path = os.path.join(MINFS_DIR, "app_config.fex")
     if os.path.exists(fex_path):
         with open(fex_path, "r", encoding="gbk", errors="ignore") as f:
@@ -249,33 +300,448 @@ def process_system_configs(bt_name, lang_id, version_str):
                 new_lines.append(f"language={lang_id}\n")
             elif line.strip().startswith("version ="):
                 new_lines.append(f"version =string:{version_str}\n")
+            elif line.strip().startswith("year="):
+                new_lines.append(f"year={cur_year}\n")
+            elif line.strip().startswith("month="):
+                new_lines.append(f"month={cur_month}\n")
+            elif line.strip().startswith("day="):
+                new_lines.append(f"day={cur_day}\n")
             else:
                 new_lines.append(line)
         with open(fex_path, "w", encoding="gbk", errors="ignore") as f:
             f.writelines(new_lines)
 
-    # 2. Modificar app_config.bin (Registros binarios)
     bin_path = os.path.join(MINFS_DIR, "app_config.bin")
     if os.path.exists(bin_path):
         with open(bin_path, "rb") as f:
             bdata = bytearray(f.read())
 
-        # bt_name en offset 4772 (8 bytes)
         bt_bytes = bt_name.encode("latin1", errors="ignore")[:8]
         bdata[4772:4780] = bt_bytes + b"\x00" * (8 - len(bt_bytes))
-
-        # idioma en offset 4636 (uint32)
         bdata[4636:4640] = struct.pack("<I", int(lang_id))
-
-        # versión en offset 4436 (32 bytes)
         v_bytes = version_str.encode("latin1", errors="ignore")[:31]
         bdata[4436:4468] = v_bytes + b"\x00" * (32 - len(v_bytes))
+
+        # Actualizar fecha inicial RTC (año, mes, día)
+        bdata[4756:4760] = struct.pack("<I", cur_year)
+        bdata[4760:4764] = struct.pack("<I", cur_month)
+        bdata[4764:4768] = struct.pack("<I", cur_day)
 
         with open(bin_path, "wb") as f:
             f.write(bdata)
 
+    # Actualizar fecha en headbar.json
+    headbar_json_path = os.path.join(MINFS_DIR, "appres", "layout", "headbar", "headbar.json")
+    if os.path.exists(headbar_json_path):
+        try:
+            with open(headbar_json_path, "r", encoding="utf-8") as f:
+                hb_layout = json.load(f)
+            if "label-010" in hb_layout:
+                hb_layout["label-010"]["text"] = f"{cur_day:02d}/{cur_month:02d}/{cur_year}"
+            with open(headbar_json_path, "w", encoding="utf-8") as f:
+                json.dump(hb_layout, f, indent=4)
+        except Exception:
+            pass
+
+# ----------------------------------------------------------------------
+# PROCESADOR DE LOGOS Y ELIMINACIÓN INTELIGENTE DE FONDO
+# ----------------------------------------------------------------------
+def auto_remove_background(im, tolerance=32):
+    im = im.convert("RGBA")
+    w, h = im.size
+    alpha = im.split()[-1]
+    hist = alpha.histogram()
+    if sum(hist[:128]) > (w * h * 0.05):
+        return im
+
+    corners = [
+        im.getpixel((0, 0))[:3],
+        im.getpixel((w - 1, 0))[:3],
+        im.getpixel((0, h - 1))[:3],
+        im.getpixel((w - 1, h - 1))[:3],
+        im.getpixel((2, 2))[:3],
+        im.getpixel((w - 3, 2))[:3],
+        im.getpixel((2, h - 3))[:3],
+        im.getpixel((w - 3, h - 3))[:3],
+    ]
+    bg_r = sum(c[0] for c in corners) // len(corners)
+    bg_g = sum(c[1] for c in corners) // len(corners)
+    bg_b = sum(c[2] for c in corners) // len(corners)
+
+    pixels = im.load()
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = pixels[x, y]
+            dist = math.sqrt((r - bg_r)**2 + (g - bg_g)**2 + (b - bg_b)**2)
+            if dist < tolerance:
+                pixels[x, y] = (r, g, b, 0)
+            elif dist < tolerance + 25:
+                frac = (dist - tolerance) / 25.0
+                pixels[x, y] = (r, g, b, int(255 * frac))
+    return im
+
+def adapt_brand_logo(logo_path, target_size=(46, 36), tint_color=None):
+    if not logo_path or not os.path.exists(logo_path):
+        return None
+    raw_im = Image.open(logo_path)
+    cleaned = auto_remove_background(raw_im)
+    bbox = cleaned.getbbox()
+    if not bbox:
+        return None
+    trimmed = cleaned.crop(bbox)
+    src_w, src_h = trimmed.size
+    tgt_w, tgt_h = target_size
+    scale = min(tgt_w / src_w, tgt_h / src_h)
+    new_w = max(1, int(src_w * scale))
+    new_h = max(1, int(src_h * scale))
+    resized = trimmed.resize((new_w, new_h), Image.Resampling.LANCZOS)
+
+    if tint_color is not None:
+        r, g, b, a = resized.split()
+        gray = resized.convert('L')
+        tint_img = Image.new("RGBA", (new_w, new_h), tint_color)
+        t_alpha = bytearray()
+        g_bytes = gray.tobytes()
+        a_bytes = a.tobytes()
+        for ga, al in zip(g_bytes, a_bytes):
+            val = int((al / 255.0) * min(255, max(60, int(ga * 1.25))))
+            t_alpha.append(val)
+        tint_img.putalpha(Image.frombytes('L', (new_w, new_h), bytes(t_alpha)))
+        return tint_img
+    return resized
+
+def draw_vector_brand_fallback(draw, brand_name, cx, cy, size, color):
+    b = brand_name.upper().strip()
+    if "TOYOTA" in b:
+        w, h = int(size * 1.0), int(size * 0.7)
+        draw.ellipse([cx - w, cy - h, cx + w, cy + h], outline=color, width=3)
+        draw.ellipse([cx - int(w*0.75), cy - int(h*0.75), cx + int(w*0.75), cy + int(h*0.3)], outline=color, width=3)
+        draw.ellipse([cx - int(w*0.35), cy - int(h*0.8), cx + int(w*0.35), cy + int(h*0.75)], outline=color, width=3)
+    elif "FORD" in b:
+        w, h = int(size * 1.1), int(size * 0.65)
+        draw.ellipse([cx - w, cy - h, cx + w, cy + h], outline=color, width=3)
+        draw.text((cx, cy), "Ford", fill=color, font=get_font(int(size*0.8), bold=True), anchor="mm")
+    else:
+        # Default: Mitsubishi 3-Diamonds
+        r = size * 0.95
+        d1 = [(cx, cy), (cx - r*0.38, cy - r*0.48), (cx, cy - r*0.96), (cx + r*0.38, cy - r*0.48)]
+        draw.polygon(d1, fill=color)
+        def rotate_pt(pt, deg):
+            rad = math.radians(deg)
+            x = pt[0] - cx
+            y = pt[1] - cy
+            rx = x * math.cos(rad) - y * math.sin(rad)
+            ry = x * math.sin(rad) + y * math.cos(rad)
+            return (cx + rx, cy + ry)
+        d2 = [rotate_pt(pt, 120) for pt in d1]
+        d3 = [rotate_pt(pt, 240) for pt in d1]
+        draw.polygon(d2, fill=color)
+        draw.polygon(d3, fill=color)
+
+def save_minfs_p_png(im_rgba, target_path):
+    im_p = im_rgba.quantize(colors=255)
+    im_p.save(target_path, format="PNG", optimize=True)
+
+def generate_base_button(size=(126, 126), pressed=False, style="stealth"):
+    w, h = size
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(im)
+    accent = (220, 225, 235, 255) if style == "stealth" else ((212, 255, 0, 255) if style == "tactical" else (0, 235, 255, 255))
+    bg_col = (28, 38, 54, 240) if pressed else (16, 20, 28, 220)
+    border_col = accent if pressed else (55, 68, 85, 255)
+    if style == "tactical":
+        draw.rectangle([4, 4, w - 4, h - 4], fill=bg_col, outline=border_col, width=2 if pressed else 1)
+        if pressed:
+            draw.line([(4, 4), (16, 4)], fill=accent, width=3)
+            draw.line([(4, 4), (4, 16)], fill=accent, width=3)
+    else:
+        draw.rounded_rectangle([4, 4, w - 4, h - 4], radius=22, fill=bg_col, outline=border_col, width=2 if pressed else 1)
+        draw.arc([8, 8, w - 8, h//2 + 4], start=180, end=0, fill=(255, 255, 255, 40), width=1)
+    return im, draw
+
+def inject_physical_ui_assets(style="cyber"):
+    desktop_dir = os.path.join(MINFS_DIR, "appres", "img", "desktop")
+    setting_dir = os.path.join(MINFS_DIR, "appres", "img", "setting")
+    handset_file = os.path.join(ASSETS_DIR, "phone_handset.png")
+    bg2_file = os.path.join(setting_dir, "bg2.jpg")
+
+    accent = (220, 225, 235, 255) if style == "stealth" else ((212, 255, 0, 255) if style == "tactical" else (0, 235, 255, 255))
+    accent_sub = (255, 0, 110, 255) if style == "cyber" else accent
+
+    # 1. Fondo predeterminado bg0.jpg configurado a Fibra de Carbono limpio de fábrica
+    if os.path.exists(bg2_file):
+        bg0_jpg = os.path.join(setting_dir, "bg0.jpg")
+        import shutil
+        shutil.copy2(bg2_file, bg0_jpg)
+        bg2_im = Image.open(bg2_file)
+        bg2_im.save(os.path.join(setting_dir, "bg0.png"))
+        thumb = bg2_im.resize((140, 70), Image.Resampling.LANCZOS)
+        thumb.save(os.path.join(setting_dir, "small_bg0.png"))
+        print("      • Fondo de pantalla inicial (bg0.jpg) configurado a Fibra de Carbono limpio.")
+
+    # 2. Ícono de Teléfono (desktop_Bt.png / desktop_Bt_sel.png)
+    for pressed, fname in [(False, "desktop_Bt.png"), (True, "desktop_Bt_sel.png")]:
+        im, draw = generate_base_button((126, 126), pressed, style)
+        icx, icy = 63, 63
+        if os.path.exists(handset_file):
+            raw_h = Image.open(handset_file).convert("RGBA")
+            h_size = 54
+            smooth_h = raw_h.resize((h_size*2, h_size*2), Image.Resampling.LANCZOS).filter(ImageFilter.GaussianBlur(0.5)).resize((h_size, h_size), Image.Resampling.LANCZOS)
+            im.paste(smooth_h, (icx - h_size//2, icy - h_size//2), smooth_h)
+        else:
+            draw.ellipse([icx - 10, icy - 16, icx + 16, icy - 2], fill=(255, 255, 255, 240))
+            draw.ellipse([icx - 16, icy + 2, icx + 10, icy + 16], fill=(255, 255, 255, 240))
+            draw.line([(icx - 8, icy - 12), (icx - 12, icy + 10)], fill=(255, 255, 255, 240), width=8)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+    print("      • Ícono de Teléfono oficial inyectado en MINFS (reemplazando el runa Bluetooth).")
+
+    # 3. Ícono de Calculadora (desktop_Calculator.png / desktop_Calculator_sel.png)
+    for pressed, fname in [(False, "desktop_Calculator.png"), (True, "desktop_Calculator_sel.png")]:
+        im, draw = generate_base_button((126, 126), pressed, style)
+        icx, icy = 63, 63
+        w, h = 26, 34
+        draw.rounded_rectangle([icx - w, icy - h, icx + w, icy + h], radius=8, outline=(255, 255, 255, 240), width=3)
+        draw.rounded_rectangle([icx - w + 5, icy - h + 5, icx + w - 5, icy - h + 18], radius=3, outline=(255, 255, 255, 240), width=2)
+        btn_acc = accent if pressed else accent_sub
+        draw.rounded_rectangle([icx + 4, icy + 15, icx + 18, icy + 26], radius=4, fill=btn_acc)
+        for r_y in [icy - 4, icy + 7]:
+            for c_x in [icx - 15, icx - 2, icx + 11]:
+                draw.ellipse([c_x - 3, r_y - 3, c_x + 3, r_y + 3], outline=(255, 255, 255, 220), width=2)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+    print("      • Ícono de Calculadora moderna inyectado en MINFS.")
+
+    # 4. Ícono de Audio (desktop_Audio.png / desktop_Audio_sel.png)
+    for pressed, fname in [(False, "desktop_Audio.png"), (True, "desktop_Audio_sel.png")]:
+        im, draw = generate_base_button((126, 126), pressed, style)
+        icx, icy = 63, 63
+        draw.ellipse([icx - 18, icy + 8, icx - 2, icy + 22], fill=(255, 255, 255, 240))
+        draw.ellipse([icx + 6, icy + 3, icx + 22, icy + 17], fill=(255, 255, 255, 240))
+        draw.line([(icx - 2, icy + 14), (icx - 2, icy - 18)], fill=(255, 255, 255, 240), width=4)
+        draw.line([(icx + 22, icy + 9), (icx + 22, icy - 24)], fill=(255, 255, 255, 240), width=4)
+        draw.polygon([(icx - 2, icy - 14), (icx + 22, icy - 20), (icx + 22, icy - 26), (icx - 2, icy - 20)], fill=(255, 255, 255, 240))
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    # 5. Ícono de USB (desktop_Usb.png / desktop_Usb_sel.png)
+    for pressed, fname in [(False, "desktop_Usb.png"), (True, "desktop_Usb_sel.png")]:
+        im, draw = generate_base_button((126, 126), pressed, style)
+        icx, icy = 63, 63
+        draw.line([(icx, icy + 22), (icx, icy - 16)], fill=(255, 255, 255, 240), width=4)
+        draw.ellipse([icx - 5, icy + 18, icx + 5, icy + 28], fill=(255, 255, 255, 240))
+        draw.polygon([(icx, icy - 26), (icx - 7, icy - 16), (icx + 7, icy - 16)], fill=(255, 255, 255, 240))
+        draw.line([(icx, icy + 8), (icx - 14, icy - 2), (icx - 14, icy - 12)], fill=(255, 255, 255, 240), width=3)
+        draw.ellipse([icx - 19, icy - 17, icx - 9, icy - 7], fill=(255, 255, 255, 240))
+        draw.line([(icx, icy + 4), (icx + 14, icy - 6), (icx + 14, icy - 16)], fill=(255, 255, 255, 240), width=3)
+        draw.rectangle([icx + 10, icy - 21, icx + 18, icy - 13], fill=(255, 255, 255, 240))
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    # 6. Ícono de SD (desktop_SD.png / desktop_SD_sel.png)
+    for pressed, fname in [(False, "desktop_SD.png"), (True, "desktop_SD_sel.png")]:
+        im, draw = generate_base_button((126, 126), pressed, style)
+        icx, icy = 63, 63
+        x0, y0, x1, y1 = icx - 24, icy - 30, icx + 24, icy + 30
+        draw.polygon([(x0, y0 + 12), (x0 + 12, y0), (x1, y0), (x1, y1), (x0, y1)], outline=(255, 255, 255, 240), width=3)
+        draw.text((icx, icy + 6), "SD", fill=(255, 255, 255, 240), font=get_font(16, bold=True), anchor="mm")
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    # 7. Íconos de Mirror (desktop_PhoneLink / ArMir / IpMir)
+    for base_name in ["desktop_PhoneLink", "desktop_ArMir", "desktop_IpMir"]:
+        for pressed, suffix in [(False, ".png"), (True, "_sel.png")]:
+            fname = base_name + suffix
+            im, draw = generate_base_button((126, 126), pressed, style)
+            icx, icy = 63, 63
+            draw.rounded_rectangle([icx - 20, icy - 26, icx + 6, icy + 20], radius=6, outline=(255, 255, 255, 240), width=3)
+            draw.rounded_rectangle([icx - 6, icy - 16, icx + 20, icy + 30], radius=6, outline=(255, 255, 255, 240), width=3)
+            save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    # 8. Botones CarPlay y Android Auto (130x116 px contenidos sin desborde)
+    for pressed, fname in [(False, "desktop_Carplay.png"), (True, "desktop_Carplay_sel.png")]:
+        im = Image.new("RGBA", (130, 116), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(im)
+        bg_col = (28, 38, 54, 240) if pressed else (18, 22, 34, 230)
+        draw.rounded_rectangle([2, 2, 128, 114], radius=18, fill=bg_col, outline=accent if pressed else (55, 68, 85, 255), width=2 if pressed else 1)
+        draw.rounded_rectangle([38, 20, 92, 58], radius=6, outline=(255, 255, 255, 240), width=3)
+        draw.polygon([(69, 39), (59, 32), (59, 46)], fill=(255, 255, 255, 240))
+        draw.text((65, 80), "CarPlay", fill=(245, 250, 255, 255), font=get_font(13, bold=True), anchor="mm")
+        draw.line([(32, 108), (98, 108)], fill=accent if style=="cyber" else (245, 250, 255, 255), width=3)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    for pressed, fname in [(False, "desktop_Aoa.png"), (True, "desktop_Aoa_sel.png")]:
+        im = Image.new("RGBA", (130, 116), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(im)
+        bg_col = (28, 38, 54, 240) if pressed else (18, 22, 34, 230)
+        draw.rounded_rectangle([2, 2, 128, 114], radius=18, fill=bg_col, outline=accent_sub if pressed else (55, 68, 85, 255), width=2 if pressed else 1)
+        aax = 65
+        draw.line([(aax, 22), (aax - 16, 50)], fill=(255, 255, 255, 240), width=4)
+        draw.line([(aax, 22), (aax + 16, 50)], fill=(255, 255, 255, 240), width=4)
+        draw.line([(aax - 7, 42), (aax + 7, 42)], fill=(255, 255, 255, 240), width=3)
+        draw.text((65, 80), "Android Auto", fill=(245, 250, 255, 255), font=get_font(12, bold=True), anchor="mm")
+        draw.line([(32, 108), (98, 108)], fill=accent_sub if style=="cyber" else (245, 250, 255, 255), width=3)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    # 9. Tarjeta de música: Se conserva el diseño original de fábrica de desktop_bg.png
+    print("      • Todos los 16 archivos PNG de botones e íconos inyectados en MINFS.")
+
+def process_ui_theme(style, brand, model, subtitle, logo_path, tint_logo, bt_name):
+    theme_name = THEMES_MAP.get(style, "Personalizado")
+    print(f"\n[4/6] Configurando estilo de interfaz:")
+    print(f"      • Estilo seleccionado: {theme_name} ({style})")
+    
+    # 1. Inyectar archivos físicos de íconos y fondo limpio en MINFS
+    inject_physical_ui_assets(style)
+
+    # 2. Ajustar coordenadas en desktop.json (restaurando reloj de fábrica y CarPlay/Android Auto contenidos)
+    desktop_json_path = os.path.join(MINFS_DIR, "appres", "layout", "desktop", "desktop.json")
+    if os.path.exists(desktop_json_path):
+        try:
+            with open(desktop_json_path, "r", encoding="utf-8") as f:
+                d_layout = json.load(f)
+            if "button-001" in d_layout: # btnCarplay
+                d_layout["button-001"]["pos"] = "16,320,130,116"
+            if "button-002" in d_layout: # btnAuto
+                d_layout["button-002"]["pos"] = "1134,320,130,116"
+            if "label-001" in d_layout: # lblTime
+                d_layout["label-001"]["pos"] = "270,70,200,80"
+            if "label-003" in d_layout: # lblDate
+                d_layout["label-003"]["pos"] = "276,180,200,44"
+                now = datetime.datetime.now()
+                d_layout["label-003"]["text"] = now.strftime("%Y-%m-%d")
+            if "label-004" in d_layout: # lblWeek
+                d_layout["label-004"]["pos"] = "298,225,150,40"
+            if "backgd-006" in d_layout: # bgdAM
+                d_layout["backgd-006"]["pos"] = "470,112,65,39"
+            if "backgd-005" in d_layout: # bgdPM
+                d_layout["backgd-005"]["pos"] = "470,112,65,39"
+            with open(desktop_json_path, "w", encoding="utf-8") as f:
+                json.dump(d_layout, f, indent=4)
+            print("      • Coordenadas de CarPlay, Android Auto y reloj/fecha configuradas en desktop.json.")
+        except Exception as e:
+            print(f"      [!] Nota al actualizar desktop.json: {e}")
+
+    # 3. Generar vista previa visual en alta resolución (1280x480) fiel a la pantalla física
+    bg0_png_path = os.path.join(MINFS_DIR, "appres", "img", "setting", "bg0.png")
+    if os.path.exists(bg0_png_path):
+        preview = Image.open(bg0_png_path).convert("RGBA")
+    else:
+        preview = Image.new("RGBA", (UI_WIDTH, UI_HEIGHT), (16, 18, 22, 255))
+        
+    draw = ImageDraw.Draw(preview)
+    
+    accent = (220, 225, 235, 255) if style == "stealth" else ((212, 255, 0, 255) if style == "tactical" else (0, 235, 255, 255))
+    accent_sub = (255, 0, 110, 255) if style == "cyber" else accent
+    
+    # Headbar
+    bar = Image.new("RGBA", (UI_WIDTH, 46), (12, 15, 20, 230))
+    preview.paste(bar, (0, 0), bar)
+    draw.line([(0, 46), (UI_WIDTH, 46)], fill=(255, 255, 255, 30), width=1)
+    
+    draw.rounded_rectangle([18, 7, 68, 39], radius=8, fill=(35, 40, 50, 200), outline=(255, 255, 255, 40), width=1)
+    draw.polygon([(43, 15), (34, 23), (52, 23)], fill=(255, 255, 255, 230))
+    draw.rectangle([37, 23, 49, 30], fill=(255, 255, 255, 230))
+    
+    draw.rounded_rectangle([80, 7, 180, 39], radius=8, fill=(35, 40, 50, 200), outline=(255, 255, 255, 40), width=1)
+    draw.text((142, 23), "80%", fill=(255, 255, 255, 230), font=get_font(13, bold=True), anchor="mm")
+    
+    draw.rounded_rectangle([195, 7, 345, 39], radius=16, fill=(30, 35, 45, 200), outline=accent, width=1)
+    draw.text((276, 23), f"{bt_name} OK", fill=(230, 235, 245, 255), font=get_font(12, bold=True), anchor="mm")
+    
+    # Reloj en vivo sincronizado con la fecha de compilación
+    now = datetime.datetime.now()
+    cur_date_str = now.strftime("%Y-%m-%d")
+    dias_semana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
+    cur_day_name = dias_semana[now.weekday()]
+    draw.text((370, 110), now.strftime("%H:%M"), fill=(255, 255, 255, 255), font=get_font(68, bold=True), anchor="mm")
+    draw.text((376, 185), cur_date_str, fill=(200, 215, 235, 255), font=get_font(18, bold=False), anchor="mm")
+    draw.text((373, 228), cur_day_name, fill=(215, 220, 230, 255), font=get_font(16, bold=True), anchor="mm")
+
+    # Tarjeta de música de fábrica (778, 70, 394, 222)
+    bg_card_file = os.path.join(MINFS_DIR, "appres", "img", "desktop", "desktop_bg.png")
+    if os.path.exists(bg_card_file):
+        bg_card_im = Image.open(bg_card_file).convert("RGBA")
+        preview.paste(bg_card_im, (778, 70), bg_card_im)
+    else:
+        draw.rounded_rectangle([778, 70, 1172, 292], radius=18, fill=(14, 18, 26, 225), outline=(55, 68, 85, 255), width=1)
+    
+    # Controles multimedia del reproductor
+    cx_mid = (778 + 1172) // 2
+    cy_ctrl = 70 + 170
+    draw.polygon([(cx_mid - 62, cy_ctrl), (cx_mid - 48, cy_ctrl - 10), (cx_mid - 48, cy_ctrl + 10)], fill=(215, 225, 240, 255))
+    draw.polygon([(cx_mid - 48, cy_ctrl), (cx_mid - 34, cy_ctrl - 10), (cx_mid - 34, cy_ctrl + 10)], fill=(215, 225, 240, 255))
+    draw.ellipse([cx_mid - 24, cy_ctrl - 24, cx_mid + 24, cy_ctrl + 24], fill=(245, 250, 255, 255))
+    draw.polygon([(cx_mid - 7, cy_ctrl - 10), (cx_mid + 11, cy_ctrl), (cx_mid - 7, cy_ctrl + 10)], fill=(16, 20, 28, 255))
+    draw.polygon([(cx_mid + 48, cy_ctrl), (cx_mid + 34, cy_ctrl - 10), (cx_mid + 34, cy_ctrl + 10)], fill=(215, 225, 240, 255))
+    draw.polygon([(cx_mid + 62, cy_ctrl), (cx_mid + 48, cy_ctrl - 10), (cx_mid + 48, cy_ctrl + 10)], fill=(215, 225, 240, 255))
+    draw.text((cx_mid, 70 + 80), "NULL", fill=(200, 215, 235, 255), font=get_font(20, bold=True), anchor="mm")
+
+    # Botones inferiores (CarPlay y Auto contenidos con margen seguro de 16px)
+    cp_rect = [16, 320, 146, 436]
+    aa_rect = [1134, 320, 1264, 436]
+    draw.rounded_rectangle(cp_rect, radius=18, fill=(18, 22, 34, 230), outline=accent if style=="cyber" else (255, 255, 255, 45), width=1)
+    # Icono CarPlay
+    draw.rounded_rectangle([cp_rect[0]+42, cp_rect[1]+24, cp_rect[2]-42, cp_rect[1]+60], radius=6, outline=(255, 255, 255, 240), width=3)
+    draw.polygon([(81, 357), (71, 350), (71, 364)], fill=(255, 255, 255, 240))
+    draw.text((81, 400), "CarPlay", fill=(245, 250, 255, 255), font=get_font(13, bold=True), anchor="mm")
+    draw.line([(cp_rect[0]+35, cp_rect[3]-5), (cp_rect[2]-35, cp_rect[3]-5)], fill=accent if style=="cyber" else (245, 250, 255, 255), width=3)
+
+    draw.rounded_rectangle(aa_rect, radius=18, fill=(18, 22, 34, 230), outline=accent_sub if style=="cyber" else (255, 255, 255, 45), width=1)
+    # Icono Android Auto
+    aax = (aa_rect[0] + aa_rect[2]) // 2
+    draw.line([(aax, 344), (aax - 16, 370)], fill=(255, 255, 255, 240), width=4)
+    draw.line([(aax, 344), (aax + 16, 370)], fill=(255, 255, 255, 240), width=4)
+    draw.line([(aax - 7, 362), (aax + 7, 362)], fill=(255, 255, 255, 240), width=3)
+    draw.text((1199, 400), "Android Auto", fill=(245, 250, 255, 255), font=get_font(12, bold=True), anchor="mm")
+    draw.line([(aa_rect[0]+35, aa_rect[3]-5), (aa_rect[2]-35, aa_rect[3]-5)], fill=accent_sub if style=="cyber" else (245, 250, 255, 255), width=3)
+
+    # 6 Apps del lanzador central
+    app_names = ["Audio", "USB", "SD Card", "Teléfono", "Mirror", "Calculadora"]
+    app_xs = [176 + i * 160 for i in range(6)]
+    for i, name in enumerate(app_names):
+        bx = app_xs[i]
+        draw.rounded_rectangle([bx, 312, bx + 126, 428], radius=20, fill=(16, 20, 28, 220), outline=(255, 255, 255, 40), width=1)
+        icx, icy = bx + 63, 360
+        if name == "Audio":
+            draw.ellipse([icx - 14, icy + 6, icx - 2, icy + 16], fill=(255, 255, 255, 240))
+            draw.ellipse([icx + 4, icy + 2, icx + 16, icy + 12], fill=(255, 255, 255, 240))
+            draw.line([(icx - 2, icy + 10), (icx - 2, icy - 14)], fill=(255, 255, 255, 240), width=3)
+            draw.line([(icx + 16, icy + 6), (icx + 16, icy - 18)], fill=(255, 255, 255, 240), width=3)
+            draw.polygon([(icx - 2, icy - 10), (icx + 16, icy - 14), (icx + 16, icy - 18), (icx - 2, icy - 14)], fill=(255, 255, 255, 240))
+        elif name == "USB":
+            draw.line([(icx, icy + 18), (icx, icy - 14)], fill=(255, 255, 255, 240), width=3)
+            draw.polygon([(icx, icy - 22), (icx - 6, icy - 14), (icx + 6, icy - 14)], fill=(255, 255, 255, 240))
+            draw.line([(icx, icy + 6), (icx - 12, icy - 2), (icx - 12, icy - 10)], fill=(255, 255, 255, 240), width=2)
+            draw.ellipse([icx - 16, icy - 14, icx - 8, icy - 6], fill=(255, 255, 255, 240))
+            draw.line([(icx, icy + 2), (icx + 12, icy - 6), (icx + 12, icy - 14)], fill=(255, 255, 255, 240), width=2)
+            draw.rectangle([icx + 9, icy - 18, icx + 15, icy - 12], fill=(255, 255, 255, 240))
+        elif name == "SD Card":
+            draw.polygon([(icx-18, icy-20), (icx+10, icy-20), (icx+18, icy-12), (icx+18, icy+20), (icx-18, icy+20)], outline=(255, 255, 255, 240), width=2)
+            draw.text((icx, icy + 4), "SD", fill=(255, 255, 255, 240), font=get_font(12, bold=True), anchor="mm")
+        elif name == "Teléfono":
+            handset_file = os.path.join(ASSETS_DIR, "phone_handset.png")
+            if os.path.exists(handset_file):
+                raw_h = Image.open(handset_file).convert("RGBA")
+                smooth_h = raw_h.resize((92, 92), Image.Resampling.LANCZOS).filter(ImageFilter.GaussianBlur(0.5)).resize((46, 46), Image.Resampling.LANCZOS)
+                preview.paste(smooth_h, (icx - 23, icy - 23), smooth_h)
+            else:
+                draw.ellipse([icx - 8, icy - 14, icx + 14, icy - 2], fill=(255, 255, 255, 240))
+                draw.ellipse([icx - 14, icy + 2, icx + 8, icy + 14], fill=(255, 255, 255, 240))
+                draw.line([(icx - 6, icy - 10), (icx - 10, icy + 8)], fill=(255, 255, 255, 240), width=6)
+        elif name == "Mirror":
+            draw.rounded_rectangle([icx - 16, icy - 20, icx + 4, icy + 14], radius=4, outline=(255, 255, 255, 240), width=2)
+            draw.rounded_rectangle([icx - 4, icy - 12, icx + 16, icy + 22], radius=4, outline=(255, 255, 255, 240), width=2)
+        elif name == "Calculadora":
+            draw.rounded_rectangle([icx - 18, icy - 24, icx + 18, icy + 24], radius=6, outline=(255, 255, 255, 240), width=2)
+            draw.rounded_rectangle([icx - 14, icy - 20, icx + 14, icy - 10], radius=2, outline=(255, 255, 255, 240), width=1)
+            for ky in [icy - 4, icy + 6, icy + 16]:
+                for kx in [icx - 10, icx, icx + 10]:
+                    draw.ellipse([kx - 3, ky - 3, kx + 3, ky + 3], outline=(255, 255, 255, 220), width=1)
+
+        draw.text((bx + 63, 444), name, fill=(215, 225, 235, 255), font=get_font(13, bold=False), anchor="mm")
+
+    preview_ui_path = os.path.join(OUTPUT_DIR, "vista_previa_escritorio.png")
+    preview.save(preview_ui_path, format="PNG")
+    print(f"      • Vista previa de escritorio generada: {os.path.relpath(preview_ui_path, BASE_DIR)}")
+
 def repack_minfs():
-    print("\n[4/5] Re-empaquetando sistema de archivos MINFS (data_udisk.fex)...")
+    print("\n[5/6] Re-empaquetando sistema de archivos MINFS (data_udisk.fex)...")
     base_fex_path = os.path.join(ORIG_FEX_DIR, "23_data_udisk.fex")
     with open(base_fex_path, "rb") as f:
         orig = bytearray(f.read())
@@ -331,7 +797,7 @@ def repack_minfs():
     return new_data
 
 def build_firmware(new_udisk_data):
-    print("\n[5/5] Ensamblando imagen de firmware (IMAGEWTY container)...")
+    print("\n[6/6] Ensamblando imagen de firmware (IMAGEWTY container)...")
     sum32 = sum(struct.unpack('<%dI' % (len(new_udisk_data) // 4), new_udisk_data)) & 0xffffffff
     print(f"      • Checksum sum32 recalculado: {hex(sum32)}")
 
@@ -360,6 +826,11 @@ def build_firmware(new_udisk_data):
 def main():
     parser = argparse.ArgumentParser(description="F133 Boot Logo & Firmware Customizer")
     parser.add_argument("--image", "-i", help="Ruta a la imagen para el boot logo", default=None)
+    parser.add_argument("--theme", "-t", help="Estilo de interfaz ('stealth', 'tactical', 'cyber')", default=None)
+    parser.add_argument("--brand", help="Marca del vehículo (ej: MITSUBISHI, TOYOTA, FORD)", default=None)
+    parser.add_argument("--model", help="Modelo del vehículo (ej: L200 KATANA, HILUX)", default=None)
+    parser.add_argument("--subtitle", help="Subtítulo o edición (ej: 4X4 TURBO DIESEL)", default=None)
+    parser.add_argument("--brand-logo", help="Ruta al logo de la marca (PNG o JPG)", default=None)
     parser.add_argument("--bt", "-b", help="Nombre del Bluetooth (máx 8 caracteres)", default=None)
     parser.add_argument("--lang", "-l", help="ID del idioma por defecto (3 = Español)", type=int, default=None)
     parser.add_argument("--sound", "-s", help="Modo de sonido ('silencio' o ruta a un archivo .wav)", default=None)
@@ -368,10 +839,13 @@ def main():
 
     print_banner()
 
-    # Cargar ajustes desde config.ini
     cfg = load_configuration()
 
-    # Sobrescribir con flags CLI si fueron pasados
+    if args.theme and args.theme.lower() in THEMES_MAP: cfg["theme_style"] = args.theme.lower()
+    if args.brand: cfg["brand"] = args.brand
+    if args.model: cfg["model"] = args.model
+    if args.subtitle: cfg["subtitle"] = args.subtitle
+    if args.brand_logo: cfg["logo_file"] = args.brand_logo
     if args.bt: cfg["bt_name"] = args.bt
     if args.lang is not None: cfg["language"] = args.lang
     if args.version_text: cfg["version_str"] = args.version_text
@@ -383,9 +857,12 @@ def main():
             cfg["sound_file"] = args.sound
 
     img_path = find_input_image(args.image)
+    
+    # Flujo de ejecución
     process_logo(img_path)
     process_sound(cfg["sound_mode"], cfg["sound_file"])
     process_system_configs(cfg["bt_name"], cfg["language"], cfg["version_str"])
+    process_ui_theme(cfg["theme_style"], cfg["brand"], cfg["model"], cfg["subtitle"], cfg["logo_file"], cfg["tint_logo"], cfg["bt_name"])
     udisk_data = repack_minfs()
     build_firmware(udisk_data)
 
@@ -394,10 +871,16 @@ def main():
     print("=" * 75)
     print(" RESUMEN DE PERSONALIZACIONES APLICADAS:")
     print(f" • Logo de inicio:     {os.path.basename(img_path)} (1600x600 nativo)")
+    print(f" • Estilo de Interfaz: {THEMES_MAP.get(cfg['theme_style'], cfg['theme_style'])}")
     print(f" • Nombre Bluetooth:   {cfg['bt_name']}")
     print(f" • Idioma por defecto: {IDIOMAS_MAP.get(cfg['language'], str(cfg['language']))}")
     print(f" • Sonido de arranque: {cfg['sound_mode']}")
     print(f" • Versión de sistema: {cfg['version_str']}")
+    print("-" * 75)
+    print(" ARCHIVOS GENERADOS:")
+    print(f" • Vista previa pantalla:    output/vista_previa_pantalla.jpg")
+    print(f" • Vista previa escritorio:  output/vista_previa_escritorio.png")
+    print(f" • Firmware para USB:        output/F133_IMG/melis_f133-b-pnd-16M-board_uart0_16Mnor.img")
     print("-" * 75)
     print(" INSTRUCCIONES PARA INSTALAR EN TU PANTALLA:")
     print(" 1. Formatea un pendrive USB (de 32 GB o menos) en formato FAT32.")

@@ -52,7 +52,7 @@ bg_style=2
 led_style=0
 
 ;输出制式：0 NTSC, 1 PAL		
-output_format=1
+output_format=0
 
 ;系统音量	
 volume=25
@@ -105,9 +105,9 @@ sel_key_function = 1
 ;时间制式：0: 24小时制， 1: 12小时制		
 time_format=0
 ;默认时间	
-year=2025
-month=2
-day=1
+year=2026
+month=10
+day=27
 
 
 ;上电背光打开时间，单位是10ms
