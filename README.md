@@ -40,7 +40,7 @@ Esta herramienta está diseñada específicamente para las populares pantallas m
 | Parámetro | Descripción | Cómo se configura |
 | :--- | :--- | :--- |
 | **🖼️ Logo de Arranque** | Imagen a pantalla completa (1600×600) de inicio. | Coloca tu archivo como `custom_logo.png` o `.jpg` |
-| **🎨 Estilo de Interfaz** | Elige entre `stealth` (Luxe Titanio), `tactical` (Off-Road 4x4) o `cyber` (Neón Dinámico). | En `config.ini` o con `--theme stealth` |
+| **🎨 Estilo de Interfaz** | Elige entre `tactical` (Off-Road 4x4), `stealth` (Luxe Titanio), `cyber` (Neón Dinámico) o `original` (Fábrica). | En `config.ini` (`estilo = ...`) o con `--theme <tactical\|stealth\|cyber\|original>` |
 | **🚗 Marca y Modelo** | Personaliza la insignia central con tu marca, modelo y edición (ej. `MITSUBISHI L200 KATANA`). | En `config.ini` (`[vehiculo]`) |
 | **✨ Logo del Auto (Auto-BG)** | Coloca cualquier PNG/JPG de tu marca; Python remueve fondos negros/blancos automáticamente. | Carpeta `logos/` o con `--brand-logo` |
 | **📶 Nombre Bluetooth** | Nombre que verás al vincular tu celular (ej. `L200`, `Hilux`, `MiAuto`, etc.). | En `config.ini` o con `--bt "Nombre"` |
@@ -50,16 +50,75 @@ Esta herramienta está diseñada específicamente para las populares pantallas m
 
 ---
 
-## 📸 Previsualizaciones
+## 🎨 Temas Visuales y Catálogo de Vistas
+
+El sistema incluye **3 temas visuales completos** generados con **Gemini IA** y optimizados en Python con paleta P-PNG de 8 bits y canal alfa nativo, además de la opción de **restaurar el tema de fábrica original en cualquier momento**:
+
+### 1. Tema Tactical Off-Road / 4x4 Aventura (`--theme tactical`)
+> Estilo aventurero y todoterreno inspirado en instrumental Dakar. Acentos en color ámbar/naranja de alta visibilidad, biseles achaflanados a 45° e iconografía robusta de navegación.
+<p align="center">
+  <img src="docs/images/theme_tactical_vistas.jpg" alt="Catálogo de Vistas - Tema Tactical Off-Road" width="850"/>
+</p>
+
+### 2. Tema Stealth Luxe / Monocromo Titanio (`--theme stealth`)
+> Estilo ejecutivo y refinado con paleta monocromática de titanio pulido, cristal ahumado translúcido e iconografía minimalista de alta gama.
+<p align="center">
+  <img src="docs/images/theme_stealth_vistas.jpg" alt="Catálogo de Vistas - Tema Stealth Luxe" width="850"/>
+</p>
+
+### 3. Tema Cyber Sport / Neón Dinámico (`--theme cyber`)
+> Estilo deportivo digital futurista con efectos de brillo neón en azul cian eléctrico y rosa magenta, optimizado para máxima visibilidad nocturna.
+<p align="center">
+  <img src="docs/images/theme_cyber_vistas.jpg" alt="Catálogo de Vistas - Tema Cyber Sport" width="850"/>
+</p>
+
+### 🔄 Cómo Cambiar de Tema o Restaurar el Original de Fábrica
+
+Puedes alternar entre cualquiera de los temas o volver al estado original de fábrica con un solo comando:
+
+```bash
+# Aplicar Tema Tactical (Off-Road 4x4)
+python3 cambiar_logo.py --theme tactical
+
+# Aplicar Tema Stealth (Luxe Titanio)
+python3 cambiar_logo.py --theme stealth
+
+# Aplicar Tema Cyber (Neón Sport)
+python3 cambiar_logo.py --theme cyber
+
+# Restaurar al Tema Original de Fábrica (Stock Firmware)
+python3 cambiar_logo.py --theme original
+```
+
+*O si prefieres dejarlo fijado en `config.ini`:*
+```ini
+[interfaz]
+# Opciones disponibles: tactical | stealth | cyber | original
+estilo = tactical
+```
+
+---
+
+### 📱 Vistas Incluidas en Cada Tema (1280×480)
+
+Cada carpeta de tema (`themes/<nombre>/vistas/`) contiene las capturas individuales en alta definición de cada una de las 8 vistas del sistema operativo:
+
+1. **`01_escritorio.png`**: Escritorio principal con fondo limpio de fibra de carbono, widgets de CarPlay y Android Auto, reloj digital en vivo, tarjeta multimedia y los 6 lanzadores de aplicaciones (Audio, USB, SD Card, Teléfono, Mirror y Calculadora).
+2. **`02_ajustes.png`**: Menú de configuración con la barra lateral translúcida `setting/tab_bg.png`, pestañas de categorías, interruptores ON/OFF temáticos, sliders y botones de acción.
+3. **`03_musica.png`**: Reproductor multimedia con carátula de disco, panel de información de pista Hi-Res, barra de progreso y botonera de reproducción (`eq`, `prev`, `play`, `next`, `repeat`, `random`).
+4. **`04_telefono_bluetooth.png`**: Marcador telefónico manos libres con teclado numérico, botones para llamar/colgar y barra de navegación inferior translúcida `bt/tab_bg.png`.
+5. **`05_radio_fm.png`**: Transmisor y receptor FM con pantalla de frecuencia digital grande (ej: 107.9 MHz), sintonización manual y 6 presintonías rápidas (P1 a P6).
+6. **`06_ecualizador.png`**: Ecualizador DSP con las 7 bandas de frecuencia gráficas (+/- dB), perillas de ajuste temáticas, presets de género musical y botón Loudness.
+7. **`07_cortina_pullmenu.png`**: Cortina desplegable rápida con los 6 módulos flotantes (BT, FM, Mute, Wallpaper, TFT, AOut) y barra de ajuste de brillo.
+8. **`08_reloj_standby.png`**: Reloj analógico para pantalla de bloqueo/espera con esfera temática, manecillas independientes (hora, minuto, segundo) y reloj digital sincronizado.
+
+---
+
+## 📸 Previsualizaciones Generales
 
 <p align="center">
   <b>1. Logo de Arranque a Pantalla Completa (1600×600)</b><br>
   <img src="docs/images/bootlogo_preview.jpg" alt="Logo de arranque a pantalla completa" width="750"/>
-</p>
-
-<p align="center">
-  <b>2. Interfaz Principal Rediseñada (Tema Dark Titanium & Smoked Glass sobre Fibra de Carbono)</b><br>
-  <img src="docs/images/desktop_preview.png" alt="Escritorio rediseñado Dark Titanium" width="750"/>
 </p>
 
 ---
@@ -203,7 +262,14 @@ F133_BootLogo_Customizer/
 ## 🛠️ Personalizaciones Incluidas en el Firmware Base
 
 La imagen base proporcionada en este repositorio incluye las siguientes mejoras automotrices:
-1. **Tema Dark Titanium & Smoked Glass:** 27 iconos y widgets rediseñados en cristal ahumado oscuro con fino bisel titanio e iluminación táctil blanca (adiós al anticuado color turquesa/verde azulado de fábrica).
+1. **Suite de Temas Globales con Gemini IA (`stealth`, `tactical`, `cyber`):** Personalización visual integral en **todas las vistas del sistema operativo**:
+   * **110+ Iconos HD por Tema:** Generados con Gemini mediante láminas maestras duales (*Primary App Sheet* + *Media & Explorer Sheet*) y procesados con Python.
+   * **Escritorio Principal:** CarPlay, Android Auto, Teléfono, Música, Calculadora, USB, SD, Mirrors, y tarjeta multimedia `desktop_bg.png`.
+   * **Reproductor Multimedia (`music/`):** Controles de Play, Pausa, Anterior, Siguiente, Bucle (Loop), Aleatorio, Lista y Ecualizador en alta resolución.
+   * **Explorador de Archivos USB (`explorer/`):** Iconos para Carpetas, Música, Video y Fotos.
+   * **Barra Superior (Headbar) y Diálogos:** Botones Home, Retroceso, Auxiliar, y ventanas flotantes de volumen/brillo.
+   * **Ajustes y Cortina (Pullmenu):** Pestañas de categorías, switches ON/OFF, sliders y accesos directos rápidos.
+   * **Ecualizador (EQ):** Presets de sonido, interruptor de Loudness y balance de audio.
 2. **Fondo de Fibra de Carbono:** Wallpaper de alta textura automotriz oscura precargado.
 3. **Máxima Fluidez:** Animaciones lentas de widgets desactivadas (`widget_anim = 0`) para transiciones instantáneas.
 4. **Crédito en Ajustes del Dispositivo:** Registrado en la pantalla de información del sistema (*Ajustes -> Info*):

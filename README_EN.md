@@ -41,7 +41,7 @@ This tool is designed for the widely popular 10.26-inch dashboard / rearview mir
 | Feature | Description | How to Configure |
 | :--- | :--- | :--- |
 | **🖼️ Fullscreen Boot Logo** | Native edge-to-edge 1600×600 boot splash image without black borders. | Place `custom_logo.png` or `custom_logo.jpg` |
-| **🎨 UI Theme Style** | Select between `stealth` (Titanium Luxe), `tactical` (Off-Road 4x4) or `cyber` (Dynamic Neon). | In `config.ini` or `--theme stealth` |
+| **🎨 UI Theme Style** | Choose between `tactical` (Off-Road 4x4), `stealth` (Titanium Luxe), `cyber` (Dynamic Neon) or `original` (Stock Factory). | In `config.ini` (`estilo = ...`) or `--theme <tactical\|stealth\|cyber\|original>` |
 | **🚗 Vehicle Brand & Model** | Customize the central dashboard badge with your car brand, model and edition. | In `config.ini` (`[vehiculo]`) |
 | **✨ Smart Logo (Auto-BG Removal)** | Put any brand PNG/JPG; Python automatically removes black/white backgrounds. | `logos/` folder or `--brand-logo` |
 | **📶 Bluetooth Device Name** | Custom name displayed when pairing with phones (e.g. `L200`, `Hilux`, `MyCar`). | In `config.ini` or `--bt "Name"` |
@@ -51,16 +51,75 @@ This tool is designed for the widely popular 10.26-inch dashboard / rearview mir
 
 ---
 
+## 🎨 Visual Themes & UI View Catalog
+
+The system includes **3 complete visual themes** crafted with **Gemini AI** and optimized in Python using 8-bit P-PNG palette and native tRNS alpha, as well as the ability to **revert to the untouched factory firmware graphics at any time**:
+
+### 1. Tactical Off-Road / 4x4 Adventure (`--theme tactical`)
+> Rugged 4x4 adventure style inspired by Dakar rally instrumentation. High-contrast amber/orange accents, 45° chamfered bezels, and bold navigation glyphs.
+<p align="center">
+  <img src="docs/images/theme_tactical_vistas.jpg" alt="View Catalog - Tactical Off-Road Theme" width="850"/>
+</p>
+
+### 2. Stealth Luxe / Monochrome Titanium (`--theme stealth`)
+> High-end executive aesthetic featuring a brushed titanium monochrome palette, translucent smoked glass surfaces, and minimalist clean icons.
+<p align="center">
+  <img src="docs/images/theme_stealth_vistas.jpg" alt="View Catalog - Stealth Luxe Theme" width="850"/>
+</p>
+
+### 3. Cyber Sport / Dynamic Neon (`--theme cyber`)
+> Futuristic sports cockpit styling with vibrant electric cyan and magenta neon glowing accents, optimized for night drive legibility.
+<p align="center">
+  <img src="docs/images/theme_cyber_vistas.jpg" alt="View Catalog - Cyber Sport Theme" width="850"/>
+</p>
+
+### 🔄 How to Switch Themes or Restore Stock Factory Graphics
+
+You can switch between any theme or return to the clean stock factory firmware with a single command:
+
+```bash
+# Apply Tactical Theme (Off-Road 4x4)
+python3 cambiar_logo.py --theme tactical
+
+# Apply Stealth Theme (Titanium Luxe)
+python3 cambiar_logo.py --theme stealth
+
+# Apply Cyber Theme (Neon Sport)
+python3 cambiar_logo.py --theme cyber
+
+# Restore Untouched Factory Stock Theme
+python3 cambiar_logo.py --theme original
+```
+
+*Or set it permanently in `config.ini`:*
+```ini
+[interfaz]
+# Options: tactical | stealth | cyber | original
+estilo = tactical
+```
+
+---
+
+### 📱 Views Included in Each Theme (1280×480)
+
+Each theme directory (`themes/<name>/vistas/`) contains high-definition captures of all 8 OS views:
+
+1. **`01_escritorio.png`**: Main Desktop with clean carbon fiber background, CarPlay & Android Auto widgets, live clock/date, media card, and 6 app launcher tiles.
+2. **`02_ajustes.png`**: Settings menu with translucent sidebar `setting/tab_bg.png`, category tabs, themed ON/OFF switches, sliders, and action buttons.
+3. **`03_musica.png`**: Hi-Res music player with vinyl disc art, track metadata panel, seek bar, and playback controls (`eq`, `prev`, `play`, `next`, `repeat`, `random`).
+4. **`04_telefono_bluetooth.png`**: Hands-free dialer with dial display, numeric keypad, call/hangup buttons, and translucent bottom tab bar `bt/tab_bg.png`.
+5. **`05_radio_fm.png`**: FM transmitter & tuner with large digital frequency display (e.g., 107.9 MHz), tuning arrows, and 6 quick presets (P1 to P6).
+6. **`06_ecualizador.png`**: DSP graphic equalizer with 7 frequency sliders (+/- dB), custom fader knobs, genre presets, and Loudness toggle.
+7. **`07_cortina_pullmenu.png`**: Quick swipe-down drawer with 6 floating modules (BT, FM, Mute, Wallpaper, TFT, AOut) and backlight slider.
+8. **`08_reloj_standby.png`**: Lock/standby clock with themed analog watchface, independent hands (hour, minute, second), and synchronized digital clock.
+
+---
+
 ## 📸 Previews
 
 <p align="center">
   <b>1. Fullscreen Native 1600×600 Boot Logo</b><br>
   <img src="docs/images/bootlogo_preview.jpg" alt="Fullscreen Boot Logo" width="750"/>
-</p>
-
-<p align="center">
-  <b>2. Modernized Dark Titanium & Smoked Glass UI on Carbon Fiber Wallpaper</b><br>
-  <img src="docs/images/desktop_preview.png" alt="Dark Titanium Desktop UI" width="750"/>
 </p>
 
 ---
@@ -212,7 +271,14 @@ F133_BootLogo_Customizer/
 
 ## 🛠️ Enhancements Included in the Base Firmware
 
-1. **Dark Titanium & Smoked Glass Theme:** 27 icons and UI widgets redesigned with deep smoked glass, titanium borders, and white capacitive touch backlight (replaces the dated factory teal/turquoise icons).
+1. **Global Theme Suite Powered by Gemini AI (`stealth`, `tactical`, `cyber`):** Comprehensive visual styling across **all system screens and views**:
+   * **110+ HD Icons per Theme:** Generated with Gemini AI via dual master sheets (*Primary App Sheet* + *Media & Explorer Sheet*) and processed with Python.
+   * **Main Desktop:** CarPlay, Android Auto, Phone, Music, Calculator, USB, SD, Mirrors, and styled `desktop_bg.png` media card.
+   * **Full Music Player (`music/`):** High-res Play, Pause, Prev, Next, Repeat/Loop, Shuffle, Queue, and Equalizer controls.
+   * **USB File Explorer (`explorer/`):** Custom icons for Folders, Audio, Video, and Image files.
+   * **Top Headbar & Popups:** Themed Home, Back, Aux buttons, and floating volume/brightness overlay controls.
+   * **Settings & Quick Pull-down Menu:** Category tabs, modern pill-style ON/OFF switches, sliders, and quick toggles.
+   * **Equalizer (EQ):** Sound presets, Loudness toggle, and balance controls.
 2. **Carbon Fiber Wallpaper:** High-res dark automotive carbon fiber texture preloaded.
 3. **Optimized Responsiveness:** Unnecessary widget animations disabled (`widget_anim = 0`) for instant, lag-free transitions.
 4. **Credit in Settings:** System Info screen (*Settings -> Info*) shows:
