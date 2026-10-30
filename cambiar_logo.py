@@ -26,6 +26,7 @@ import argparse
 import math
 import json
 import datetime
+import shutil
 
 try:
     from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -44,6 +45,7 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 USB_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "F133_IMG")
 CONFIG_FILE = os.path.join(BASE_DIR, "config.ini")
 LOGOS_DIR = os.path.join(BASE_DIR, "logos")
+THEMES_DIR = os.path.join(BASE_DIR, "themes")
 
 # Constantes de Hardware de la pantalla 10.26"
 SCREEN_WIDTH = 1600
@@ -70,6 +72,8 @@ IDIOMAS_MAP = {
 }
 
 THEMES_MAP = {
+    "original": "Original de Fábrica (Stock Firmware)",
+    "factory": "Original de Fábrica (Stock Firmware)",
     "stealth": "Stealth Luxe / Monocromo Titanio",
     "tactical": "Tactical Off-Road / 4x4 Aventura",
     "cyber": "Cyber Sport / Neón Dinámico"
@@ -442,22 +446,338 @@ def save_minfs_p_png(im_rgba, target_path):
     im_p = im_rgba.quantize(colors=255)
     im_p.save(target_path, format="PNG", optimize=True)
 
-def generate_base_button(size=(126, 126), pressed=False, style="stealth"):
+def get_theme_palette(style="stealth"):
+    if style == "stealth":
+        return {
+            "name": "Stealth Luxe / Monocromo Titanio",
+            "accent": (220, 225, 235, 255),
+            "accent_sub": (175, 185, 200, 255),
+            "bg_normal": (16, 20, 28, 225),
+            "bg_pressed": (28, 38, 54, 245),
+            "border_normal": (55, 68, 85, 255),
+            "border_pressed": (220, 225, 235, 255),
+            "glyph_normal": (205, 215, 225, 240),
+            "glyph_pressed": (255, 255, 255, 255),
+            "card_bg": (14, 18, 26, 230),
+            "radius": 18,
+            "tactical_notch": False,
+        }
+    elif style == "tactical":
+        return {
+            "name": "Tactical Off-Road / 4x4 Aventura",
+            "accent": (212, 255, 0, 255),
+            "accent_sub": (180, 195, 75, 255),
+            "bg_normal": (18, 24, 22, 235),
+            "bg_pressed": (34, 46, 36, 250),
+            "border_normal": (65, 80, 60, 255),
+            "border_pressed": (212, 255, 0, 255),
+            "glyph_normal": (185, 205, 170, 235),
+            "glyph_pressed": (212, 255, 0, 255),
+            "card_bg": (16, 22, 20, 240),
+            "radius": 6,
+            "tactical_notch": True,
+        }
+    else: # cyber
+        return {
+            "name": "Cyber Sport / Neón Dinámico",
+            "accent": (0, 235, 255, 255),
+            "accent_sub": (255, 0, 110, 255),
+            "bg_normal": (14, 18, 34, 235),
+            "bg_pressed": (26, 36, 72, 250),
+            "border_normal": (40, 65, 110, 255),
+            "border_pressed": (0, 235, 255, 255),
+            "glyph_normal": (165, 225, 255, 240),
+            "glyph_pressed": (255, 0, 110, 255),
+            "card_bg": (12, 16, 30, 240),
+            "radius": 14,
+            "tactical_notch": False,
+        }
+
+def tint_glyph_from_image(im_rgba, target_color):
+    gray = im_rgba.convert("L")
+    w, h = im_rgba.size
+    tinted = Image.new("RGBA", (w, h), target_color[:3] + (0,))
+    t_alpha = bytearray()
+    g_bytes = gray.tobytes()
+    a_bytes = im_rgba.split()[3].tobytes()
+    for ga, al in zip(g_bytes, a_bytes):
+        if al > 15:
+            val = int((al / 255.0) * min(255, int(ga * 1.25)))
+            t_alpha.append(val)
+        else:
+            t_alpha.append(0)
+    tinted.putalpha(Image.frombytes("L", (w, h), bytes(t_alpha)))
+    return tinted
+
+def draw_styled_button(size=(126, 126), pressed=False, style="stealth"):
     w, h = size
+    pal = get_theme_palette(style)
     im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(im)
-    accent = (220, 225, 235, 255) if style == "stealth" else ((212, 255, 0, 255) if style == "tactical" else (0, 235, 255, 255))
-    bg_col = (28, 38, 54, 240) if pressed else (16, 20, 28, 220)
-    border_col = accent if pressed else (55, 68, 85, 255)
-    if style == "tactical":
-        draw.rectangle([4, 4, w - 4, h - 4], fill=bg_col, outline=border_col, width=2 if pressed else 1)
-        if pressed:
-            draw.line([(4, 4), (16, 4)], fill=accent, width=3)
-            draw.line([(4, 4), (4, 16)], fill=accent, width=3)
+    d = ImageDraw.Draw(im)
+    bg_col = pal["bg_pressed"] if pressed else pal["bg_normal"]
+    border_col = pal["border_pressed"] if pressed else pal["border_normal"]
+    
+    if pal["tactical_notch"]:
+        d.rectangle([2, 2, w - 2, h - 2], fill=bg_col, outline=border_col, width=2 if pressed else 1)
+        k = min(12, w//4, h//4)
+        acc = pal["accent"]
+        d.line([(2, 2), (2 + k, 2)], fill=acc, width=2)
+        d.line([(2, 2), (2, 2 + k)], fill=acc, width=2)
+        d.line([(w - 2, 2), (w - 2 - k, 2)], fill=acc, width=2)
+        d.line([(w - 2, 2), (w - 2, 2 + k)], fill=acc, width=2)
+        d.line([(2, h - 2), (2 + k, h - 2)], fill=acc, width=2)
+        d.line([(2, h - 2), (2, h - 2 - k)], fill=acc, width=2)
+        d.line([(w - 2, h - 2), (w - 2 - k, h - 2)], fill=acc, width=2)
+        d.line([(w - 2, h - 2), (w - 2, h - 2 - k)], fill=acc, width=2)
     else:
-        draw.rounded_rectangle([4, 4, w - 4, h - 4], radius=22, fill=bg_col, outline=border_col, width=2 if pressed else 1)
-        draw.arc([8, 8, w - 8, h//2 + 4], start=180, end=0, fill=(255, 255, 255, 40), width=1)
-    return im, draw
+        rad = min(pal["radius"], w//3, h//3)
+        d.rounded_rectangle([2, 2, w - 2, h - 2], radius=rad, fill=bg_col, outline=border_col, width=2 if pressed else 1)
+        if style == "stealth":
+            d.arc([4, 4, w - 4, max(8, h//2 + 2)], start=180, end=0, fill=(255, 255, 255, 40), width=1)
+        elif style == "cyber":
+            d.line([(w//4, h - 3), (w - w//4, h - 3)], fill=pal["accent_sub"], width=2)
+    return im, d
+
+generate_base_button = draw_styled_button
+
+def inject_desktop_extras(style="stealth"):
+    desktop_dir = os.path.join(MINFS_DIR, "appres", "img", "desktop")
+    pal = get_theme_palette(style)
+    
+    # 1. Tarjeta multimedia central desktop_bg.png (394x222)
+    bg_card = Image.new("RGBA", (394, 222), (0, 0, 0, 0))
+    d = ImageDraw.Draw(bg_card)
+    w, h = 394, 222
+    if pal["tactical_notch"]:
+        d.rectangle([3, 3, w - 3, h - 3], fill=pal["card_bg"], outline=pal["border_normal"], width=2)
+        acc = pal["accent"]
+        d.line([(3, 3), (25, 3)], fill=acc, width=3)
+        d.line([(3, 3), (3, 25)], fill=acc, width=3)
+        d.line([(w - 3, 3), (w - 25, 3)], fill=acc, width=3)
+        d.line([(w - 3, 3), (w - 3, 25)], fill=acc, width=3)
+        d.line([(3, h - 3), (25, h - 3)], fill=acc, width=3)
+        d.line([(3, h - 3), (3, h - 25)], fill=acc, width=3)
+        d.line([(w - 3, h - 3), (w - 25, h - 3)], fill=acc, width=3)
+        d.line([(w - 3, h - 3), (w - 3, h - 25)], fill=acc, width=3)
+        d.line([(18, 142), (w - 18, 142)], fill=(65, 80, 60, 200), width=1)
+    elif style == "stealth":
+        d.rounded_rectangle([3, 3, w - 3, h - 3], radius=20, fill=pal["card_bg"], outline=pal["border_normal"], width=2)
+        d.arc([8, 8, w - 8, 80], start=180, end=0, fill=(255, 255, 255, 35), width=1)
+        d.line([(24, 142), (w - 24, 142)], fill=(55, 68, 85, 160), width=1)
+    else: # cyber
+        d.rounded_rectangle([3, 3, w - 3, h - 3], radius=16, fill=pal["card_bg"], outline=pal["accent"], width=2)
+        d.line([(24, 142), (w - 24, 142)], fill=pal["accent_sub"], width=2)
+    save_minfs_p_png(bg_card, os.path.join(desktop_dir, "desktop_bg.png"))
+    
+    # 2. Controles de reproducción pre / next (40x26)
+    for pressed, fname in [(False, "pre.png"), (True, "pre_sel.png")]:
+        im = Image.new("RGBA", (40, 26), (0, 0, 0, 0))
+        d = ImageDraw.Draw(im)
+        col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+        d.polygon([(18, 13), (28, 6), (28, 20)], fill=col)
+        d.polygon([(8, 13), (18, 6), (18, 20)], fill=col)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+        
+    for pressed, fname in [(False, "next.png"), (True, "next_sel.png")]:
+        im = Image.new("RGBA", (40, 26), (0, 0, 0, 0))
+        d = ImageDraw.Draw(im)
+        col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+        d.polygon([(22, 13), (12, 6), (12, 20)], fill=col)
+        d.polygon([(32, 13), (22, 6), (22, 20)], fill=col)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+    # 3. Play / Pause (62x62)
+    for fname, is_play in [("play.png", True), ("pause.png", False)]:
+        im = Image.new("RGBA", (62, 62), (0, 0, 0, 0))
+        d = ImageDraw.Draw(im)
+        d.ellipse([3, 3, 59, 59], fill=pal["bg_pressed"], outline=pal["accent"], width=2)
+        col = pal["accent"] if style != "stealth" else (255, 255, 255, 255)
+        if is_play:
+            d.polygon([(24, 18), (44, 31), (24, 44)], fill=col)
+        else:
+            d.rectangle([22, 20, 27, 42], fill=col)
+            d.rectangle([35, 20, 40, 42], fill=col)
+        save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+
+def inject_headbar_assets(style="stealth"):
+    headbar_dir = os.path.join(MINFS_DIR, "appres", "img", "headbar")
+    pal = get_theme_palette(style)
+    
+    # 1. Home button (110x64)
+    for pressed, fname in [(False, "home.png"), (True, "home_sel.png")]:
+        im, d = draw_styled_button((110, 64), pressed, style)
+        col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+        cx, cy = 55, 32
+        d.polygon([(cx, cy - 14), (cx - 16, cy + 1), (cx + 16, cy + 1)], fill=col)
+        d.rectangle([cx - 11, cy + 1, cx + 11, cy + 15], fill=col)
+        d.rectangle([cx - 3, cy + 6, cx + 3, cy + 15], fill=pal["bg_normal"])
+        save_minfs_p_png(im, os.path.join(headbar_dir, fname))
+        
+    # 2. Back button (110x64)
+    for pressed, fname in [(False, "back.png"), (True, "back_sel.png")]:
+        im, d = draw_styled_button((110, 64), pressed, style)
+        col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+        cx, cy = 55, 32
+        d.polygon([(cx - 12, cy), (cx + 8, cy - 14), (cx + 8, cy + 14)], fill=col)
+        d.rectangle([cx + 6, cy - 4, cx + 16, cy + 4], fill=col)
+        save_minfs_p_png(im, os.path.join(headbar_dir, fname))
+
+    # 3. Aux button (50x64)
+    for pressed, fname in [(False, "btn.png"), (True, "btn_sel.png")]:
+        im, d = draw_styled_button((50, 64), pressed, style)
+        save_minfs_p_png(im, os.path.join(headbar_dir, fname))
+        
+    # 4. Status icons tinting
+    icons = ["vol.png", "vol_no.png", "bright.png", "night.png", "wifi.png", "wifi_no.png", "bt.png", "bt_no.png"]
+    for icon_name in icons:
+        path = os.path.join(headbar_dir, icon_name)
+        if os.path.exists(path):
+            raw = Image.open(path).convert("RGBA")
+            target_col = pal["accent"] if not icon_name.endswith("_no.png") else (130, 140, 150, 200)
+            tinted = tint_glyph_from_image(raw, target_col)
+            save_minfs_p_png(tinted, path)
+
+def inject_setting_assets(style="stealth"):
+    setting_dir = os.path.join(MINFS_DIR, "appres", "img", "setting")
+    pal = get_theme_palette(style)
+    
+    # 1. Pestañas de categorías 0.png..9.png y 0_sel.png..9_sel.png (166x62)
+    for i in range(10):
+        for pressed, suffix in [(False, ".png"), (True, "_sel.png")]:
+            fname = f"{i}{suffix}"
+            path = os.path.join(setting_dir, fname)
+            orig_glyph = None
+            if os.path.exists(path):
+                orig = Image.open(path).convert("RGBA")
+                target_col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+                orig_glyph = tint_glyph_from_image(orig, target_col)
+                
+            im, d = draw_styled_button((166, 62), pressed, style)
+            if pressed:
+                d.line([(4, 10), (4, 52)], fill=pal["accent"], width=4)
+            if orig_glyph:
+                im.paste(orig_glyph, (0, 0), orig_glyph)
+            save_minfs_p_png(im, path)
+            
+    # 2. Switches / Toggles on.png & off.png (88x37)
+    im_off = Image.new("RGBA", (88, 37), (0, 0, 0, 0))
+    d_off = ImageDraw.Draw(im_off)
+    d_off.rounded_rectangle([2, 2, 86, 35], radius=18, fill=(28, 34, 42, 240), outline=(65, 75, 88, 255), width=2)
+    d_off.ellipse([6, 6, 31, 31], fill=(160, 170, 185, 255))
+    save_minfs_p_png(im_off, os.path.join(setting_dir, "off.png"))
+    
+    im_on = Image.new("RGBA", (88, 37), (0, 0, 0, 0))
+    d_on = ImageDraw.Draw(im_on)
+    acc = pal["accent"]
+    d_on.rounded_rectangle([2, 2, 86, 35], radius=18, fill=pal["bg_pressed"], outline=acc, width=2)
+    d_on.ellipse([57, 6, 82, 31], fill=acc)
+    save_minfs_p_png(im_on, os.path.join(setting_dir, "on.png"))
+    
+    # 3. Sliders sl_bg.png (572x30), sl_p.png (31x17), sl_sel.png (31x17)
+    sl_bg = Image.new("RGBA", (572, 30), (0, 0, 0, 0))
+    d_sl = ImageDraw.Draw(sl_bg)
+    d_sl.rounded_rectangle([2, 10, 570, 20], radius=5, fill=(24, 30, 38, 240), outline=pal["border_normal"], width=1)
+    save_minfs_p_png(sl_bg, os.path.join(setting_dir, "sl_bg.png"))
+    
+    for fname in ["sl_p.png", "sl_sel.png"]:
+        thumb = Image.new("RGBA", (31, 17), (0, 0, 0, 0))
+        d_th = ImageDraw.Draw(thumb)
+        d_th.rounded_rectangle([2, 1, 29, 15], radius=6, fill=pal["accent"], outline=(255, 255, 255, 240), width=1)
+        save_minfs_p_png(thumb, os.path.join(setting_dir, fname))
+
+    # 4. Action buttons: default_btn (155x60), ok (166x62), x (166x62), del (39x22)
+    for pressed, fname in [(False, "default_btn.png"), (True, "f_btn_sel.png")]:
+        im, d = draw_styled_button((155, 60), pressed, style)
+        save_minfs_p_png(im, os.path.join(setting_dir, fname))
+        
+    for pressed, fname in [(False, "ok.png"), (True, "ok_sel.png")]:
+        im, d = draw_styled_button((166, 62), pressed, style)
+        col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+        cx, cy = 83, 31
+        d.line([(cx - 16, cy + 2), (cx - 4, cy + 14)], fill=col, width=4)
+        d.line([(cx - 4, cy + 14), (cx + 16, cy - 12)], fill=col, width=4)
+        save_minfs_p_png(im, os.path.join(setting_dir, fname))
+
+    for pressed, fname in [(False, "x.png"), (True, "x_sel.png")]:
+        im, d = draw_styled_button((166, 62), pressed, style)
+        col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+        cx, cy = 83, 31
+        d.line([(cx - 12, cy - 12), (cx + 12, cy + 12)], fill=col, width=4)
+        d.line([(cx - 12, cy + 12), (cx + 12, cy - 12)], fill=col, width=4)
+        save_minfs_p_png(im, os.path.join(setting_dir, fname))
+
+    # Item selection strip item_sel.png (830x50)
+    it_sel = Image.new("RGBA", (830, 50), (0, 0, 0, 0))
+    d_it = ImageDraw.Draw(it_sel)
+    d_it.rectangle([0, 0, 830, 50], fill=(pal["accent"][0], pal["accent"][1], pal["accent"][2], 40))
+    d_it.line([(0, 0), (0, 50)], fill=pal["accent"], width=4)
+    save_minfs_p_png(it_sel, os.path.join(setting_dir, "item_sel.png"))
+
+def inject_pullmenu_assets(style="stealth"):
+    pullmenu_dir = os.path.join(MINFS_DIR, "appres", "img", "pullmenu")
+    pal = get_theme_palette(style)
+    
+    # Quick tiles (114x101)
+    tiles = ["bt", "fm", "mute", "wallpaper", "tft", "aout"]
+    for tile in tiles:
+        for pressed in [False, True]:
+            fname = f"{tile}_sel.png" if pressed else f"{tile}.png"
+            path = os.path.join(pullmenu_dir, fname)
+            orig_glyph = None
+            if os.path.exists(path):
+                raw = Image.open(path).convert("RGBA")
+                target_col = pal["glyph_pressed"] if pressed else pal["glyph_normal"]
+                orig_glyph = tint_glyph_from_image(raw, target_col)
+                
+            im, d = draw_styled_button((114, 101), pressed, style)
+            if orig_glyph:
+                im.paste(orig_glyph, (0, 0), orig_glyph)
+            save_minfs_p_png(im, path)
+
+def inject_eq_assets(style="stealth"):
+    eq_dir = os.path.join(MINFS_DIR, "appres", "img", "eq")
+    pal = get_theme_palette(style)
+    
+    # Presets buttons btn.png (155x60), eq_btn.png (127x65)
+    for pressed, fname in [(False, "btn.png"), (True, "btn_sel.png")]:
+        im, d = draw_styled_button((155, 60), pressed, style)
+        save_minfs_p_png(im, os.path.join(eq_dir, fname))
+        
+    for pressed, fname in [(False, "eq_btn.png"), (True, "eq_btn_sel.png")]:
+        im, d = draw_styled_button((127, 65), pressed, style)
+        save_minfs_p_png(im, os.path.join(eq_dir, fname))
+
+    # Loud on / off (79x34)
+    for is_on, fname in [(False, "loud_off.png"), (True, "loud_on.png")]:
+        im, d = draw_styled_button((79, 34), is_on, style)
+        col = pal["accent"] if is_on else pal["glyph_normal"]
+        d.text((39, 17), "LOUD", fill=col, anchor="mm")
+        save_minfs_p_png(im, os.path.join(eq_dir, fname))
+
+def inject_secondary_views_theme(style="stealth"):
+    """Tinta y estiliza las 14 carpetas secundarias de la interfaz para cobertura visual del 100%."""
+    pal = get_theme_palette(style)
+    subdirs = ["audio", "auxin", "bt", "calculator", "calendar", "calibrate", "dialog", "explorer", "link", "movie", "music", "photo", "standby", "videoin"]
+    base_img = os.path.join(MINFS_DIR, "appres", "img")
+    
+    count = 0
+    for d in subdirs:
+        dir_path = os.path.join(base_img, d)
+        if not os.path.exists(dir_path):
+            continue
+        for f in os.listdir(dir_path):
+            if f.endswith(".png"):
+                p = os.path.join(dir_path, f)
+                try:
+                    raw = Image.open(p).convert("RGBA")
+                    is_pressed = "_sel" in f or "on" in f or "sel" in f
+                    target_col = pal["glyph_pressed"] if is_pressed else pal["glyph_normal"]
+                    tinted = tint_glyph_from_image(raw, target_col)
+                    save_minfs_p_png(tinted, p)
+                    count += 1
+                except Exception:
+                    pass
+    return count
 
 def inject_physical_ui_assets(style="cyber"):
     desktop_dir = os.path.join(MINFS_DIR, "appres", "img", "desktop")
@@ -465,19 +785,22 @@ def inject_physical_ui_assets(style="cyber"):
     handset_file = os.path.join(ASSETS_DIR, "phone_handset.png")
     bg2_file = os.path.join(setting_dir, "bg2.jpg")
 
-    accent = (220, 225, 235, 255) if style == "stealth" else ((212, 255, 0, 255) if style == "tactical" else (0, 235, 255, 255))
-    accent_sub = (255, 0, 110, 255) if style == "cyber" else accent
+    pal = get_theme_palette(style)
+    accent = pal["accent"]
+    accent_sub = pal["accent_sub"]
 
     # 1. Fondo predeterminado bg0.jpg configurado a Fibra de Carbono limpio de fábrica
-    if os.path.exists(bg2_file):
+    factory_carbon = os.path.join(THEMES_DIR, "factory_backup", "appres", "img", "setting", "bg0.jpg")
+    if not os.path.exists(factory_carbon):
+        factory_carbon = os.path.join(setting_dir, "bg0.jpg")
+    if os.path.exists(factory_carbon):
         bg0_jpg = os.path.join(setting_dir, "bg0.jpg")
-        import shutil
-        shutil.copy2(bg2_file, bg0_jpg)
-        bg2_im = Image.open(bg2_file)
-        bg2_im.save(os.path.join(setting_dir, "bg0.png"))
-        thumb = bg2_im.resize((140, 70), Image.Resampling.LANCZOS)
+        shutil.copy2(factory_carbon, bg0_jpg)
+        carbon_im = Image.open(factory_carbon)
+        carbon_im.save(os.path.join(setting_dir, "bg0.png"))
+        thumb = carbon_im.resize((140, 70), Image.Resampling.LANCZOS)
         thumb.save(os.path.join(setting_dir, "small_bg0.png"))
-        print("      • Fondo de pantalla inicial (bg0.jpg) configurado a Fibra de Carbono limpio.")
+        print("      • Fondo de pantalla inicial (bg0.jpg) configurado a Fibra de Carbono limpio de fábrica.")
 
     # 2. Ícono de Teléfono (desktop_Bt.png / desktop_Bt_sel.png)
     for pressed, fname in [(False, "desktop_Bt.png"), (True, "desktop_Bt_sel.png")]:
@@ -557,8 +880,8 @@ def inject_physical_ui_assets(style="cyber"):
     for pressed, fname in [(False, "desktop_Carplay.png"), (True, "desktop_Carplay_sel.png")]:
         im = Image.new("RGBA", (130, 116), (0, 0, 0, 0))
         draw = ImageDraw.Draw(im)
-        bg_col = (28, 38, 54, 240) if pressed else (18, 22, 34, 230)
-        draw.rounded_rectangle([2, 2, 128, 114], radius=18, fill=bg_col, outline=accent if pressed else (55, 68, 85, 255), width=2 if pressed else 1)
+        bg_col = pal["bg_pressed"] if pressed else pal["bg_normal"]
+        draw.rounded_rectangle([2, 2, 128, 114], radius=18, fill=bg_col, outline=accent if pressed else pal["border_normal"], width=2 if pressed else 1)
         draw.rounded_rectangle([38, 20, 92, 58], radius=6, outline=(255, 255, 255, 240), width=3)
         draw.polygon([(69, 39), (59, 32), (59, 46)], fill=(255, 255, 255, 240))
         draw.text((65, 80), "CarPlay", fill=(245, 250, 255, 255), font=get_font(13, bold=True), anchor="mm")
@@ -568,8 +891,8 @@ def inject_physical_ui_assets(style="cyber"):
     for pressed, fname in [(False, "desktop_Aoa.png"), (True, "desktop_Aoa_sel.png")]:
         im = Image.new("RGBA", (130, 116), (0, 0, 0, 0))
         draw = ImageDraw.Draw(im)
-        bg_col = (28, 38, 54, 240) if pressed else (18, 22, 34, 230)
-        draw.rounded_rectangle([2, 2, 128, 114], radius=18, fill=bg_col, outline=accent_sub if pressed else (55, 68, 85, 255), width=2 if pressed else 1)
+        bg_col = pal["bg_pressed"] if pressed else pal["bg_normal"]
+        draw.rounded_rectangle([2, 2, 128, 114], radius=18, fill=bg_col, outline=accent_sub if pressed else pal["border_normal"], width=2 if pressed else 1)
         aax = 65
         draw.line([(aax, 22), (aax - 16, 50)], fill=(255, 255, 255, 240), width=4)
         draw.line([(aax, 22), (aax + 16, 50)], fill=(255, 255, 255, 240), width=4)
@@ -577,17 +900,60 @@ def inject_physical_ui_assets(style="cyber"):
         draw.text((65, 80), "Android Auto", fill=(245, 250, 255, 255), font=get_font(12, bold=True), anchor="mm")
         draw.line([(32, 108), (98, 108)], fill=accent_sub if style=="cyber" else (245, 250, 255, 255), width=3)
         save_minfs_p_png(im, os.path.join(desktop_dir, fname))
+    print("      • Todos los 16 archivos PNG de botones del escritorio inyectados en MINFS.")
 
-    # 9. Tarjeta de música: Se conserva el diseño original de fábrica de desktop_bg.png
-    print("      • Todos los 16 archivos PNG de botones e íconos inyectados en MINFS.")
+    # 9. Vistas integradas completas (Tarjeta música, Barra superior, Ajustes, Cortina, EQ)
+    inject_desktop_extras(style)
+    print("      • Tarjeta multimedia y controles del reproductor inyectados en MINFS.")
+    inject_headbar_assets(style)
+    print("      • Barra superior (Headbar: botones e iconos de estado) inyectada en MINFS.")
+    inject_setting_assets(style)
+    print("      • Menú de Ajustes (Pestañas, switches ON/OFF, sliders y diálogos) inyectado en MINFS.")
+    inject_pullmenu_assets(style)
+    print("      • Cortina desplegable (Pullmenu: 6 accesos directos y brillo) inyectada en MINFS.")
+    inject_secondary_views_theme(style)
+    print("      • Vistas secundarias (Audio, BT, Calculadora, Calendario, Diálogos, Explorador, Música, Standby, etc.) 100% integradas en MINFS.")
+    inject_eq_assets(style)
+    print("      • Ecualizador (EQ: Presets, balance y Loudness) inyectado en MINFS.")
 
 def process_ui_theme(style, brand, model, subtitle, logo_path, tint_logo, bt_name):
     theme_name = THEMES_MAP.get(style, "Personalizado")
     print(f"\n[4/6] Configurando estilo de interfaz:")
     print(f"      • Estilo seleccionado: {theme_name} ({style})")
-    
-    # 1. Inyectar archivos físicos de íconos y fondo limpio en MINFS
+
+    if style in ("original", "factory"):
+        backup_dir = os.path.join(THEMES_DIR, "factory_backup", "appres", "img")
+        if os.path.exists(backup_dir):
+            restored = 0
+            for root, dirs, files in os.walk(backup_dir):
+                for file in files:
+                    src_file = os.path.join(root, file)
+                    rel_p = os.path.relpath(src_file, backup_dir)
+                    dest_file = os.path.join(MINFS_DIR, "appres", "img", rel_p)
+                    os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+                    shutil.copy2(src_file, dest_file)
+                    restored += 1
+            print(f"      • {restored} archivos originales de fábrica restaurados al 100% en MINFS.")
+        return
+
+    # 1. Inyectar archivos físicos procedurales en MINFS (Base de estilo, tarjeta, switches y sliders)
     inject_physical_ui_assets(style)
+
+    # 2. Inyectar iconos HD generados por Gemini desde la biblioteca de temas (themes/<style>/appres/img)
+    theme_custom_dir = os.path.join(BASE_DIR, "themes", style, "appres", "img")
+    if os.path.exists(theme_custom_dir):
+        copied_count = 0
+        for root, dirs, files in os.walk(theme_custom_dir):
+            for file in files:
+                if file.lower().endswith((".png", ".jpg", ".jpeg")):
+                    src_file = os.path.join(root, file)
+                    rel_p = os.path.relpath(src_file, theme_custom_dir)
+                    dest_file = os.path.join(MINFS_DIR, "appres", "img", rel_p)
+                    os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+                    shutil.copy2(src_file, dest_file)
+                    copied_count += 1
+        if copied_count > 0:
+            print(f"      • {copied_count} iconos HD de Gemini (Sprite Sheet) inyectados con éxito en MINFS.")
 
     # 2. Ajustar coordenadas en desktop.json (restaurando reloj de fábrica y CarPlay/Android Auto contenidos)
     desktop_json_path = os.path.join(MINFS_DIR, "appres", "layout", "desktop", "desktop.json")
