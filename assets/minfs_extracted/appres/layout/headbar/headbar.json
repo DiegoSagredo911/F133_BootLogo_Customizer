@@ -38,7 +38,7 @@
         "name": "label_date",
         "pos": "500,14,150,40",
         "bgalpha": 0,
-        "text": "30/10/2026",
+        "text": "31/10/2026",
         "textalign": "right|vcenter",
         "textpad": "0,4,0,0"
     },

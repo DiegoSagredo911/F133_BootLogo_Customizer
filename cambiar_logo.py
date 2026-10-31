@@ -985,122 +985,110 @@ def process_ui_theme(style, brand, model, subtitle, logo_path, tint_logo, bt_nam
 
     # 3. Generar vista previa visual en alta resolución (1280x480) fiel a la pantalla física
     bg0_png_path = os.path.join(MINFS_DIR, "appres", "img", "setting", "bg0.png")
+    if not os.path.exists(bg0_png_path):
+        bg0_png_path = os.path.join(MINFS_DIR, "appres", "img", "setting", "bg0.jpg")
     if os.path.exists(bg0_png_path):
         preview = Image.open(bg0_png_path).convert("RGBA")
+        if preview.size != (UI_WIDTH, UI_HEIGHT):
+            preview = preview.resize((UI_WIDTH, UI_HEIGHT), Image.Resampling.LANCZOS)
     else:
         preview = Image.new("RGBA", (UI_WIDTH, UI_HEIGHT), (16, 18, 22, 255))
         
     draw = ImageDraw.Draw(preview)
-    
-    accent = (220, 225, 235, 255) if style == "stealth" else ((212, 255, 0, 255) if style == "tactical" else (0, 235, 255, 255))
-    accent_sub = (255, 0, 110, 255) if style == "cyber" else accent
+    pal = get_theme_palette(style)
+    accent = pal["accent"]
+    accent_sub = pal["accent_sub"]
+
+    def load_minfs_img(rel_path):
+        p = os.path.join(MINFS_DIR, "appres", "img", rel_path)
+        if os.path.exists(p):
+            return Image.open(p).convert("RGBA")
+        return None
+
+    def paste_safe(canvas, img, pos, anchor="tl", target_size=None):
+        if img is None:
+            return
+        im = img
+        if target_size and im.size != target_size:
+            im = im.resize(target_size, Image.Resampling.LANCZOS)
+        x, y = pos
+        if anchor == "center":
+            x = x - im.size[0] // 2
+            y = y - im.size[1] // 2
+        canvas.paste(im, (x, y), im)
     
     # Headbar
-    bar = Image.new("RGBA", (UI_WIDTH, 46), (12, 15, 20, 230))
+    bar = Image.new("RGBA", (UI_WIDTH, 48), (10, 14, 20, 220))
     preview.paste(bar, (0, 0), bar)
-    draw.line([(0, 46), (UI_WIDTH, 46)], fill=(255, 255, 255, 30), width=1)
+    draw.line([(0, 48), (UI_WIDTH, 48)], fill=(255, 255, 255, 25), width=1)
     
-    draw.rounded_rectangle([18, 7, 68, 39], radius=8, fill=(35, 40, 50, 200), outline=(255, 255, 255, 40), width=1)
-    draw.polygon([(43, 15), (34, 23), (52, 23)], fill=(255, 255, 255, 230))
-    draw.rectangle([37, 23, 49, 30], fill=(255, 255, 255, 230))
-    
-    draw.rounded_rectangle([80, 7, 180, 39], radius=8, fill=(35, 40, 50, 200), outline=(255, 255, 255, 40), width=1)
-    draw.text((142, 23), "80%", fill=(255, 255, 255, 230), font=get_font(13, bold=True), anchor="mm")
-    
-    draw.rounded_rectangle([195, 7, 345, 39], radius=16, fill=(30, 35, 45, 200), outline=accent, width=1)
-    draw.text((276, 23), f"{bt_name} OK", fill=(230, 235, 245, 255), font=get_font(12, bold=True), anchor="mm")
+    home = load_minfs_img("headbar/home.png")
+    back = load_minfs_img("headbar/back.png")
+    paste_safe(preview, home, (10, 2), target_size=(74, 44))
+    paste_safe(preview, back, (90, 2), target_size=(74, 44))
+
+    vol = load_minfs_img("headbar/vol.png")
+    bright = load_minfs_img("headbar/bright.png")
+    wifi = load_minfs_img("headbar/wifi.png")
+    bt = load_minfs_img("headbar/bt.png")
+    paste_safe(preview, vol, (960, 10), target_size=(32, 28))
+    draw.text((1000, 24), "80%", fill=pal["glyph_normal"], font=get_font(13, bold=True), anchor="lm")
+    paste_safe(preview, bright, (1050, 10), target_size=(28, 28))
+    paste_safe(preview, wifi, (1100, 12), target_size=(30, 24))
+    paste_safe(preview, bt, (1145, 12), target_size=(22, 26))
+
+    if bt_name:
+        draw.rounded_rectangle([195, 7, 345, 39], radius=16, fill=(30, 35, 45, 200), outline=accent, width=1)
+        draw.text((270, 23), f"{bt_name} OK", fill=(230, 235, 245, 255), font=get_font(12, bold=True), anchor="mm")
     
     # Reloj en vivo sincronizado con la fecha de compilación
     now = datetime.datetime.now()
     cur_date_str = now.strftime("%Y-%m-%d")
-    dias_semana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
+    dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
     cur_day_name = dias_semana[now.weekday()]
     draw.text((370, 110), now.strftime("%H:%M"), fill=(255, 255, 255, 255), font=get_font(68, bold=True), anchor="mm")
-    draw.text((376, 185), cur_date_str, fill=(200, 215, 235, 255), font=get_font(18, bold=False), anchor="mm")
-    draw.text((373, 228), cur_day_name, fill=(215, 220, 230, 255), font=get_font(16, bold=True), anchor="mm")
+    draw.text((376, 185), cur_date_str, fill=accent_sub, font=get_font(18, bold=False), anchor="mm")
+    draw.text((373, 228), cur_day_name, fill=pal["glyph_normal"], font=get_font(16, bold=True), anchor="mm")
 
-    # Tarjeta de música de fábrica (778, 70, 394, 222)
-    bg_card_file = os.path.join(MINFS_DIR, "appres", "img", "desktop", "desktop_bg.png")
-    if os.path.exists(bg_card_file):
-        bg_card_im = Image.open(bg_card_file).convert("RGBA")
-        preview.paste(bg_card_im, (778, 70), bg_card_im)
+    # Tarjeta de música desktop_bg.png
+    card = load_minfs_img("desktop/desktop_bg.png")
+    if card:
+        paste_safe(preview, card, (778, 70), target_size=(394, 222))
     else:
-        draw.rounded_rectangle([778, 70, 1172, 292], radius=18, fill=(14, 18, 26, 225), outline=(55, 68, 85, 255), width=1)
+        draw.rounded_rectangle([778, 70, 1172, 292], radius=18, fill=pal["card_bg"], outline=pal["border_normal"], width=1)
     
+    draw.text((975, 130), "Reproductor Multimedia", fill=accent, font=get_font(18, bold=True), anchor="mm")
+    draw.text((975, 160), "Bluetooth Audio / F133 Hi-Fi", fill=pal["glyph_normal"], font=get_font(13), anchor="mm")
+
     # Controles multimedia del reproductor
-    cx_mid = (778 + 1172) // 2
-    cy_ctrl = 70 + 170
-    draw.polygon([(cx_mid - 62, cy_ctrl), (cx_mid - 48, cy_ctrl - 10), (cx_mid - 48, cy_ctrl + 10)], fill=(215, 225, 240, 255))
-    draw.polygon([(cx_mid - 48, cy_ctrl), (cx_mid - 34, cy_ctrl - 10), (cx_mid - 34, cy_ctrl + 10)], fill=(215, 225, 240, 255))
-    draw.ellipse([cx_mid - 24, cy_ctrl - 24, cx_mid + 24, cy_ctrl + 24], fill=(245, 250, 255, 255))
-    draw.polygon([(cx_mid - 7, cy_ctrl - 10), (cx_mid + 11, cy_ctrl), (cx_mid - 7, cy_ctrl + 10)], fill=(16, 20, 28, 255))
-    draw.polygon([(cx_mid + 48, cy_ctrl), (cx_mid + 34, cy_ctrl - 10), (cx_mid + 34, cy_ctrl + 10)], fill=(215, 225, 240, 255))
-    draw.polygon([(cx_mid + 62, cy_ctrl), (cx_mid + 48, cy_ctrl - 10), (cx_mid + 48, cy_ctrl + 10)], fill=(215, 225, 240, 255))
-    draw.text((cx_mid, 70 + 80), "NULL", fill=(200, 215, 235, 255), font=get_font(20, bold=True), anchor="mm")
+    c_prev = load_minfs_img("desktop/pre.png")
+    c_play = load_minfs_img("desktop/play.png")
+    c_next = load_minfs_img("desktop/next.png")
+    paste_safe(preview, c_prev, (880, 220), anchor="center")
+    paste_safe(preview, c_play, (975, 220), anchor="center")
+    paste_safe(preview, c_next, (1070, 220), anchor="center")
 
-    # Botones inferiores (CarPlay y Auto contenidos con margen seguro de 16px)
-    cp_rect = [16, 320, 146, 436]
-    aa_rect = [1134, 320, 1264, 436]
-    draw.rounded_rectangle(cp_rect, radius=18, fill=(18, 22, 34, 230), outline=accent if style=="cyber" else (255, 255, 255, 45), width=1)
-    # Icono CarPlay
-    draw.rounded_rectangle([cp_rect[0]+42, cp_rect[1]+24, cp_rect[2]-42, cp_rect[1]+60], radius=6, outline=(255, 255, 255, 240), width=3)
-    draw.polygon([(81, 357), (71, 350), (71, 364)], fill=(255, 255, 255, 240))
-    draw.text((81, 400), "CarPlay", fill=(245, 250, 255, 255), font=get_font(13, bold=True), anchor="mm")
-    draw.line([(cp_rect[0]+35, cp_rect[3]-5), (cp_rect[2]-35, cp_rect[3]-5)], fill=accent if style=="cyber" else (245, 250, 255, 255), width=3)
-
-    draw.rounded_rectangle(aa_rect, radius=18, fill=(18, 22, 34, 230), outline=accent_sub if style=="cyber" else (255, 255, 255, 45), width=1)
-    # Icono Android Auto
-    aax = (aa_rect[0] + aa_rect[2]) // 2
-    draw.line([(aax, 344), (aax - 16, 370)], fill=(255, 255, 255, 240), width=4)
-    draw.line([(aax, 344), (aax + 16, 370)], fill=(255, 255, 255, 240), width=4)
-    draw.line([(aax - 7, 362), (aax + 7, 362)], fill=(255, 255, 255, 240), width=3)
-    draw.text((1199, 400), "Android Auto", fill=(245, 250, 255, 255), font=get_font(12, bold=True), anchor="mm")
-    draw.line([(aa_rect[0]+35, aa_rect[3]-5), (aa_rect[2]-35, aa_rect[3]-5)], fill=accent_sub if style=="cyber" else (245, 250, 255, 255), width=3)
+    # Botones CarPlay y Android Auto en los extremos
+    cp = load_minfs_img("desktop/desktop_Carplay.png")
+    aa = load_minfs_img("desktop/desktop_Aoa.png")
+    paste_safe(preview, cp, (16, 320), target_size=(130, 116))
+    paste_safe(preview, aa, (1134, 320), target_size=(130, 116))
 
     # 6 Apps del lanzador central
-    app_names = ["Audio", "USB", "SD Card", "Teléfono", "Mirror", "Calculadora"]
-    app_xs = [176 + i * 160 for i in range(6)]
-    for i, name in enumerate(app_names):
-        bx = app_xs[i]
-        draw.rounded_rectangle([bx, 312, bx + 126, 428], radius=20, fill=(16, 20, 28, 220), outline=(255, 255, 255, 40), width=1)
-        icx, icy = bx + 63, 360
-        if name == "Audio":
-            draw.ellipse([icx - 14, icy + 6, icx - 2, icy + 16], fill=(255, 255, 255, 240))
-            draw.ellipse([icx + 4, icy + 2, icx + 16, icy + 12], fill=(255, 255, 255, 240))
-            draw.line([(icx - 2, icy + 10), (icx - 2, icy - 14)], fill=(255, 255, 255, 240), width=3)
-            draw.line([(icx + 16, icy + 6), (icx + 16, icy - 18)], fill=(255, 255, 255, 240), width=3)
-            draw.polygon([(icx - 2, icy - 10), (icx + 16, icy - 14), (icx + 16, icy - 18), (icx - 2, icy - 14)], fill=(255, 255, 255, 240))
-        elif name == "USB":
-            draw.line([(icx, icy + 18), (icx, icy - 14)], fill=(255, 255, 255, 240), width=3)
-            draw.polygon([(icx, icy - 22), (icx - 6, icy - 14), (icx + 6, icy - 14)], fill=(255, 255, 255, 240))
-            draw.line([(icx, icy + 6), (icx - 12, icy - 2), (icx - 12, icy - 10)], fill=(255, 255, 255, 240), width=2)
-            draw.ellipse([icx - 16, icy - 14, icx - 8, icy - 6], fill=(255, 255, 255, 240))
-            draw.line([(icx, icy + 2), (icx + 12, icy - 6), (icx + 12, icy - 14)], fill=(255, 255, 255, 240), width=2)
-            draw.rectangle([icx + 9, icy - 18, icx + 15, icy - 12], fill=(255, 255, 255, 240))
-        elif name == "SD Card":
-            draw.polygon([(icx-18, icy-20), (icx+10, icy-20), (icx+18, icy-12), (icx+18, icy+20), (icx-18, icy+20)], outline=(255, 255, 255, 240), width=2)
-            draw.text((icx, icy + 4), "SD", fill=(255, 255, 255, 240), font=get_font(12, bold=True), anchor="mm")
-        elif name == "Teléfono":
-            handset_file = os.path.join(ASSETS_DIR, "phone_handset.png")
-            if os.path.exists(handset_file):
-                raw_h = Image.open(handset_file).convert("RGBA")
-                smooth_h = raw_h.resize((92, 92), Image.Resampling.LANCZOS).filter(ImageFilter.GaussianBlur(0.5)).resize((46, 46), Image.Resampling.LANCZOS)
-                preview.paste(smooth_h, (icx - 23, icy - 23), smooth_h)
-            else:
-                draw.ellipse([icx - 8, icy - 14, icx + 14, icy - 2], fill=(255, 255, 255, 240))
-                draw.ellipse([icx - 14, icy + 2, icx + 8, icy + 14], fill=(255, 255, 255, 240))
-                draw.line([(icx - 6, icy - 10), (icx - 10, icy + 8)], fill=(255, 255, 255, 240), width=6)
-        elif name == "Mirror":
-            draw.rounded_rectangle([icx - 16, icy - 20, icx + 4, icy + 14], radius=4, outline=(255, 255, 255, 240), width=2)
-            draw.rounded_rectangle([icx - 4, icy - 12, icx + 16, icy + 22], radius=4, outline=(255, 255, 255, 240), width=2)
-        elif name == "Calculadora":
-            draw.rounded_rectangle([icx - 18, icy - 24, icx + 18, icy + 24], radius=6, outline=(255, 255, 255, 240), width=2)
-            draw.rounded_rectangle([icx - 14, icy - 20, icx + 14, icy - 10], radius=2, outline=(255, 255, 255, 240), width=1)
-            for ky in [icy - 4, icy + 6, icy + 16]:
-                for kx in [icx - 10, icx, icx + 10]:
-                    draw.ellipse([kx - 3, ky - 3, kx + 3, ky + 3], outline=(255, 255, 255, 220), width=1)
-
-        draw.text((bx + 63, 444), name, fill=(215, 225, 235, 255), font=get_font(13, bold=False), anchor="mm")
+    apps = [
+        ("desktop/desktop_Audio.png", "Audio", 176),
+        ("desktop/desktop_Usb.png", "USB", 336),
+        ("desktop/desktop_SD.png", "SD Card", 496),
+        ("desktop/desktop_Bt.png", "Teléfono", 656),
+        ("desktop/desktop_ArMir.png", "Mirror", 816),
+        ("desktop/desktop_Calculator.png", "Calculadora", 976)
+    ]
+    for rel_p, label, x in apps:
+        app_img = load_minfs_img(rel_p)
+        if app_img is None and "ArMir" in rel_p:
+            app_img = load_minfs_img("desktop/desktop_PhoneLink.png")
+        paste_safe(preview, app_img, (x, 312), target_size=(126, 126))
+        draw.text((x + 63, 444), label, fill=(235, 240, 245, 255), font=get_font(12, bold=True), anchor="mm")
 
     preview_ui_path = os.path.join(OUTPUT_DIR, "vista_previa_escritorio.png")
     preview.save(preview_ui_path, format="PNG")
